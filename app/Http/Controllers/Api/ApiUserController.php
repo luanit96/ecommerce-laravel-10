@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApiRegisterRequest;
 use App\Http\Requests\ApiLoginRequest;
@@ -29,7 +30,17 @@ class ApiUserController extends Controller
     }
 
     public function userInfo(Request $request) {
-        return auth()->user('api');
+        return auth('api')->user();
     }
 
+    public function logout(Request $request) {
+        if (Auth::check()) {
+            $request->user()->tokens->each(function ($token) {
+                $token->delete();
+            });
+            return response()->json([
+                'message' => 'Successfully logged out'
+            ]);
+        }
+    }
 }
