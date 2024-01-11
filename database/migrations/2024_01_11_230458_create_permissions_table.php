@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeedBacksTable extends Migration
+class CreatePermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateFeedBacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('feed_backs', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('fullName', 100);
-            $table->string('email');
-            $table->longText('note');
+            $table->string('name');
+            $table->string('display_name');
+            $table->integer('parent_id');
+            $table->string('key_code');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateFeedBacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feed_backs');
+        Schema::dropIfExists('permissions');
     }
 }

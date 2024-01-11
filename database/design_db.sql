@@ -1,142 +1,178 @@
-CREATE TABLE `Allcode` (
+CREATE TABLE `users` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `type` varchar(50),
-  `valueEn` varchar(50),
-  `valueVi` varchar(50)
+  `name` varchar(255),
+  `email` varchar(255),
+  `password` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Role` (
+CREATE TABLE `categories` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(20)
+  `name` varchar(255),
+  `parent_id` int,
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Users` (
+CREATE TABLE `products` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `fullName` varchar(50),
-  `email` varchar(150),
-  `phoneNumber` varchar(20),
-  `address` varchar(200),
-  `password` varchar(32),
-  `roleId` int,
-  `createdAt` datetime,
-  `updatedAt` datetime,
-  `deleted` datetime
+  `category_id` int,
+  `user_id` int,
+  `name` varchar(255),
+  `price` double,
+  `discount` double,
+  `image` varchar(255),
+  `content` longtext,
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Tokens` (
-  `userId` int,
-  `token` varchar(32),
-  `createdAt` datetime,
-  PRIMARY KEY (`userId`, `token`)
+CREATE TABLE `product_image` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `product_id` int,
+  `image` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Category` (
+CREATE TABLE `product_tag` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(100),
-  `createdAt` datetime,
-  `updatedAt` datetime
+  `product_id` int,
+  `tag_id` int,
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Product` (
+CREATE TABLE `tags` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `categoryId` int,
-  `title` varchar(250),
-  `price` int,
-  `discount` int,
-  `thumbnail` varchar(500),
-  `description` longtext,
-  `information` longtext,
-  `reviews` longtext,
-  `createdAt` datetime,
-  `updatedAt` datetime,
-  `deleted` datetime
+  `name` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Galery` (
+CREATE TABLE `customers` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `productId` int,
-  `thumbnail` varchar(500)
+  `name` varchar(255),
+  `phone` number,
+  `address` text,
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `FeedBack` (
+CREATE TABLE `orders` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `fullName` varchar(100),
-  `email` varchar(250),
-  `note` varchar(1000),
-  `status` int DEFAULT 0,
-  `createdAt` datetime,
-  `updatedAt` datetime
-);
-
-CREATE TABLE `Orders` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `userId` int,
-  `fullName` varchar(50),
-  `email` varchar(150),
-  `phoneNumber` varchar(20),
-  `address` varchar(200),
-  `note` varchar(1000),
-  `orderDate` datetime,
+  `customer_id` int,
   `status` int,
-  `totalMoney` int
+  `created_at` timestamp
 );
 
-CREATE TABLE `OrderDetails` (
+CREATE TABLE `order_items` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `orderId` int,
-  `productId` int,
-  `price` int,
-  `num` int,
-  `totalMoney` int
+  `order_id` int,
+  `product_id` int,
+  `quantity` int
 );
 
-CREATE TABLE `Contact` (
+CREATE TABLE `post_categories` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(50),
-  `icon` varchar(500),
-  `contactContent` varchar(250)
+  `name` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `PostCategory` (
+CREATE TABLE `posts` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(100),
-  `createdAt` datetime,
-  `updatedAt` datetime
-);
-
-CREATE TABLE `Post` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `postCategoryId` int,
-  `name` varchar(250),
-  `thumbnail` varchar(500),
+  `post_id` int,
+  `name` varchar(255),
+  `image` varchar(255),
   `postContent` longtext,
-  `createdAt` datetime,
-  `updatedAt` datetime,
-  `deleted` datetime
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-CREATE TABLE `Slider` (
+CREATE TABLE `menus` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(100),
-  `images` varchar(255),
-  `description` longtext,
-  `createdAt` datetime,
-  `updatedAt` datetime,
-  `deleted` datetime
+  `name` varchar(255),
+  `parent_id` int,
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
-ALTER TABLE `Tokens` ADD FOREIGN KEY (`userId`) REFERENCES `Users` (`id`);
+CREATE TABLE `sliders` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255),
+  `image` varchar(255),
+  `link` varchar(255),
+  `description` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `Users` ADD FOREIGN KEY (`roleId`) REFERENCES `Role` (`id`);
+CREATE TABLE `settings` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `key` varchar(255),
+  `value` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `Galery` ADD FOREIGN KEY (`productId`) REFERENCES `Product` (`id`);
+CREATE TABLE `roles` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255),
+  `display_name` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `Product` ADD FOREIGN KEY (`categoryId`) REFERENCES `Category` (`id`);
+CREATE TABLE `user_role` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `user_id` int,
+  `role_id` int,
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `Post` ADD FOREIGN KEY (`postCategoryId`) REFERENCES `PostCategory` (`id`);
+CREATE TABLE `permissions` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255),
+  `display_name` varchar(255),
+  `parent_id` int,
+  `key_code` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `Orders` ADD FOREIGN KEY (`userId`) REFERENCES `Users` (`id`);
+CREATE TABLE `permission_role` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `role_id` int,
+  `permission_id` int,
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
 
-ALTER TABLE `OrderDetails` ADD FOREIGN KEY (`orderId`) REFERENCES `Orders` (`id`);
+ALTER TABLE `products` ADD FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
-ALTER TABLE `OrderDetails` ADD FOREIGN KEY (`productId`) REFERENCES `Product` (`id`);
+ALTER TABLE `product_image` ADD FOREIGN KEY (`id`) REFERENCES `products` (`id`);
+
+ALTER TABLE `products` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_tag` (`product_id`);
+
+ALTER TABLE `tags` ADD FOREIGN KEY (`id`) REFERENCES `product_tag` (`tag_id`);
+
+ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+
+ALTER TABLE `orders` ADD FOREIGN KEY (`id`) REFERENCES `order_items` (`order_id`);
+
+ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`);
+
+ALTER TABLE `posts` ADD FOREIGN KEY (`post_id`) REFERENCES `post_categories` (`id`);
+
+ALTER TABLE `permission_role` ADD FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+
+ALTER TABLE `permissions` ADD FOREIGN KEY (`id`) REFERENCES `permission_role` (`permission_id`);
+
+ALTER TABLE `user_role` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+ALTER TABLE `roles` ADD FOREIGN KEY (`id`) REFERENCES `user_role` (`role_id`);

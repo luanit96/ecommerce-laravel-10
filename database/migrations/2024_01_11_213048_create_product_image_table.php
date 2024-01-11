@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostCategoriesTable extends Migration
+class CreateProductImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreatePostCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_categories', function (Blueprint $table) {
+        Schema::create('product_image', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreatePostCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_categories');
+        Schema::dropIfExists('product_image');
     }
 }
