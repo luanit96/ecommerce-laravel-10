@@ -24,9 +24,9 @@ class ApiSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:150',
-            'images' => 'required',
-            'link' => 'required|max:200',
+            'name' => 'required',
+            'image' => 'required',
+            'link' => 'required',
             'description' => 'required' 
         ];
     }

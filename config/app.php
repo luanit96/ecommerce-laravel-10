@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Ho_Chi_Minh', //UTC to Asia/Ho_Chi_Minh
+    'timezone' => 'Asia/Ho_Chi_Minh', //UTC -> Asia/Ho_Chi_Minh
 
     /*
     |--------------------------------------------------------------------------
