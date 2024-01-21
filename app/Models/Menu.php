@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FeedBack extends Model
+class Menu extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-      /**
+    /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'feed_backs';
+    protected $table = 'menus';
 
     /**
      * The primary key associated with the table.
@@ -29,10 +30,7 @@ class FeedBack extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'fullName',
-        'email',
-        'note',
-        'status'
+        'parent_id',
+        'name'
     ];
-
 }

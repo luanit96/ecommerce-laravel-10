@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .info ul li {
+            padding: 0 5px;
+        }
+
+        .info ul li a {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -27,6 +41,8 @@
 
         @include('partials.footer')
 
+        @include('partials.modal-alert')
+
     </div>
     <!-- end wrapper -->
     <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
@@ -36,8 +52,20 @@
     <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 
     <script>
-        $(function() {
+        $(() => {
             $("#list-datatable").DataTable();
+        });
+
+        $('#modal-alert').on('shown.bs.modal', () => {
+            $('#btnOk').click(() => {
+                $('#form-delete').submit();
+            });
+        });
+
+        $('#modal-logout').on('shown.bs.modal', () => {
+            $('.btnOk').click(() => {
+                $('#form-logout').submit();
+            });
         });
     </script>
 </body>

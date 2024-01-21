@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>List Category</title>
+    <title>List Menu</title>
 @endsection
 
 @section('content')
@@ -12,15 +12,15 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>List Category</h1>
-                        <a href="{{ route('create-categories') }}">
+                        <h1>List Menu</h1>
+                        <a href="{{ route('create-menus') }}">
                             <input type="submit" value="Add" class="btn btn-lg btn-primary">
                         </a>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Categories</li>
+                            <li class="breadcrumb-item active">Menus</li>
                         </ol>
                     </div>
                 </div>
@@ -43,14 +43,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($menus as $menu)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td>{{ $category->name }}</td>
+                                            <td>{{ $menu->id }}</td>
+                                            <td>{{ $menu->name }}</td>
                                             <td>
-                                                <a href="{{ route('edit-categories', ['id' => $category->id]) }}"
+                                                <a href="{{ route('edit-menus', ['id' => $menu->id]) }}"
                                                     class="btn btn-primary">Edit</a>
-                                                <form action="{{ route('delete-categories', ['id' => $category->id]) }}"
+                                                <form action="{{ route('delete-menus', ['id' => $menu->id]) }}"
                                                     class="d-inline-block" id="form-delete" method="post">
                                                     @csrf
                                                     <button type="button" class="btn btn-danger" data-toggle="modal"

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>Create Category</title>
+    <title>Create Menu</title>
 @endsection
 
 @section('content')
@@ -12,11 +12,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category Add</h1>
+                        <h1>Menu Add</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-categories') }}">Categories</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('list-menus') }}">Menus</a></li>
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div>
@@ -29,19 +29,19 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-6">
-                    <form action="{{ route('post-categories') }}" method="post">
+                    <form action="{{ route('post-menus') }}" method="post">
                         @csrf
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="inputName">Name</label>
                                     <input type="text" required name="name" class="form-control"
-                                        placeholder="Category name">
+                                        placeholder="Enter menu name">
                                 </div>
                                 <div class="form-group">
                                     <label>Parent</label>
                                     <select class="form-control" name="parent_id">
-                                        <option value="0">Parent category</option>
+                                        <option value="0">Parent Menu</option>
                                         {!! $htmlOptions !!}
                                     </select>
                                 </div>

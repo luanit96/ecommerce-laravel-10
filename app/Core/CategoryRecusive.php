@@ -3,7 +3,7 @@
 namespace App\Core;
 use App\Models\Category;
 
-class Recusive {
+class CategoryRecusive {
 
     private $htmlSelected;
 
@@ -11,7 +11,7 @@ class Recusive {
         $this->htmlSelected = '';
     }
 
-    public function categoryRecusive($parentId, $id = 0, $text = '') {
+    public function getCategoryRecusive($parentId, $id = 0, $text = '') {
         $categories = Category::all();
         foreach($categories as $value) {
             if($value['parent_id'] == $id) {
@@ -20,7 +20,7 @@ class Recusive {
                 } else {
                     $this->htmlSelected .= "<option value=" . $value['id'] . ">" . $text . $value['name'] ."</option>";
                 }
-                $this->categoryRecusive($parentId, $value['id'], $text.'--');
+                $this->getCategoryRecusive($parentId, $value['id'], $text.'--');
             }
         }
         return $this->htmlSelected;

@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Core\Recusive;
+use App\Core\CategoryRecusive;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    private $category;
+
+    public function __construct(Category $category) {
+        $this->category = $category;
+    }
+
     public function index() {
-        $categories = Category::all();
+        $categories = $this->category->all();
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -20,7 +26,7 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request) {
-        $category = Category::create([
+        $category = $this->category->create([
             'parent_id' => $request->parent_id,
             'name' => $request->name
         ]);
@@ -29,19 +35,19 @@ class CategoryController extends Controller
     }
 
     public function getCategory($parentId) {
-        $recusive = new Recusive();
-        $htmlOptions = $recusive->categoryRecusive($parentId);
+        $recusive = new CategoryRecusive();
+        $htmlOptions = $recusive->getCategoryRecusive($parentId);
         return $htmlOptions;
     }
 
     public function edit($id) {
-        $category = Category::find($id);
+        $category = $this->category->find($id);
         $htmlOptions = $this->getCategory($category->parent_id);
         return view('admin.categories.edit', compact('category', 'htmlOptions'));
     }
 
     public function update($id, Request $request) {
-       $category = Category::find($id)->update([
+       $category = $this->category->find($id)->update([
             'parent_id' => $request->parent_id,
             'name' => $request->name
         ]);
@@ -49,7 +55,7 @@ class CategoryController extends Controller
     }
 
     public function delete($id) {
-        $category = Category::find($id)->delete();
+        $category = $this->category->find($id)->delete();
         return redirect()->route('list-categories');
     }
 }
