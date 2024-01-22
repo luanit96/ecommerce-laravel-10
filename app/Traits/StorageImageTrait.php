@@ -1,0 +1,23 @@
+<?php
+namespace App\Traits;
+
+use Illuminate\Support\Str;
+use Storage;
+
+trait StorageImageTrait {
+    public function storageTraitUpload($request, $fieldName, $folderName ) {
+        if($request->hasFile($fieldName)) {
+            $file = $request->file($fieldName);
+            $fileNameOrigin = $file->getClientOriginalName();
+            $fileNameHash = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $filePath = $request->file($fieldName)->storeAs(
+                'public/' . $folderName . '/' . auth()->id(), $fileNameHash
+            );
+            return [
+                'file_name' => $fileNameOrigin,
+                'file_path' => Storage::url($filePath)
+            ];
+        }
+        return null;
+    }
+}

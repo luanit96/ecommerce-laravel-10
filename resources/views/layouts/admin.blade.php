@@ -27,6 +27,8 @@
             cursor: pointer;
         }
     </style>
+
+    @yield('css')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -37,7 +39,7 @@
 
         @include('partials.sidebar')
 
-        @yield('content');
+        @yield('content')
 
         @include('partials.footer')
 
@@ -68,6 +70,8 @@
             });
         });
     </script>
+
+    @yield('js')
 </body>
 
 </html>

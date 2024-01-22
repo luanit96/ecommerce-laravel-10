@@ -29,13 +29,13 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'categoryId',
-        'title',
+        'category_id',
+        'user_id',
+        'name',
+        'price',
         'discount',
-        'thumbnail',
-        'description',
-        'information',
-        'review'
+        'feature_image_path',
+        'content'
     ];
 
 }

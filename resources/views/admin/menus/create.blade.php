@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>Create Menu</title>
+    <title>add menu</title>
 @endsection
 
 @section('content')
