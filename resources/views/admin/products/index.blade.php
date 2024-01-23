@@ -47,24 +47,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Iphone 8 plus</td>
-                                        <td>4000000</td>
-                                        <td>3500000</td>
-                                        <td>
-                                            <img src="" alt="">
-                                        </td>
-                                        <td>Dien thoai</td>
-                                        <td>
-                                            <a href="" class="btn btn-primary">Edit</a>
-                                            <form action="" class="d-inline-block" id="form-delete" method="post">
-                                                @csrf
-                                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                    data-target="#modal-alert">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    @foreach ($products as $product)
+                                        <tr>
+                                            <td>{{ $product->id }}</td>
+                                            <td>{{ $product->name }}</td>
+                                            <td>{{ number_format($product->price) }}</td>
+                                            <td>{{ $product->discount }}</td>
+                                            <td>
+                                                <img width="150px" height="100px" src="{{ $product->feature_image_path }}"
+                                                    alt="">
+                                            </td>
+                                            <td>{{ optional($product->category)->name }}</td>
+                                            <td>
+                                                <a href="" class="btn btn-primary">Edit</a>
+                                                <form action="" class="d-inline-block" id="form-delete" method="post">
+                                                    @csrf
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                        data-target="#modal-alert">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

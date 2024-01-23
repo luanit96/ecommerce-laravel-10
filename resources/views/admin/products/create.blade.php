@@ -65,14 +65,13 @@
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select class="form-control category_select2" name="category_id">
-                                        <option value="">Category</option>
+                                        <option>--Select Category--</option>
                                         {!! $htmlOptions !!}
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Tags</label>
                                     <select name="tags[]" class="form-control tags_select2_choose" multiple="multiple">
-
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +82,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Content</label>
-                                    <textarea id="summernote-editor" class="form-control" name="content" rows="8"></textarea>
+                                    <textarea id="summernote-editor" class="form-control" name="contents" rows="8"></textarea>
                                 </div>
                                 <input type="submit" value="Add" class="btn btn-lg btn-success float-left">
                             </div>

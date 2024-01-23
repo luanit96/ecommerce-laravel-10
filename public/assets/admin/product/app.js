@@ -2,10 +2,10 @@ $(() => {
     $(".tags_select2_choose").select2({
         tags: true,
         placeholder: "Enter Tag",
-        tokenSeparators: [',', ' ']
+        tokenSeparators: [',']
     });
     $(".category_select2").select2({
-        placeholder: "Select category",
+        placeholder: "--Select Category--",
         allowClear: true
     });
 
