@@ -35,8 +35,8 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="inputName">Name</label>
-                                    <input type="text" required name="name" class="form-control"
-                                        placeholder="Category name">
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Enter category name" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Parent</label>

@@ -10,3 +10,16 @@
 .note-popover.popover {
     display: none;
 }
+
+.img-product {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.feature_product_img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}

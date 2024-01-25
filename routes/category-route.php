@@ -11,6 +11,6 @@ Route::controller(CategoryController::class)->group(function () {
         Route::post('/create', 'store')->name('post-categories');
         Route::get('/edit/{id}', 'edit')->name('edit-categories');
         Route::post('/update/{id}', 'update')->name('update-categories');
-        Route::post('/delete/{id}', 'delete')->name('delete-categories');
+        Route::get('/delete/{id}', 'delete')->name('delete-categories');
     });
 });

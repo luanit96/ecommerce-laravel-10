@@ -50,12 +50,8 @@
                                             <td>
                                                 <a href="{{ route('edit-categories', ['id' => $category->id]) }}"
                                                     class="btn btn-primary">Edit</a>
-                                                <form action="{{ route('delete-categories', ['id' => $category->id]) }}"
-                                                    class="d-inline-block" id="form-delete" method="post">
-                                                    @csrf
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                        data-target="#modal-alert">Delete</button>
-                                                </form>
+                                                <a href="{{ route('delete-categories', ['id' => $category->id]) }}"
+                                                    class="btn btn-danger btnDelete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -69,4 +65,8 @@
         <!-- end Main content -->
     </div>
     <!-- end content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
 @endsection

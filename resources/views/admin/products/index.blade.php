@@ -4,6 +4,10 @@
     <title>list product</title>
 @endsection
 
+@section('css')
+    <link href="{{ asset('assets/admin/product/app.css') }}" rel="stylesheet" />
+@endsection
+
 @section('content')
     <!-- start content wrapper -->
     <div class="content-wrapper">
@@ -52,19 +56,17 @@
                                             <td>{{ $product->id }}</td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ number_format($product->price) }}</td>
-                                            <td>{{ $product->discount }}</td>
+                                            <td>{{ number_format($product->discount) }}</td>
                                             <td>
-                                                <img width="150px" height="100px" src="{{ $product->feature_image_path }}"
+                                                <img class="feature_product_img" src="{{ $product->feature_image_path }}"
                                                     alt="">
                                             </td>
                                             <td>{{ optional($product->category)->name }}</td>
                                             <td>
-                                                <a href="" class="btn btn-primary">Edit</a>
-                                                <form action="" class="d-inline-block" id="form-delete" method="post">
-                                                    @csrf
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                        data-target="#modal-alert">Delete</button>
-                                                </form>
+                                                <a href="{{ route('edit-products', ['id' => $product->id]) }}"
+                                                    class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('delete-products', ['id' => $product->id]) }}"
+                                                    class="btn btn-danger btnDelete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,4 +80,8 @@
         <!-- end Main content -->
     </div>
     <!-- end content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
 @endsection

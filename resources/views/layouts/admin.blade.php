@@ -53,25 +53,9 @@
     <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 
-    <script>
-        $(() => {
-            $("#list-datatable").DataTable();
-        });
-
-        $('#modal-alert').on('shown.bs.modal', () => {
-            $('#btnOk').click(() => {
-                $('#form-delete').submit();
-            });
-        });
-
-        $('#modal-logout').on('shown.bs.modal', () => {
-            $('.btnOk').click(() => {
-                $('#form-logout').submit();
-            });
-        });
-    </script>
-
     @yield('js')
+
+    <script src="{{ asset('assets/admin/js/main.js') }}"></script>
 </body>
 
 </html>

@@ -11,6 +11,6 @@ Route::controller(ProductController::class)->group(function () {
         Route::post('/create', 'store')->name('post-products');
         Route::get('/edit/{id}', 'edit')->name('edit-products');
         Route::post('/update/{id}', 'update')->name('update-products');
-        Route::post('/delete/{id}', 'delete')->name('delete-products');
+        Route::get('/delete/{id}', 'delete')->name('delete-products');
     });
 });

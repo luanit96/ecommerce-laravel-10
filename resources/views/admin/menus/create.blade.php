@@ -35,13 +35,13 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="inputName">Name</label>
-                                    <input type="text" required name="name" class="form-control"
-                                        placeholder="Enter menu name">
+                                    <input type="text" name="name" class="form-control" placeholder="Enter menu name"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label>Parent</label>
                                     <select class="form-control" name="parent_id">
-                                        <option value="0">Parent Menu</option>
+                                        <option value="0">Parent menu</option>
                                         {!! $htmlOptions !!}
                                     </select>
                                 </div>

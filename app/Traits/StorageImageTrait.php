@@ -21,7 +21,7 @@ trait StorageImageTrait {
         return null;
     }
 
-    public function storageTraitUploadMutible($file, $folderName ) {
+    public function storageTraitUploadMultiple($file, $folderName ) {
         $fileNameOrigin = $file->getClientOriginalName();
         $fileNameHash = Str::random(20) . '.' . $file->getClientOriginalExtension();
         $filePath = $file->storeAs(
