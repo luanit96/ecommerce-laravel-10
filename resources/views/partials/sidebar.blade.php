@@ -4,33 +4,32 @@
     <a href="{{ route('dashboard') }}" class="brand-link">
         <span class="brand-text font-weight-light">Administrator</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-2 mb-2 d-flex">
-            <div class="image">
-                <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                    alt="User Image">
-            </div>
-            <div class="info">
-                <ul>
-                    <li>
-                        <a href="{{ route('dashboard') }}" class="d-block">
-                            @if (Auth::check())
+        @if (Auth::check())
+            <div class="user-panel mt-2 mb-2 d-flex">
+                <div class="image">
+                    <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                        alt="User Image">
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="d-block">
                                 {{ Auth::user()->email }}
-                            @endif
-                        </a>
-                    </li>
-                    <form method="POST" action="{{ route('logout') }}" id="form-logout">
-                        @csrf
-                        <li><button type="button" class="btn btn-danger" data-toggle="modal"
-                                data-target="#modal-logout">logout</button></li>
-                    </form>
-                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" class="formLogout">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btnLogout">logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-
+        @endif
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -59,3 +58,7 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+@section('js')
+    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
+@endsection

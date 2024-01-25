@@ -43,8 +43,6 @@
 
         @include('partials.footer')
 
-        @include('partials.modal-alert')
-
     </div>
     <!-- end wrapper -->
     <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>

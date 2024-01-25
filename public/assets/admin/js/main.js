@@ -1,7 +1,15 @@
-function actionDelete(e) {
+$(() => {
+    $("#list-datatable").DataTable();
+    //event click button delete
+    $('.btnDelete').click(actionDelete);
+    //event click button logout
+    $('.btnLogout').click(logout);
+});
+
+const actionDelete = e => {
     e.preventDefault();
-    const urlRequest = $(this).attr('href');
-    let that = $(this);
+    const elementClicked = e.currentTarget;
+    const urlRequest = elementClicked.href;
     Swal.fire({
         title: "Are you sure you want to delete?",
         text: "Delete cannot be restored!",
@@ -10,22 +18,32 @@ function actionDelete(e) {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+    }).then(result => {
         if (result.isConfirmed) {
             $.ajax({
                 type: 'GET',
                 url: urlRequest,
-                success: function(data) {
+                success: data => {
                     if (data.code === 200) {
-                        that.parent().parent().remove();
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
+                        elementClicked.closest('tr').remove();
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "bottom-end",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: "Deleted successfully"
                         });
                     }
                 },
-                error: function(error) {
+                error: error =>  {
                     console.log(error);
                 }
             });
@@ -33,14 +51,19 @@ function actionDelete(e) {
     });
 }
 
-$(() => {
-    $("#list-datatable").DataTable();
-    //event click button logout
-    $('#modal-logout').on('shown.bs.modal', () => {
-        $('.btnOk').click(() => {
-            $('#form-logout').submit();
-        });
+const logout = e => {
+    e.preventDefault();
+    Swal.fire({
+        title: "Are you sure you want to sign out?",
+        text: "Click ok to exit",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "OK"
+        }).then(result => {
+        if (result.isConfirmed) {
+           $('.formLogout').submit();
+        }
     });
-    //event click button delete
-    $(document).on('click', '.btnDelete', actionDelete);
-});
+}
