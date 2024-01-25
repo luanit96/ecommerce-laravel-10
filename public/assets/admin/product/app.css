@@ -12,14 +12,19 @@
 }
 
 .img-product {
-    display: block;
-    max-width: 100%;
+    width: 150px;
     height: auto;
-    margin-top: 10px;
+    object-fit: cover;
+    margin: 10px;
 }
 
 .feature_product_img {
     width: 150px;
     height: 100px;
     object-fit: cover;
+}
+
+.outputMultipleProductFile {
+    display: inline-block;
+    width: 100%;
 }

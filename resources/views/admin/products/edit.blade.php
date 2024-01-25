@@ -69,13 +69,11 @@
                                 <div class="form-group">
                                     <label>Image Detail</label>
                                     <input type="file" multiple name="image_path[]" class="form-control-file"
-                                        id="productMultipleFile">
-                                    <div class="row">
+                                        id="multipleProductFile">
+                                    <div class="row" id="outputMultipleProductFile">
                                         @foreach ($product->images as $productImageItem)
-                                            <div class="col">
-                                                <img src="{{ $productImageItem->image_path }}" class="img-product"
-                                                    accept=".png, .jpg, .jpeg">
-                                            </div>
+                                            <img src="{{ $productImageItem->image_path }}" class="img-product"
+                                                accept=".png, .jpg, .jpeg">
                                         @endforeach
                                     </div>
                                 </div>
@@ -122,14 +120,4 @@
     <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/summernote.js') }}"></script>
     <script src="{{ asset('assets/admin/product/app.js') }}"></script>
-    <script>
-        $(() => {
-            productFile.onchange = e => {
-                const [file] = productFile.files;
-                if (file) {
-                    outputProductFile.src = URL.createObjectURL(file)
-                }
-            }
-        });
-    </script>
 @endsection

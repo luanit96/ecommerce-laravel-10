@@ -67,25 +67,8 @@
                                 <div class="form-group">
                                     <label>Image Detail</label>
                                     <input type="file" multiple name="image_path[]" class="form-control-file"
-                                        id="productMultipleFile">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img id="outputproductMultipleFile0" class="img-product"
-                                                accept=".png, .jpg, .jpeg">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <img id="outputproductMultipleFile1" class="img-product"
-                                                accept=".png, .jpg, .jpeg">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <img id="outputproductMultipleFile2" class="img-product"
-                                                accept=".png, .jpg, .jpeg">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <img id="outputproductMultipleFile3" class="img-product"
-                                                accept=".png, .jpg, .jpeg">
-                                        </div>
-                                    </div>
+                                        id="multipleProductFile">
+                                    <div class="row" id="outputMultipleProductFile"></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
@@ -125,28 +108,4 @@
     <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/summernote.js') }}"></script>
     <script src="{{ asset('assets/admin/product/app.js') }}"></script>
-    <script>
-        $(() => {
-            productFile.onchange = e => {
-                const [file] = productFile.files;
-                if (file) {
-                    outputProductFile.src = URL.createObjectURL(file)
-                }
-            }
-
-            // productMultipleFile.onchange = e => {
-            //     const multipleFile = productMultipleFile.files;
-            //     //reset default attr
-            //     $('#outputproductMultipleFile0').attr('src', '');
-            //     $('#outputproductMultipleFile1').attr('src', '');
-            //     $('#outputproductMultipleFile2').attr('src', '');
-            //     $('#outputproductMultipleFile3').attr('src', '');
-            //     if (multipleFile.length > 0) {
-            //         for (let i = 0; i < multipleFile.length; i++) {
-            //             $('#outputproductMultipleFile' + i).attr('src', URL.createObjectURL(multipleFile[i]));
-            //         }
-            //     }
-            // }
-        });
-    </script>
 @endsection
