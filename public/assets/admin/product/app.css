@@ -11,15 +11,15 @@
     display: none;
 }
 
-.img-product {
-    width: 150px;
-    height: auto;
-    object-fit: cover;
-    margin: 10px;
-}
-
 .feature_product_img {
     width: 150px;
     height: 100px;
     object-fit: cover;
+}
+
+.img-style {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin: 10px;
 }

@@ -34,23 +34,125 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <li class="nav-item">
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
                     <a href="{{ route('list-categories') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Categories</p>
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Categories
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-categories') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-categories') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add category</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item has-treeview">
                     <a href="{{ route('list-menus') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Menus</p>
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Menus
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-menus') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List menu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-menus') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add menu</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item has-treeview">
                     <a href="{{ route('list-products') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Products</p>
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Products
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-products') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List product</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-products') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add product</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-tags') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tags
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-tags') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List tag</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-tags') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add tag</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-sliders') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Sliders
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-sliders') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-sliders') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add slider</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

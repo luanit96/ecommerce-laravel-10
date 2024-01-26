@@ -57,18 +57,18 @@
                                 <div class="form-group">
                                     <label for="feature_image_path">Image</label>
                                     <input type="file" name="feature_image_path" class="form-control-file"
-                                        id="productFile">
+                                        id="fileUpload">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img id="outputProductFile" class="img-product" accept=".png, .jpg, .jpeg">
+                                            <img id="outputFileUpload" class="img-style" accept=".png, .jpg, .jpeg">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Image Detail</label>
                                     <input type="file" multiple name="image_path[]" class="form-control-file"
-                                        id="multipleProductFile">
-                                    <div class="row" id="outputMultipleProductFile"></div>
+                                        id="multipleFileUpload">
+                                    <div class="row" id="outputMultipleFile"></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
@@ -107,5 +107,6 @@
 @section('js')
     <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/summernote.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/loadFile.js') }}"></script>
     <script src="{{ asset('assets/admin/product/app.js') }}"></script>
 @endsection

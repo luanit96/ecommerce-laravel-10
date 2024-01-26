@@ -51,28 +51,4 @@ $(() => {
         lfm: LFMButton
       }
     })
-
-    //Event change product file image
-    productFile.onchange = e => {
-        const [file] = productFile.files;
-        if (file) {
-            outputProductFile.src = URL.createObjectURL(file)
-        }
-    }
-
-    //Event change product multiple file image
-    multipleProductFile.onchange = e => {
-        $('#outputMultipleProductFile').html('');
-        const multipleFile = multipleProductFile.files;
-        let img;
-        if (multipleFile) {
-            for (let i = 0; i < multipleFile.length; i++) {
-                img = $(
-                    '<img class="img-product" accept=".png, .jpg, .jpeg">');
-                img.attr('src', URL.createObjectURL(multipleFile[i]));
-                img.appendTo('#outputMultipleProductFile');
-            }
-        }
-    }
-
 });

@@ -58,21 +58,21 @@
                                 <div class="form-group">
                                     <label for="feature_image_path">Image</label>
                                     <input type="file" name="feature_image_path" class="form-control-file"
-                                        id="productFile">
+                                        id="fileUpload">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img id="outputProductFile" src="{{ $product->feature_image_path }}"
-                                                class="img-product" accept=".png, .jpg, .jpeg">
+                                            <img id="outputFileUpload" src="{{ $product->feature_image_path }}"
+                                                class="img-style" accept=".png, .jpg, .jpeg">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Image Detail</label>
                                     <input type="file" multiple name="image_path[]" class="form-control-file"
-                                        id="multipleProductFile">
-                                    <div class="row" id="outputMultipleProductFile">
+                                        id="multipleFileUpload">
+                                    <div class="row" id="outputMultipleFile">
                                         @foreach ($product->images as $productImageItem)
-                                            <img src="{{ $productImageItem->image_path }}" class="img-product"
+                                            <img src="{{ $productImageItem->image_path }}" class="img-style"
                                                 accept=".png, .jpg, .jpeg">
                                         @endforeach
                                     </div>
@@ -119,5 +119,6 @@
 @section('js')
     <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/summernote.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/loadFile.js') }}"></script>
     <script src="{{ asset('assets/admin/product/app.js') }}"></script>
 @endsection
