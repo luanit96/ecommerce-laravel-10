@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Traits\DeleteModelTrait;
 
 class TagController extends Controller
 {
+    use DeleteModelTrait;
     private $tag;
 
     public function __construct(Tag $tag) {
@@ -42,18 +44,10 @@ class TagController extends Controller
     }
 
     public function delete($id) {
-        try {
-            $product = $this->tag->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'success'
-            ], 200);
-        } catch (\Exception $exception) {
-            Log::error('Message:' . $exception->getMessage() . '--Line:' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+        $deleteTrait = $this->deleteModelTrait($this->tag, $id);
+        return response()->json([
+            'code' => $deleteTrait['code'],
+            'message' => $deleteTrait['message']
+        ], $deleteTrait['status']);
     }
 }

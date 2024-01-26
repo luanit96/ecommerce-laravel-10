@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Core\CategoryRecusive;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Core\CategoryRecusive;
+use App\Traits\DeleteModelTrait;
 
 class CategoryController extends Controller
 {
+    use DeleteModelTrait;
     private $category;
 
     public function __construct(Category $category) {
@@ -55,18 +57,10 @@ class CategoryController extends Controller
     }
 
     public function delete($id) {
-        try {
-            $category = $this->category->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'success'
-            ], 200);
-        } catch (\Exception $exception) {
-            Log::error('Message:' . $exception->getMessage() . '--Line:' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+        $deleteTrait = $this->deleteModelTrait($this->category, $id);
+        return response()->json([
+            'code' => $deleteTrait['code'],
+            'message' => $deleteTrait['message']
+        ], $deleteTrait['status']);
     }
 }

@@ -18,7 +18,7 @@ const actionDelete = e => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
-    }).then(result => {
+    }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: 'GET',
@@ -61,7 +61,7 @@ const logout = e => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "OK"
-        }).then(result => {
+        }).then((result) => {
         if (result.isConfirmed) {
            $('.formLogout').submit();
         }
