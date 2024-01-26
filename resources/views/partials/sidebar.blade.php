@@ -154,6 +154,35 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-settings') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Settings
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-settings') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List setting</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-settings') . '?type=text' }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add setting text</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-settings') . '?type=textarea' }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add setting textarea</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

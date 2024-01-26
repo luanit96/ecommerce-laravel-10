@@ -67,6 +67,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/slider-route.php'));
+            //Route setting
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/setting-route.php'));
         });
     }
 
