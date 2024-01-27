@@ -73,7 +73,7 @@
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select class="form-control category_select2" name="category_id">
-                                        <option>--Select Category--</option>
+                                        <option></option>
                                         {!! $htmlOptions !!}
                                     </select>
                                 </div>

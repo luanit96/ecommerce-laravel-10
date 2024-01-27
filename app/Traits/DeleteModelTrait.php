@@ -1,7 +1,7 @@
 <?php
 namespace App\Traits;
 
-use Illuminate\Support\Facades\Log;
+use Log;
 
 trait DeleteModelTrait {
     public function deleteModelTrait($model, $id) {

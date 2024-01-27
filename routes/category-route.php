@@ -6,11 +6,11 @@ use App\Http\Controllers\CategoryController;
 //Category CRUD
 Route::controller(CategoryController::class)->group(function () {
     Route::prefix('admin/categories')->group(function () {
-        Route::get('/', 'index')->name('list-categories');
-        Route::get('/create', 'create')->name('create-categories');
-        Route::post('/create', 'store')->name('post-categories');
-        Route::get('/edit/{id}', 'edit')->name('edit-categories');
-        Route::post('/update/{id}', 'update')->name('update-categories');
-        Route::get('/delete/{id}', 'delete')->name('delete-categories');
+        Route::get('/', 'index')->middleware(['auth'])->name('list-categories');
+        Route::get('/create', 'create')->middleware(['auth'])->name('create-categories');
+        Route::post('/create', 'store')->middleware(['auth'])->name('post-categories');
+        Route::get('/edit/{id}', 'edit')->middleware(['auth'])->name('edit-categories');
+        Route::post('/update/{id}', 'update')->middleware(['auth'])->name('update-categories');
+        Route::get('/delete/{id}', 'delete')->middleware(['auth'])->name('delete-categories');
     });
 });

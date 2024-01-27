@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ApiUserController;
+use App\Http\Controllers\Api\Admin\ApiAdminUserController;
 use App\Http\Controllers\Api\Admin\ApiAdminSliderController;
 use App\Http\Controllers\Api\Admin\ApiAdminProductController;
 use App\Http\Controllers\Api\Admin\ApiAdminCategoryController;
@@ -18,7 +18,7 @@ use App\Http\Controllers\Api\Admin\ApiAdminCategoryController;
 |
 */
 
-// Route::controller(ApiUserController::class)->group(function () {
+// Route::controller(ApiAdminUserController::class)->group(function () {
 //     Route::post('/register', 'register')->name('register');
 //     Route::post('/login', 'login')->name('login');
 //     Route::get('/user', 'userInfo')->middleware('auth:api')->name('user');

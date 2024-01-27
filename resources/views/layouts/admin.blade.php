@@ -8,6 +8,7 @@
 
     @yield('title')
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('adminlte/dist/img/favicon.webp') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">

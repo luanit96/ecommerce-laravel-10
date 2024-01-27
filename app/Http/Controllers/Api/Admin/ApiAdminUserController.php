@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\User;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApiRegisterRequest;
@@ -11,7 +10,7 @@ use App\Http\Requests\ApiLoginRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-class ApiUserController extends Controller
+class ApiAdminUserController extends Controller
 {
     public function register(ApiRegisterRequest $request) {
         $user = new User;

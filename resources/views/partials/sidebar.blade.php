@@ -183,6 +183,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-users') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Users
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-users') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List user</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-users') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add user</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
