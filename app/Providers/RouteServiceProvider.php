@@ -74,6 +74,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/user-route.php'));
+            //Route role
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/role-route.php'));
+            //Route permission
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/permission-route.php'));
     }
 
     public function mapApiRoutes() {

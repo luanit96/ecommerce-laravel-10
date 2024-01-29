@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
-use App\Models\User;
-use Illuminate\Http\Request;
 use DB;
 use Log;
 use Hash;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Traits\DeleteModelTrait;
 
 class UserController extends Controller
 {
+    use DeleteModelTrait;
     private $user, $role;
 
     public function __construct(User $user, Role $role) {
@@ -76,10 +78,10 @@ class UserController extends Controller
     }
 
     public function delete($id) {
-        // $deleteTrait = $this->deleteModelTrait($this->slider, $id);
-        // return response()->json([
-        //     'code' => $deleteTrait['code'],
-        //     'message' => $deleteTrait['message']
-        // ], $deleteTrait['status']);
+        $deleteTrait = $this->deleteModelTrait($this->user, $id);
+        return response()->json([
+            'code' => $deleteTrait['code'],
+            'message' => $deleteTrait['message']
+        ], $deleteTrait['status']);
     }
 }

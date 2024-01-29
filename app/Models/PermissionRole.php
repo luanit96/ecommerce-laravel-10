@@ -2,19 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class PermissionRole extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'roles';
+    protected $table = 'permission_role';
 
     /**
      * The primary key associated with the table.
@@ -29,12 +28,7 @@ class Role extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'display_name'
+        'role_id',
+        'permission_id'
     ];
-
-    public function permissions() {
-        return $this->belongsToMany(Permission::class, 'permission_role', 'role_id', 'permission_id')
-        ->withTimestamps();
-    }
 }

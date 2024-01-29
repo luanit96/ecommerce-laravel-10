@@ -1,8 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('dashboard') }}" class="brand-link">
-        <span class="brand-text font-weight-light">Administrator</span>
+    <a href="{{ route('dashboard') }}" class="brand-link text-center">
+        <span class="brand-text text-capitalize font-weight-bold" style="font-size: 30px;color: #44bedc;">
+            Administrator</span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -202,6 +203,52 @@
                             <a href="{{ route('create-users') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add user</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-roles') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Roles
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-roles') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List role</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-roles') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add role</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-permissions') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Permissions
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-permissions') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List permission</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-permissions') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add permission</p>
                             </a>
                         </li>
                     </ul>
