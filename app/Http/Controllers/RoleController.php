@@ -25,8 +25,8 @@ class RoleController extends Controller
     }
 
     public function create() {
-        $permissions = $this->permission->where('parent_id', '!=', 0)->get();
-        return view('admin.roles.create', compact('permissions'));
+        $permissionParents = $this->permission->where('parent_id', 0)->get();
+        return view('admin.roles.create', compact('permissionParents'));
     }
 
     public function store(Request $request) {
@@ -48,10 +48,10 @@ class RoleController extends Controller
     }
 
     public function edit($id) {
-        $permissions = $this->permission->where('parent_id', '!=', 0)->get();
+        $permissionParents = $this->permission->where('parent_id', 0)->get();
         $role = $this->role->find($id);
         $roleOfPermissions = $role->permissions;
-        return view('admin.roles.edit', compact('permissions', 'role', 'roleOfPermissions'));
+        return view('admin.roles.edit', compact('permissionParents', 'role', 'roleOfPermissions'));
     }
 
     public function update(Request $request, $id) {
