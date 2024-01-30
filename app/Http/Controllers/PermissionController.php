@@ -38,7 +38,7 @@ class PermissionController extends Controller
             'name' => $request->name,
             'display_name' => $request->display_name,
             'parent_id' => $request->parent_id,
-            'key_code' => Str::slug($request->name)
+            'key_code' => $request->parent_id != 0 ? Str::slug($request->name) : ''
         ]);
         return redirect()->route('list-permissions');
     }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>list category</title>
+    <title>list permission role</title>
 @endsection
 
 @section('content')
@@ -12,17 +12,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>List Category</h1>
-                        @can('add-category')
-                            <a href="{{ route('create-categories') }}">
-                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                            </a>
-                        @endcan
+                        <h1>List Permission Role</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Categories</li>
+                            <li class="breadcrumb-item active">Permission Role</li>
                         </ol>
                     </div>
                 </div>
@@ -40,25 +35,16 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
+                                        <th>Role ID</th>
+                                        <th>Permission ID</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($permissionRoles as $permissionRole)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>
-                                                @can('edit-category')
-                                                    <a href="{{ route('edit-categories', ['id' => $category->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
-                                                @endcan
-                                                @can('delete-category')
-                                                    <a href="{{ route('delete-categories', ['id' => $category->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
-                                                @endcan
-                                            </td>
+                                            <td>{{ $permissionRole->id }}</td>
+                                            <td>{{ $permissionRole->role_id }}</td>
+                                            <td>{{ $permissionRole->permission_id }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -71,8 +57,4 @@
         <!-- end Main content -->
     </div>
     <!-- end content-wrapper -->
-@endsection
-
-@section('js')
-    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
 @endsection

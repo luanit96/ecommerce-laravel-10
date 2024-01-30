@@ -39,6 +39,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Permission</th>
                                         <th>Depscription</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,6 +49,11 @@
                                         <tr>
                                             <td>{{ $role->id }}</td>
                                             <td>{{ $role->name }}</td>
+                                            <td>
+                                                @foreach ($role->permissions as $rolePermission)
+                                                    <div>{{ $rolePermission->key_code }}</div>
+                                                @endforeach
+                                            </td>
                                             <td>{{ $role->display_name }}</td>
                                             <td>
                                                 <a href="{{ route('edit-roles', ['id' => $role->id]) }}"

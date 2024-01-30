@@ -37,51 +37,111 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
         $this->routes(function() {
+            //map web route
             $this->mapWebRoutes();
+            //map category route
+            $this->mapCategoryRoutes();
+            //map menu route
+            $this->mapMenuRoutes();
+            //map product route
+            $this->mapProductRoutes();
+            //map tag route
+            $this->mapTagRoutes();
+            //map slider route
+            $this->mapSliderRoutes();
+            //map setting route
+            $this->mapSettingRoutes();
+            //map user route
+            $this->mapUserRoutes();
+            //map role route
+            $this->mapRoleRoutes();
+            //map permission route
+            $this->mapPermissionRoutes();
+            //map user role route
+            $this->mapUserRoleRoutes();
+            //map permission role route
+            $this->mapPermissionRoleRoutes();
+            //map api route
             $this->mapApiRoutes();
         });
     }
 
     public function mapWebRoutes() {
+        //Web route
         Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
-            //Route category
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/category-route.php'));
-            //Route menu
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/menu-route.php'));
-            //Route product
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/product-route.php'));
-            //Route tag
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/tag-route.php'));
-            //Route slider
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/slider-route.php'));
-            //Route setting
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/setting-route.php'));
-            //Route user
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/user-route.php'));
-            //Route role
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/role-route.php'));
-            //Route permission
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/permission-route.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));     
+    }
+
+    public function mapCategoryRoutes() {
+        //Category route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/category-route.php'));
+    }
+
+    public function mapMenuRoutes() {
+         //Menu route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/menu-route.php'));
+    }
+
+    public function mapProductRoutes() {
+         //Product route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/product-route.php'));
+    }
+
+    public function mapTagRoutes() {
+        //Tag route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/tag-route.php'));
+    }
+    public function mapSliderRoutes() {
+        //Slider route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/slider-route.php'));
+    }
+    public function mapSettingRoutes() {
+        //Setting route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/setting-route.php'));
+    }
+    public function mapUserRoutes() {
+        //User route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/user-route.php'));
+    }
+    public function mapRoleRoutes() {
+        //Role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/role-route.php'));
+    }
+    public function mapPermissionRoutes() {
+        //Permission route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/permission-route.php'));
+    }
+    public function mapUserRoleRoutes() {
+        //User role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/user-role-route.php'));
+    }
+
+    public function mapPermissionRoleRoutes() {
+        //Permisson role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/permission-role-route.php'));
     }
 
     public function mapApiRoutes() {

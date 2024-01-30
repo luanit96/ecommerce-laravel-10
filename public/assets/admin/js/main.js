@@ -42,9 +42,6 @@ const actionDelete = e => {
                             title: "Deleted successfully"
                         });
                     }
-                },
-                error: error =>  {
-                    console.log(error);
                 }
             });
         }

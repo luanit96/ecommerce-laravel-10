@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use App\Models\PermissionRole;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -13,13 +12,11 @@ use Illuminate\Support\Facades\Log;
 class RoleController extends Controller
 {
     use DeleteModelTrait;
-    private $role, $permission, $permissionRole;
+    private $role, $permission;
 
-    public function __construct(Role $role, Permission $permission, 
-    PermissionRole $permissionRole) {
+    public function __construct(Role $role, Permission $permission) {
         $this->role = $role;
         $this->permission = $permission;
-        $this->permissionRole = $permissionRole;
     }
 
     public function index() {
@@ -28,7 +25,7 @@ class RoleController extends Controller
     }
 
     public function create() {
-        $permissions = $this->permission->all();
+        $permissions = $this->permission->where('parent_id', '!=', 0)->get();
         return view('admin.roles.create', compact('permissions'));
     }
 
@@ -51,7 +48,7 @@ class RoleController extends Controller
     }
 
     public function edit($id) {
-        $permissions = $this->permission->all();
+        $permissions = $this->permission->where('parent_id', '!=', 0)->get();
         $role = $this->role->find($id);
         $roleOfPermissions = $role->permissions;
         return view('admin.roles.edit', compact('permissions', 'role', 'roleOfPermissions'));

@@ -41,26 +41,32 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('list-categories') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Categories
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                    @can('list-category')
+                        <a href="{{ route('list-categories') }}" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Categories
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                    @endcan
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('list-categories') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List category</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('create-categories') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add category</p>
-                            </a>
-                        </li>
+                        @can('list-category')
+                            <li class="nav-item">
+                                <a href="{{ route('list-categories') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List category</p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('add-category')
+                            <li class="nav-item">
+                                <a href="{{ route('create-categories') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add category</p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
@@ -252,6 +258,18 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-user-role') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        User Role
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-permission-role') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        Permission Role
+                    </a>
                 </li>
             </ul>
         </nav>

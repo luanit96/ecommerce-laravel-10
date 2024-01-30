@@ -40,6 +40,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,12 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+
+                                            <td>
+                                                @foreach ($user->roles as $userRole)
+                                                    <div>{{ $userRole->name }}</div>
+                                                @endforeach
+                                            </td>
                                             <td>
                                                 <a href="{{ route('edit-users', ['id' => $user->id]) }}"
                                                     class="btn btn-primary">Edit</a>
