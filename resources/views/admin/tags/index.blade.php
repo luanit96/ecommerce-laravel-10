@@ -13,9 +13,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Tag</h1>
-                        <a href="{{ route('create-tags') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-tag')
+                            <a href="{{ route('create-tags') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -48,10 +50,14 @@
                                             <td>{{ $tag->id }}</td>
                                             <td>{{ $tag->name }}</td>
                                             <td>
-                                                <a href="{{ route('edit-tags', ['id' => $tag->id]) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('delete-tags', ['id' => $tag->id]) }}"
-                                                    class="btn btn-danger btnDelete">Delete</a>
+                                                @can('edit-tag')
+                                                    <a href="{{ route('edit-tags', ['id' => $tag->id]) }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                @endcan
+                                                @can('delete-tag')
+                                                    <a href="{{ route('delete-tags', ['id' => $tag->id]) }}"
+                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

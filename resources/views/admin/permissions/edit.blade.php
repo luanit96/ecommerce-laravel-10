@@ -21,7 +21,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-permissions') }}">Permissions</a></li>
+                            @can('list-permission')
+                                <li class="breadcrumb-item"><a href="{{ route('list-permissions') }}">Permissions</a></li>
+                            @endcan
                             <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>

@@ -12,12 +12,10 @@ Route::middleware(['auth'])->group(function () {
                 ->middleware('can:list-category');
             Route::get('/create', 'create')->name('create-categories')
                 ->middleware('can:add-category');
-            Route::post('/create', 'store')->name('post-categories')
-                ->middleware('can:add-category');
+            Route::post('/create', 'store')->name('post-categories');
             Route::get('/edit/{id}', 'edit')->name('edit-categories')
                 ->middleware('can:edit-category');
-            Route::post('/update/{id}', 'update')->name('update-categories')
-                ->middleware('can:edit-category');
+            Route::post('/update/{id}', 'update')->name('update-categories');
             Route::get('/delete/{id}', 'delete')->name('delete-categories')
                 ->middleware('can:delete-category');
         });

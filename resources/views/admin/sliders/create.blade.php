@@ -20,7 +20,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-sliders') }}">Sliders</a></li>
+                            @can('list-slider')
+                                <li class="breadcrumb-item"><a href="{{ route('list-sliders') }}">Sliders</a></li>
+                            @endcan
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div>

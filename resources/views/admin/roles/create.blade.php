@@ -4,6 +4,10 @@
     <title>add role</title>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/admin/role/app.css') }}">
+@endsection
+
 @section('content')
     <!-- start content wrapper -->
     <div class="content-wrapper">
@@ -16,7 +20,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-roles') }}">Roles</a></li>
+                            @can('list-role')
+                                <li class="breadcrumb-item"><a href="{{ route('list-roles') }}">Roles</a></li>
+                            @endcan
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div>
@@ -46,16 +52,17 @@
                         </div>
                     </div><!--end col-->
                     <div class="col-md-12">
-                        <label style="font-size: 18px;padding: 0 5px;color: #050505;font-weight: 700;"><input
-                                type="checkbox" class="checkboxAllPermission"> Check All</label>
+                        <label class="title-checkbox title-checkall">
+                            <input type="checkbox" class="checkboxAllPermission">
+                            permissions
+                        </label>
                     </div><!--end col-->
                     <div class="col-md-12">
                         @foreach ($permissionParents as $permissionParent)
                             <div class="card">
-                                <div class="card-header" style="background-color: #9be9f2;">
+                                <div class="card-header card-header-custom">
                                     <input type="checkbox" class="checkboxWrapper">
-                                    <span class="text-capitalize"
-                                        style="font-size: 18px;padding: 0 5px;color: #050505;font-weight: 700;">
+                                    <span class="text-capitalize title-checkbox">
                                         {{ $permissionParent->name }}</span>
                                 </div>
                                 <div class="row">
@@ -63,7 +70,7 @@
                                         <div class="col-md-3">
                                             <div class="card-body">
                                                 <div class="form-check-inline">
-                                                    <label class="form-check-label">
+                                                    <label class="form-check-label text-capitalize">
                                                         <input type="checkbox" class="form-check-input checkboxChildrent"
                                                             name="permission_id[]" value="{{ $permissionItem->id }}">
                                                         {{ $permissionItem->name }}
@@ -88,15 +95,5 @@
 @endsection
 
 @section('js')
-    <script>
-        $(function() {
-            $(".checkboxWrapper").click(function() {
-                $(this).parents('.card').find('.checkboxChildrent').prop('checked', this.checked);
-            });
-
-            $('.checkboxAllPermission').click(function() {
-                $('input:checkbox').not(this).prop('checked', this.checked);
-            });
-        });
-    </script>
+    <script src="{{ asset('assets/admin/role/app.js') }}"></script>
 @endsection

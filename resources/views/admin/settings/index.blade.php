@@ -13,17 +13,19 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Setting</h1>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Add Setting
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('create-settings') . '?type=text' }}">Text</a>
-                                <a class="dropdown-item"
-                                    href="{{ route('create-settings') . '?type=textarea' }}">Textarea</a>
+                        @can('add-setting')
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Add Setting
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('create-settings') . '?type=text' }}">Text</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('create-settings') . '?type=textarea' }}">Textarea</a>
+                                </div>
                             </div>
-                        </div>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -58,10 +60,14 @@
                                             <td>{{ $setting->key }}</td>
                                             <td>{{ $setting->value }}</td>
                                             <td>
-                                                <a href="{{ route('edit-settings', ['id' => $setting->id]) . '?type=' . $setting->type }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('delete-settings', ['id' => $setting->id]) }}"
-                                                    class="btn btn-danger btnDelete">Delete</a>
+                                                @can('edit-setting')
+                                                    <a href="{{ route('edit-settings', ['id' => $setting->id]) . '?type=' . $setting->type }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                @endcan
+                                                @can('delete-setting')
+                                                    <a href="{{ route('delete-settings', ['id' => $setting->id]) }}"
+                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

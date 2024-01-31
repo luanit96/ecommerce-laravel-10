@@ -13,9 +13,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List User</h1>
-                        <a href="{{ route('create-users') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('list-user')
+                            <a href="{{ route('create-users') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -57,10 +59,14 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a href="{{ route('edit-users', ['id' => $user->id]) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('delete-users', ['id' => $user->id]) }}"
-                                                    class="btn btn-danger btnDelete">Delete</a>
+                                                @can('edit-user')
+                                                    <a href="{{ route('edit-users', ['id' => $user->id]) }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                @endcan
+                                                @can('delete-user')
+                                                    <a href="{{ route('delete-users', ['id' => $user->id]) }}"
+                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

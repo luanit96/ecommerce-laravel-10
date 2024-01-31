@@ -13,9 +13,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Permission</h1>
-                        <a href="{{ route('create-permissions') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-permission')
+                            <a href="{{ route('create-permissions') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -50,10 +52,14 @@
                                             <td>{{ $permission->name }}</td>
                                             <td>{{ $permission->display_name }}</td>
                                             <td>
-                                                <a href="{{ route('edit-permissions', ['id' => $permission->id]) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('delete-permissions', ['id' => $permission->id]) }}"
-                                                    class="btn btn-danger btnDelete">Delete</a>
+                                                @can('edit-permission')
+                                                    <a href="{{ route('edit-permissions', ['id' => $permission->id]) }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                @endcan
+                                                @can('delete-permission')
+                                                    <a href="{{ route('delete-permissions', ['id' => $permission->id]) }}"
+                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

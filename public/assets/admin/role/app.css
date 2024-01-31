@@ -1,0 +1,20 @@
+.title-checkbox {
+    font-size: 18px;
+    padding: 0 5px;
+    color: #050505;
+    font-weight: 700;
+}
+
+.title-checkall {
+    padding: 0 20px;
+}
+
+.card-header-custom {
+    background-color: #9be9f2;
+}
+
+.checkboxAllPermission, .checkboxWrapper {
+    top: .8rem;
+    width: 1rem;
+    height: 1rem;
+}

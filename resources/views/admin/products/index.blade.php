@@ -17,9 +17,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Product</h1>
-                        <a href="{{ route('create-products') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-product')
+                            <a href="{{ route('create-products') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -63,10 +65,14 @@
                                             </td>
                                             <td>{{ optional($product->category)->name }}</td>
                                             <td>
-                                                <a href="{{ route('edit-products', ['id' => $product->id]) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('delete-products', ['id' => $product->id]) }}"
-                                                    class="btn btn-danger btnDelete">Delete</a>
+                                                @can('edit-product')
+                                                    <a href="{{ route('edit-products', ['id' => $product->id]) }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                @endcan
+                                                @can('delete-product')
+                                                    <a href="{{ route('delete-products', ['id' => $product->id]) }}"
+                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach
