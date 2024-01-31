@@ -2,6 +2,7 @@
 
 return [
     'access' => [
+        'dashboard' => 'dashboard',
         'category' => [
             'list-category' => 'list-category',
             'add-category' => 'add-category',

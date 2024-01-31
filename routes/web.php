@@ -15,11 +15,13 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
-Route::controller(AdminController::class)->group(function () {
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/', 'index')->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::prefix('dashboard')->group(function () {
+            Route::get('/', 'index')->middleware('can:dashboard')->name('dashboard');
+        });
     });
 });
 

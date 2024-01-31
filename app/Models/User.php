@@ -58,4 +58,11 @@ class User extends Authenticatable
         return false;
     }
 
+    public function checkPermissionAdminAccess() {
+        $roles = auth()->user()->roles;
+        if(!$roles->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }

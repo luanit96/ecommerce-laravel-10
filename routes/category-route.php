@@ -9,15 +9,15 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(CategoryController::class)->group(function () {
         Route::prefix('admin/categories')->group(function () {
             Route::get('/', 'index')->name('list-categories')
-                ->middleware('can:list-category');
+            ->middleware('can:list-category');
             Route::get('/create', 'create')->name('create-categories')
-                ->middleware('can:add-category');
+            ->middleware('can:add-category');
             Route::post('/create', 'store')->name('post-categories');
             Route::get('/edit/{id}', 'edit')->name('edit-categories')
-                ->middleware('can:edit-category');
+            ->middleware('can:edit-category');
             Route::post('/update/{id}', 'update')->name('update-categories');
             Route::get('/delete/{id}', 'delete')->name('delete-categories')
-                ->middleware('can:delete-category');
+            ->middleware('can:delete-category');
         });
     });
 });

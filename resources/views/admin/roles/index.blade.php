@@ -80,7 +80,3 @@
     </div>
     <!-- end content-wrapper -->
 @endsection
-
-@section('js')
-    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
-@endsection
