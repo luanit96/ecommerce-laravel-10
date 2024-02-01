@@ -311,7 +311,7 @@
                 @can('list-user-role')
                     <li class="nav-item has-treeview">
                         <a href="{{ route('list-user-role') }}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-table"></i>
                             User Role
                         </a>
                     </li>

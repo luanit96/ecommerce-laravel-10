@@ -53,7 +53,7 @@
                                             <td>{{ $role->name }}</td>
                                             <td>
                                                 @foreach ($role->permissions as $rolePermission)
-                                                    <div>{{ $rolePermission->key_code }}</div>
+                                                    <div>{{ $rolePermission->name }}</div>
                                                 @endforeach
                                             </td>
                                             <td>{{ $role->display_name }}</td>

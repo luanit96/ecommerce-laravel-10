@@ -8,6 +8,7 @@
 
     @yield('title')
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('adminlte/dist/img/favicon.webp') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
