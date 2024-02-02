@@ -16,7 +16,7 @@
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
                             <p class="m-b-40">See how your users experience your website in realtime or view <br>
                                 trends to see any changes in performance over time.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="">Shop New</a></p>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
                             <p class="m-b-40">See how your users experience your website in realtime or view <br>
                                 trends to see any changes in performance over time.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="">Shop New</a></p>
                         </div>
                     </div>
                 </div>
@@ -42,15 +42,15 @@
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
                             <p class="m-b-40">See how your users experience your website in realtime or view <br>
                                 trends to see any changes in performance over time.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="">Shop New</a></p>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
         <div class="slides-navigation">
-            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            <a href="" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
     </div>
     <!-- End Slider -->
@@ -61,19 +61,19 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="{{ asset('fe/images/categories_img_01.jpg') }}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <a class="btn hvr-hover" href="">Lorem ipsum dolor</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="{{ asset('fe/images/categories_img_02.jpg') }}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <a class="btn hvr-hover" href="">Lorem ipsum dolor</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="{{ asset('fe/images/categories_img_03.jpg') }}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <a class="btn hvr-hover" href="">Lorem ipsum dolor</a>
                     </div>
                 </div>
             </div>
@@ -131,14 +131,14 @@
                             <img src="{{ asset('fe/images/img-pro-01.jpg') }}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
                                                 class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="">Add to Cart</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -157,14 +157,14 @@
                             <img src="{{ asset('fe/images/img-pro-02.jpg') }}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
                                                 class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="">Add to Cart</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -183,14 +183,14 @@
                             <img src="{{ asset('fe/images/img-pro-03.jpg') }}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
                                                 class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="">Add to Cart</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -209,14 +209,118 @@
                             <img src="{{ asset('fe/images/img-pro-04.jpg') }}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
                                                 class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
                                             title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                <a class="cart" href="">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $15.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('fe/images/img-pro-01.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $7.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="new">New</p>
+                            </div>
+                            <img src="{{ asset('fe/images/img-pro-02.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $9.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('fe/images/img-pro-03.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $10.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('fe/images/img-pro-04.jpg') }}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="">Add to Cart</a>
                             </div>
                         </div>
                         <div class="why-text">
@@ -255,9 +359,9 @@
                                     mollis. Praesent laoreet lacinia elit id lobortis.</p>
                             </div>
                             <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                                <li><a href=""><i class="far fa-heart"></i></a></li>
+                                <li><a href=""><i class="fas fa-eye"></i></a></li>
+                                <li><a href=""><i class="far fa-comments"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -275,9 +379,9 @@
                                     mollis. Praesent laoreet lacinia elit id lobortis.</p>
                             </div>
                             <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                                <li><a href=""><i class="far fa-heart"></i></a></li>
+                                <li><a href=""><i class="fas fa-eye"></i></a></li>
+                                <li><a href=""><i class="far fa-comments"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -295,9 +399,9 @@
                                     mollis. Praesent laoreet lacinia elit id lobortis.</p>
                             </div>
                             <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
+                                <li><a href=""><i class="far fa-heart"></i></a></li>
+                                <li><a href=""><i class="fas fa-eye"></i></a></li>
+                                <li><a href=""><i class="far fa-comments"></i></a></li>
                             </ul>
                         </div>
                     </div>

@@ -57,8 +57,8 @@
                                         <tr>
                                             <td>{{ $product->id }}</td>
                                             <td>{{ $product->name }}</td>
-                                            <td>{{ number_format($product->price) }}</td>
-                                            <td>{{ number_format($product->discount) }}</td>
+                                            <td>{{ number_format($product->price) }} </td>
+                                            <td>{{ number_format($product->discount) }} </td>
                                             <td>
                                                 <img class="feature_product_img" src="{{ $product->feature_image_path }}"
                                                     alt="">

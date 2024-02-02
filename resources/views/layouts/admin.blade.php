@@ -27,6 +27,10 @@
         .info ul li a {
             cursor: pointer;
         }
+
+        .text-error {
+            color: red;
+        }
     </style>
 
     @yield('css')

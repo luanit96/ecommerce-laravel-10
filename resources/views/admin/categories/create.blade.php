@@ -4,6 +4,11 @@
     <title>add category</title>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/category/app.css') }}">
+@endsection
+
 @section('content')
     <!-- start content wrapper -->
     <div class="content-wrapper">
@@ -31,19 +36,24 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-6">
-                    <form action="{{ route('post-categories') }}" method="post">
+                    <form action="{{ route('post-categories') }}" method="POST">
                         @csrf
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputName">Name</label>
-                                    <input type="text" name="name" class="form-control"
-                                        placeholder="Enter category name" required>
+                                    <label>Name</label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter category name">
+                                    <div class="error-name"></div>
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Parent</label>
-                                    <select class="form-control" name="parent_id">
-                                        <option value="0">Parent category</option>
+                                    <select class="form-control category_select2_init" name="parent_id">
+                                        <option value="0">--Select parent category--</option>
                                         {!! $htmlOptions !!}
                                     </select>
                                 </div>
@@ -57,4 +67,9 @@
         <!-- end Main content -->
     </div>
     <!-- end content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/category/app.js') }}"></script>
 @endsection

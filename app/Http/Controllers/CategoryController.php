@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Core\CategoryRecusive;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\AddCategoryRequest;
+use App\Http\Requests\EditCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -27,7 +29,7 @@ class CategoryController extends Controller
         return view('admin.categories.create', compact('htmlOptions'));
     }
 
-    public function store(Request $request) {
+    public function store(AddCategoryRequest $request) {
         $category = $this->category->create([
             'parent_id' => $request->parent_id,
             'name' => $request->name
@@ -48,7 +50,7 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('category', 'htmlOptions'));
     }
 
-    public function update($id, Request $request) {
+    public function update($id, EditCategoryRequest $request) {
        $category = $this->category->find($id)->update([
             'parent_id' => $request->parent_id,
             'name' => $request->name

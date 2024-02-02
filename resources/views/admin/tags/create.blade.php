@@ -36,9 +36,13 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputName">Tag name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter tag name"
-                                        required>
+                                    <label>Tag name</label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter tag name">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

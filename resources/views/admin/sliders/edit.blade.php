@@ -42,26 +42,38 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="inputName">Slider name(*)</label>
-                                    <input type="text" name="name" class="form-control"
-                                        placeholder="Enter slider name" value="{{ $slider->name }}" required>
+                                    <input type="text" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter slider name" value="{{ $slider->name }}">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="image_path">Image</label>
-                                    <input type="file" name="image_path" class="form-control-file" id="fileUpload">
+                                    <input type="file" name="image_path"
+                                        class="form-control-file @error('image_path') is-invalid @enderror" id="fileUpload">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <img id="outputFileUpload" src="{{ $slider->image_path }}" class="img-style"
                                                 accept=".png, .jpg, .jpeg">
                                         </div>
                                     </div>
+                                    @error('image_path')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Link(*)</label>
-                                    <input type="text" name="link" class="form-control" placeholder="Enter link"
-                                        value="{{ $slider->link }}" required>
+                                    <label>Link</label>
+                                    <input type="text" name="link"
+                                        class="form-control @error('link') is-invalid @enderror" placeholder="Enter link"
+                                        value="{{ $slider->link }}">
+                                    @error('link')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Description(*)</label>
+                                    <label>Description</label>
                                     <textarea class="form-control" name="description" rows="5">{{ $slider->description }}</textarea>
                                 </div>
                                 <input type="submit" value="Update" class="btn btn-lg btn-success float-left">

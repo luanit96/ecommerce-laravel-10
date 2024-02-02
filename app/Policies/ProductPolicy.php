@@ -65,7 +65,7 @@ class ProductPolicy
      */
     public function delete(User $user)
     {
-        return $user->checkPermissionAccess(config('permissions.access.product.update-product'));
+        return $user->checkPermissionAccess(config('permissions.access.product.delete-product'));
     }
 
     /**

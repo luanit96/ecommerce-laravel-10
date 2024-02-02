@@ -32,7 +32,7 @@
 
 <body>
 
-    @include('partials.header-fe');
+    @include('partials.header-fe')
 
 
     @yield('content')
@@ -56,6 +56,15 @@
     <script src="{{ asset('fe/js/form-validator.min.js') }}"></script>
     <script src="{{ asset('fe/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('fe/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
+
+    <script>
+        $(() => {
+            $('.btnLogout').click(function() {
+                $('.formLogout').submit();
+            });
+        });
+    </script>
 </body>
 
 </html>

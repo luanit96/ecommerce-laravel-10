@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\TagRequest;
 
 class TagController extends Controller
 {
@@ -24,7 +25,7 @@ class TagController extends Controller
         return view('admin.tags.create');
     }
 
-    public function store(Request $request) {
+    public function store(TagRequest $request) {
         $tag = $this->tag->create([
             'name' => $request->name
         ]);
@@ -36,7 +37,7 @@ class TagController extends Controller
         return view('admin.tags.edit', compact('tag'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(TagRequest $request, $id) {
         $this->tag->find($id)->update([
             'name' => $request->name
         ]);

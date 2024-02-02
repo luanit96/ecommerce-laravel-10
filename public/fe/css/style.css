@@ -26,7 +26,6 @@
 @import url(bootsnav.css);
 @import url(owl.carousel.min.css);
 @import url(jquery-ui.css);
-@import url(nice-select.css);
 @import url(baguetteBox.min.css);
 
 /*------------------------------------------------------------------
@@ -821,7 +820,6 @@
  .shop-cat-box{
      margin-bottom: 30px;
      position: relative;
-     padding: 3px;
      overflow: hidden;
      border: 0px solid #000000;
 	 box-shadow: 9px 9px 30px 0px rgba(0, 0, 0, 0.3);
@@ -829,7 +827,7 @@
 	transition: all 0.3s ease-in-out 0s;
 }
  .shop-cat-box img{
-     margin: -10px 0 0 -10px;
+     margin: -12px 0 0 -10px;
      max-width: none;
      width: -webkit-calc(100% + 10px);
      width: calc(100% + 10px);
@@ -2604,17 +2602,28 @@
 	border: none;
 }
 
+/**/
+
+.login-box .dropdown-menu {
+    min-width: 122px;
+}
+
 .account-header {
     background: #b0b435;
     width: 100%;
     border-radius: 0;
-    color: #fff;
+    padding: 4px;
+    line-height: 15px;
 }
 
 .dropdown-menu.show {
     text-align: center;
     background-color: #b0b435;
     color: #fff;
+}
+
+.btnLogout {
+    cursor: pointer;
 }
 
 

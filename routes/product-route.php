@@ -12,7 +12,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/create', 'store')->name('post-products');
             Route::get('/edit/{id}', 'edit')->name('edit-products')->middleware('can:edit-product');
             Route::post('/update/{id}', 'update')->name('update-products');
-            Route::get('/delete/{id}', 'delete')->name('delete-products')->middleware('can:update-product');
+            Route::get('/delete/{id}', 'delete')->name('delete-products')->middleware('can:delete-product');
         });
     });
 });

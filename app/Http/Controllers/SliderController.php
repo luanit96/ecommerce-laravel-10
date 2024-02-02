@@ -6,6 +6,7 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
 use App\Traits\StorageImageTrait;
+use App\Http\Requests\SliderRequest;
 
 class SliderController extends Controller
 {   
@@ -25,7 +26,7 @@ class SliderController extends Controller
         return view('admin.sliders.create');
     }
 
-    public function store(Request $request) {
+    public function store(SliderRequest $request) {
         $dataCreateSlider = [
             'name' => $request->name,
             'link' => $request->link,
@@ -48,7 +49,7 @@ class SliderController extends Controller
         return view('admin.sliders.edit', compact('slider'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(SliderRequest $request, $id) {
         $dataUpdateSlider = [
             'name' => $request->name,
             'link' => $request->link,

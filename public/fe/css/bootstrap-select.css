@@ -253,7 +253,7 @@ select.selectpicker {
 .bootstrap-select.btn-group.show-tick .dropdown-menu a.selected span.dropdown-item-inner span.check-mark {
   position: absolute;
   display: inline-block;
-  right: 15px;
+  right: 5px;
   margin-top: 5px;
 }
 /* line 309, bootstrap-select.scss */

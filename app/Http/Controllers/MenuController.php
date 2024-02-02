@@ -6,6 +6,8 @@ use App\Models\Menu;
 use App\Core\MenuRecusive;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\AddMenuRequest;
+use App\Http\Requests\EditMenuRequest;
 
 class MenuController extends Controller
 {
@@ -32,7 +34,7 @@ class MenuController extends Controller
         return view('admin.menus.create', compact('htmlOptions'));
     }
 
-    public function store(Request $request) {
+    public function store(AddMenuRequest $request) {
         $menu = $this->menu->create([
             'parent_id' => $request->parent_id,
             'name' => $request->name
@@ -47,7 +49,7 @@ class MenuController extends Controller
         return view('admin.menus.edit', compact('menu', 'htmlOptions'));
     }
 
-    public function update($id, Request $request) {
+    public function update($id, EditMenuRequest $request) {
         $menu = $this->menu->find($id)->update([
             'parent_id' => $request->parent_id,
             'name' => $request->name

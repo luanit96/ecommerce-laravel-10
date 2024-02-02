@@ -42,29 +42,44 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputName">Product name</label>
-                                    <input type="text" name="name" class="form-control"
-                                        placeholder="Enter product name" required>
+                                    <label>Product name</label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter product name">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input type="text" name="price" class="form-control" placeholder="Enter price"
-                                        required>
+                                    <input type="text" name="price" value="{{ old('price') }}"
+                                        class="form-control @error('price') is-invalid @enderror" placeholder="Enter price">
+                                    @error('price')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Discount</label>
-                                    <input type="text" name="discount" class="form-control" placeholder="Enter discount"
-                                        required>
+                                    <input type="text" name="discount" value="{{ old('price') }}"
+                                        class="form-control @error('discount') is-invalid @enderror"
+                                        placeholder="Enter discount">
+                                    @error('discount')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="feature_image_path">Image</label>
-                                    <input type="file" name="feature_image_path" class="form-control-file"
+                                    <label>Image</label>
+                                    <input type="file" name="feature_image_path"
+                                        class="form-control-file @error('feature_image_path') is-invalid @enderror"
                                         id="fileUpload">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <img id="outputFileUpload" class="img-style" accept=".png, .jpg, .jpeg">
                                         </div>
                                     </div>
+                                    @error('feature_image_path')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Image Detail</label>
@@ -74,10 +89,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
-                                    <select class="form-control category_select2" name="category_id">
+                                    <select class="form-control category_select2 @error('category_id') is-invalid @enderror"
+                                        name="category_id">
                                         <option></option>
                                         {!! $htmlOptions !!}
                                     </select>
+                                    @error('category_id')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Tags</label>

@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Core\CategoryRecusive;
 use App\Traits\DeleteModelTrait;
 use App\Traits\StorageImageTrait;
+use App\Http\Requests\AddProductRequest;
+use App\Http\Requests\EditProductRequest;
 
 class ProductController extends Controller
 {
@@ -43,7 +45,7 @@ class ProductController extends Controller
         return $htmlOptions;
     }
 
-    public function store(Request $request) {
+    public function store(AddProductRequest $request) {
         try {
             DB::beginTransaction();
             //insert data to table products
@@ -97,7 +99,7 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product', 'htmlOptions'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditProductRequest $request, $id) {
         try {
             DB::beginTransaction();
             //update data to table products
