@@ -41,6 +41,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>KeyCode</th>
                                         <th>Description</th>
                                         <th>Action</th>
                                     </tr>
@@ -50,6 +51,7 @@
                                         <tr>
                                             <td>{{ $permission->id }}</td>
                                             <td>{{ $permission->name }}</td>
+                                            <td>{{ $permission->key_code }}</td>
                                             <td>{{ $permission->display_name }}</td>
                                             <td>
                                                 @can('edit-permission')

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TagRequest extends FormRequest
+class EditUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,10 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|unique:tags|min:2|max:100'
+            'name' => 'bail|required|min:3|max:50',
+            'email' => 'bail|required|email:rfc,dns',
+            'password' => 'bail|required|confirmed|min:6',
+            'password_confirmation' => 'bail|required|min:6'
         ];
     }
 }

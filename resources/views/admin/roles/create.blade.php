@@ -41,11 +41,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Role name(*)</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter role name"
-                                        required>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter role name">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Description(*)</label>
+                                    <label>Description</label>
                                     <textarea class="form-control" name="display_name" rows="3"></textarea>
                                 </div>
                             </div>

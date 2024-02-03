@@ -38,19 +38,29 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="inputName">Key(*)</label>
-                                    <input type="text" name="key" value="{{ $setting->key }}" class="form-control"
-                                        placeholder="Enter key" required>
+                                    <input type="text" name="key" value="{{ $setting->key }}"
+                                        class="form-control @error('key') is-invalid @enderror" placeholder="Enter key">
+                                    @error('key')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 @if (request()->type == 'text')
                                     <div class="form-group">
                                         <label for="inputName">Value(*)</label>
                                         <input type="text" name="value" value="{{ $setting->value }}"
-                                            class="form-control" placeholder="Enter value" required>
+                                            class="form-control @error('value') is-invalid @enderror"
+                                            placeholder="Enter value">
+                                        @error('value')
+                                            <div class="alert text-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 @else
                                     <div class="form-group">
                                         <label>Value(*)</label>
-                                        <textarea class="form-control" name="value" rows="5">{{ $setting->value }}</textarea>
+                                        <textarea class="form-control @error('value') is-invalid @enderror" name="value" rows="5">{{ $setting->value }}</textarea>
+                                        @error('value')
+                                            <div class="alert text-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 @endif
                                 <input type="submit" value="Update" class="btn btn-lg btn-success float-left">

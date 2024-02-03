@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\SettingRequest;
 
 class SettingController extends Controller
 {
@@ -24,7 +25,7 @@ class SettingController extends Controller
         return view('admin.settings.create');
     }
 
-    public function store(Request $request) {
+    public function store(SettingRequest $request) {
         $setting = $this->setting->create([
             'key' => $request->key,
             'value' => $request->value,
@@ -38,7 +39,7 @@ class SettingController extends Controller
         return view('admin.settings.edit', compact('setting'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(SettingRequest $request, $id) {
         $setting = $this->setting->find($id)->update([
             'key' => $request->key,
             'value' => $request->value,

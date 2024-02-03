@@ -21,6 +21,12 @@ return [
             'edit-product' => 'edit-product',
             'delete-product' => 'delete-product'
         ],
+        'product-image' => [
+            'list-product-image' => 'list-product-image'
+        ],
+        'product-tag' => [
+            'list-product-tag' => 'list-product-tag'
+        ],
         'tag' => [
             'list-tag' => 'list-tag',
             'add-tag' => 'add-tag',

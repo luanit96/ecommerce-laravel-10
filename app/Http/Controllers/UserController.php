@@ -9,6 +9,8 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\EditUserRequest;
 
 class UserController extends Controller
 {
@@ -30,7 +32,7 @@ class UserController extends Controller
         return view('admin.users.create', compact('roles'));
     }
 
-    public function store(Request $request) {
+    public function store(UserRequest $request) {
         try {
             DB::beginTransaction();
             //insert data to table users 
@@ -57,15 +59,16 @@ class UserController extends Controller
         return view('admin.users.edit', compact('roles', 'user', 'userOfRoles'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditUserRequest $request, $id) {
         try {
             DB::beginTransaction();
-            //update data to table users 
+            //update data to table users
             $this->user->find($id)->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password)
             ]);
+
             $user = $this->user->find($id);
             //insert data to table roles
             $user->roles()->sync($request->role_id);

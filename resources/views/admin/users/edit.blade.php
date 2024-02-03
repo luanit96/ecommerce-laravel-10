@@ -42,18 +42,38 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>User name(*)</label>
-                                    <input type="text" name="name" value="{{ $user->name }}" class="form-control"
-                                        placeholder="Enter user name" required>
+                                    <input type="text" name="name" value="{{ $user->name }}"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter user name">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Email(*)</label>
-                                    <input type="email" name="email" value="{{ $user->email }}" class="form-control"
-                                        placeholder="Enter email" required>
+                                    <input type="email" name="email" value="{{ $user->email }}"
+                                        class="form-control @error('email') is-invalid @enderror" placeholder="Enter email">
+                                    @error('email')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Password(*)</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Enter password"
-                                        required>
+                                    <label>New Password(*)</label>
+                                    <input type="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror"
+                                        placeholder="New password">
+                                    @error('password')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password(*)</label>
+                                    <input type="password" name="password_confirmation"
+                                        class="form-control confirm-password @error('password_confirmation') is-invalid @enderror"
+                                        placeholder="Confirm password">
+                                    @error('password_confirmation')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>

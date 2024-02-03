@@ -41,9 +41,13 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputName">Name</label>
+                                    <label>Name</label>
                                     <input type="text" name="name" value="{{ $permission->name }}"
-                                        class="form-control" placeholder="Enter permission name" required>
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Enter permission name">
+                                    @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Parent</label>

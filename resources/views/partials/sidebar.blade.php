@@ -128,6 +128,22 @@
                         </ul>
                     </li>
                 @endcanany
+                @can('list-product-image')
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('list-product-image') }}" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            Product Image
+                        </a>
+                    </li>
+                @endcan
+                @can('list-product-tag')
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('list-product-tag') }}" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            Product Tag
+                        </a>
+                    </li>
+                @endcan
                 @canany(['list-tag', 'add-tag'])
                     <li class="nav-item has-treeview">
                         <a class="nav-link">

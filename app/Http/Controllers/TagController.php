@@ -6,6 +6,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
 use App\Http\Requests\TagRequest;
+use App\Http\Requests\EditTagRequest;
 
 class TagController extends Controller
 {
@@ -37,7 +38,7 @@ class TagController extends Controller
         return view('admin.tags.edit', compact('tag'));
     }
 
-    public function update(TagRequest $request, $id) {
+    public function update(EditTagRequest $request, $id) {
         $this->tag->find($id)->update([
             'name' => $request->name
         ]);

@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Core\PermissionRecusive;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\AddPermissionRequest;
+use App\Http\Requests\EditPermissionRequest;
 
 class PermissionController extends Controller
 {
@@ -33,7 +35,7 @@ class PermissionController extends Controller
         return $htmlOptions;
     }
 
-    public function store(Request $request) {
+    public function store(AddPermissionRequest $request) {
         $this->permission->create([
             'name' => $request->name,
             'display_name' => $request->display_name,
@@ -49,7 +51,7 @@ class PermissionController extends Controller
         return view('admin.permissions.edit', compact('permission', 'htmlOptions'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditPermissionRequest $request, $id) {
         $this->role->find($id)->update([
             'name' => $request->name,
             'display_name' => $request->display_name

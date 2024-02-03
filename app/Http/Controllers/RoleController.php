@@ -6,8 +6,10 @@ use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Http\Requests\RoleRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\EditRoleRequest;
 
 class RoleController extends Controller
 {
@@ -29,7 +31,7 @@ class RoleController extends Controller
         return view('admin.roles.create', compact('permissionParents'));
     }
 
-    public function store(Request $request) {
+    public function store(RoleRequest $request) {
         try {
             DB::beginTransaction();
             //insert data to table roles
@@ -54,7 +56,7 @@ class RoleController extends Controller
         return view('admin.roles.edit', compact('permissionParents', 'role', 'roleOfPermissions'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditRoleRequest $request, $id) {
         try {
             DB::beginTransaction();
             //update data to table roles 

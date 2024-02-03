@@ -13,6 +13,8 @@ use App\Policies\SettingPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\UserRolePolicy;
 use App\Policies\PermissionPolicy;
+use App\Policies\ProductTagPolicy;
+use App\Policies\ProductImagePolicy;
 use Illuminate\Support\Facades\Gate;
 use App\Policies\PermissionRolePolicy;
 
@@ -24,6 +26,10 @@ class PermissionGatePolicy {
         $this->defineGateMenu();
         //define gate product
         $this->defineGateProduct();
+        //define gate product image
+        $this->defineGateProductImage();
+        //define gate product tag
+        $this->defineGateProductTag();
         //define gate tag
         $this->defineGateTag();
         //define gate slider
@@ -66,6 +72,16 @@ class PermissionGatePolicy {
         Gate::define('add-product', [ProductPolicy::class, 'create']);
         Gate::define('edit-product', [ProductPolicy::class, 'update']);
         Gate::define('delete-product', [ProductPolicy::class, 'delete']);
+    }
+
+    /* Define gate product image */
+    public function defineGateProductImage() {
+        Gate::define('list-product-image', [ProductImagePolicy::class, 'view']);
+    }
+
+    /* Define gate product tag */
+    public function defineGateProductTag() {
+        Gate::define('list-product-tag', [ProductTagPolicy::class, 'view']);
     }
 
     /* Define gate tag*/

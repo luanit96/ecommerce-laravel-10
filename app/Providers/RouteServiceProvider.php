@@ -47,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
             $this->mapMenuRoutes();
             //map product route
             $this->mapProductRoutes();
+            //map product image
+            $this->mapProductImageRoutes();
+            //map product tag
+            $this->mapProductTagRoutes();
             //map tag route
             $this->mapTagRoutes();
             //map slider route
@@ -101,6 +105,20 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/product-route.php'));
+    }
+
+    public function mapProductImageRoutes() {
+         //Product image route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/product-image-route.php'));
+    }
+
+    public function mapProductTagRoutes() {
+        //Product tag route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/product-tag-route.php'));
     }
 
     public function mapTagRoutes() {
