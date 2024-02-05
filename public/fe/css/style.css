@@ -788,15 +788,18 @@
      opacity: 0.5;
 }
  .cover-slides h1{
-     font-family: 'Poppins', sans-serif;
-     font-weight: 500;
-     font-size: 64px;
-     color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 64px;
+    color: #fff;
+    padding: 0 20rem 10px 20rem;
 }
  .cover-slides p{
      font-size: 18px;
      color: #fff;
      padding-bottom: 30px;
+     padding-left: 20rem;
+     padding-right: 20rem;
 }
  .slides-pagination a{
      border: 2px solid #ffffff;

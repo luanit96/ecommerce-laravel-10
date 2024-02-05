@@ -41,7 +41,7 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Category name</label>
                                     <input type="text" name="name" value="{{ $category->name }}"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter category name">

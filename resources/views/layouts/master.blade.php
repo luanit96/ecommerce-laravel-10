@@ -32,13 +32,13 @@
 
 <body>
 
-    @include('partials.header-fe')
+    @include('home.components.header')
 
 
     @yield('content')
 
 
-    @include('partials.footer-fe')
+    @include('home.components.footer')
 
     <!-- ALL JS FILES -->
     <script src="{{ asset('fe/js/jquery-3.2.1.min.js') }}"></script>

@@ -49,7 +49,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="image_path">Image</label>
+                                    <label>Image</label>
                                     <input type="file" name="image_path" value="{{ old('image_path') }}"
                                         class="form-control-file @error('image_path') is-invalid @enderror" id="fileUpload">
                                     <div class="row">

@@ -14,5 +14,7 @@ use App\Http\Controllers\HomeController;
 // */
 
 Route::get('/', [ HomeController::class, 'index' ])->name('home');
+Route::get('/about-us', [ HomeController::class, 'getAboutUs' ])->name('about-us');
+Route::get('/contact-us', [ HomeController::class, 'getContactUs' ])->name('contact-us');
 
 require __DIR__.'/auth.php';

@@ -41,7 +41,7 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputName">Slider name(*)</label>
+                                    <label>Slider name(*)</label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter slider name" value="{{ $slider->name }}">
@@ -50,8 +50,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="image_path">Image</label>
-                                    <input type="file" name="image_path"
+                                    <label>Image</label>
+                                    <input type="file" name="image_path" value="{{ $slider->image_path }}"
                                         class="form-control-file @error('image_path') is-invalid @enderror" id="fileUpload">
                                     <div class="row">
                                         <div class="col-md-4">
