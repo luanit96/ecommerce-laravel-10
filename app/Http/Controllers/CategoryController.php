@@ -7,12 +7,13 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Core\CategoryRecusive;
 use App\Traits\DeleteModelTrait;
+use App\Traits\StorageImageTrait;
 use App\Http\Requests\AddCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
 
 class CategoryController extends Controller
 {
-    use DeleteModelTrait;
+    use StorageImageTrait, DeleteModelTrait;
     private $category;
 
     public function __construct(Category $category) {
@@ -30,10 +31,16 @@ class CategoryController extends Controller
     }
 
     public function store(AddCategoryRequest $request) {
-        $category = $this->category->create([
+        $dataCategoryCreate = [
             'parent_id' => $request->parent_id,
             'name' => $request->name
-        ]);
+        ];
+        $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'category');
+        if(!empty($dataUploadImage)) {
+            $dataCategoryCreate['image_path'] = $dataUploadImage['file_path'];
+            $dataCategoryCreate['image_name'] = $dataUploadImage['file_name'];
+        }
+        $category = $this->category->create($dataCategoryCreate);
 
         return redirect()->route('list-categories');
     }
@@ -51,10 +58,18 @@ class CategoryController extends Controller
     }
 
     public function update($id, EditCategoryRequest $request) {
-       $category = $this->category->find($id)->update([
+        $dataCategoryUpdate = [
             'parent_id' => $request->parent_id,
             'name' => $request->name
-        ]);
+        ];
+        
+        $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'category');
+        if(!empty($dataUploadImage)) {
+            $dataCategoryUpdate['image_path'] = $dataUploadImage['file_path'];
+            $dataCategoryUpdate['image_name'] = $dataUploadImage['file_name'];
+        }
+        
+        $category = $this->category->find($id)->update($dataCategoryUpdate);
         return redirect()->route('list-categories');
     }
 

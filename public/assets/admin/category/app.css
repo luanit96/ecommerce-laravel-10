@@ -6,3 +6,10 @@
     color: #101112 !important;
     background-color: #baddea !important;
 }
+
+.img-style {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin: 10px;
+}

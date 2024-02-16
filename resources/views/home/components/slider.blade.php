@@ -1,22 +1,26 @@
-<div id="slides-shop" class="cover-slides">
-    <ul class="slides-container">
-        @foreach ($sliders as $slider)
-            <li class="text-center">
-                <img src="{{ $slider->image_path }}" alt="{{ $slider->image_name }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>{{ $slider->name }}</strong></h1>
-                            <p class="m-b-40">{{ $slider->description }}</p>
-                            <p><a class="btn hvr-hover" href="{{ url('/') }}">Shop New</a></p>
-                        </div>
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @foreach ($sliders as $key => $slider)
+            <div class="carousel-item @if ($key == 0) active @endif" style="height: 410px;">
+                <img class="img-fluid-slider" src="{{ $slider->image_path }}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        {{-- <h3 class="display-4 text-white font-weight-semi-bold mb-4">{{ $slider->name }}</h3>
+                        <p>{{ $slider->description }}</p> --}}
+                        {{-- <a href="" class="btn btn-light py-2 px-3">Mua sắm ngay</a> --}}
                     </div>
                 </div>
-            </li>
+            </div>
         @endforeach
-    </ul>
-    <div class="slides-navigation">
-        <a href="" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-        <a href="" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
     </div>
+    <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+            <span class="carousel-control-prev-icon mb-n2"></span>
+        </div>
+    </a>
+    <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+            <span class="carousel-control-next-icon mb-n2"></span>
+        </div>
+    </a>
 </div>

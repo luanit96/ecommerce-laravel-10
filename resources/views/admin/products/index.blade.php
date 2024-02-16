@@ -67,11 +67,12 @@
                                             <td>
                                                 @can('edit-product')
                                                     <a href="{{ route('edit-products', ['id' => $product->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="pr-2" title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-product')
                                                     <a href="{{ route('delete-products', ['id' => $product->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

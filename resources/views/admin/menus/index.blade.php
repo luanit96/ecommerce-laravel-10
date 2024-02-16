@@ -51,12 +51,13 @@
                                             <td>{{ $menu->name }}</td>
                                             <td>
                                                 @can('edit-menu')
-                                                    <a href="{{ route('edit-menus', ['id' => $menu->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('edit-menus', ['id' => $menu->id]) }}" class="pr-2"
+                                                        title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-menu')
                                                     <a href="{{ route('delete-menus', ['id' => $menu->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

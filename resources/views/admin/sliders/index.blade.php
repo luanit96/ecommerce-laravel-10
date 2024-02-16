@@ -59,12 +59,13 @@
                                             </td>
                                             <td>
                                                 @can('edit-slider')
-                                                    <a href="{{ route('edit-sliders', ['id' => $slider->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('edit-sliders', ['id' => $slider->id]) }}" class="pr-2"
+                                                        title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-slider')
                                                     <a href="{{ route('delete-sliders', ['id' => $slider->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

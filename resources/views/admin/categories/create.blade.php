@@ -36,17 +36,30 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-6">
-                    <form action="{{ route('post-categories') }}" method="POST">
+                    <form action="{{ route('post-categories') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Category name</label>
+                                    <label>Category name(*)</label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter category name">
-                                    <div class="error-name"></div>
                                     @error('name')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Image(*)</label>
+                                    <input type="file" name="image_path" value="{{ old('image_path') }}"
+                                        class="form-control-file  @error('image_path') is-invalid @enderror"
+                                        id="fileUpload">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img id="outputFileUpload" class="img-style" accept=".png, .jpg, .jpeg">
+                                        </div>
+                                    </div>
+                                    @error('image_path')
                                         <div class="alert text-error">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -71,5 +84,6 @@
 
 @section('js')
     <script src="{{ asset('assets/vendors/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/loadFile.js') }}"></script>
     <script src="{{ asset('assets/admin/category/app.js') }}"></script>
 @endsection

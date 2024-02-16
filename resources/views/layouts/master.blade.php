@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Basic -->
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Site Metas -->
     @yield('title')
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('fe/images/favicon.webp') }}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{{ asset('fe/images/apple-touch-icon.png') }}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('fe/img/favicon/favicon.webp') }}" type="image/x-icon">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('fe/css/bootstrap.min.css') }}">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="{{ asset('fe/css/style.css') }}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{ asset('fe/css/responsive.css') }}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('fe/css/custom.css') }}">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('fe/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('fe/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -40,23 +36,19 @@
 
     @include('home.components.footer')
 
-    <!-- ALL JS FILES -->
-    <script src="{{ asset('fe/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('fe/js/popper.min.js') }}"></script>
-    <script src="{{ asset('fe/js/bootstrap.min.js') }}"></script>
-    <!-- ALL PLUGINS -->
-    <script src="{{ asset('fe/js/jquery.superslides.min.js') }}"></script>
-    <script src="{{ asset('fe/js/bootstrap-select.js') }}"></script>
-    <script src="{{ asset('fe/js/inewsticker.js') }}"></script>
-    <script src="{{ asset('fe/js/bootsnav.js') }}"></script>
-    <script src="{{ asset('fe/js/images-loded.min.js') }}"></script>
-    <script src="{{ asset('fe/js/isotope.min.js') }}"></script>
-    <script src="{{ asset('fe/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('fe/js/baguetteBox.min.js') }}"></script>
-    <script src="{{ asset('fe/js/form-validator.min.js') }}"></script>
-    <script src="{{ asset('fe/js/contact-form-script.js') }}"></script>
-    <script src="{{ asset('fe/js/custom.js') }}"></script>
-    <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('fe/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('fe/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{{ asset('fe/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('fe/mail/contact.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('fe/js/main.js') }}"></script>
 
     <script>
         $(() => {

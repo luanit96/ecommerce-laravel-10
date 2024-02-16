@@ -1,189 +1,69 @@
-<!-- Start Instagram Feed  -->
-<div class="instagram-box">
-    <div class="main-instagram owl-carousel owl-theme">
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-01.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+<!-- Footer Start -->
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold"><span
+                        class="text-primary font-weight-bold border border-white px-3 mr-1">G&Q</span>Store</h1>
+            </a>
+            <p>Với mong muốn đa dạng hoá những sản phẩm thời trang trong tủ đồ của bạn với sự linh hoạt để mix match và
+                đem lại sự tươi tắn mỗi ngày.</p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Chung cư An Bình, Dĩ An, Bình Dương
+            </p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>gqstore@gmail.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i> +84 855 390 479</p>
         </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-02.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-03.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-04.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-05.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-06.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-07.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('') }}fe/images/instagram-img-08.jpg" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-09.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="{{ asset('fe/images/instagram-img-05.jpg') }}" alt="" />
-                <div class="hov-in">
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Instagram Feed  -->
-
-
-<!-- Start Footer  -->
-<footer>
-    <div class="footer-main">
-        <div class="container">
+        <div class="col-lg-8 col-md-12">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Business Time</h3>
-                        <ul class="list-time">
-                            <li>Monday - Friday: 08.00am to 05.00pm</li>
-                            <li>Saturday: 10.00am to 08.00pm</li>
-                            <li>Sunday: <span>Closed</span></li>
-                        </ul>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Thông tin</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Giới thiệu</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Tìm kiếm</a>
+                        <a class="text-dark" href=""><i class="fa fa-angle-right mr-2"></i>Blog</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Newsletter</h3>
-                        <form class="newsletter-box">
-                            <div class="form-group">
-                                <input class="" type="email" name="Email" placeholder="Email Address*" />
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <button class="btn hvr-hover" type="submit">Submit</button>
-                        </form>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Sản phẩm</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Áo kiểu</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Áo sơ mi</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Áo thun</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Quần</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Váy</a>
+                        <a class="text-dark" href=""><i class="fa fa-angle-right mr-2"></i>Đầm</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-top-box">
-                        <h3>Social Media</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul>
-                            <li><a href=""><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-widget">
-                        <h4>About Freshshop</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-link">
-                        <h4>Information</h4>
-                        <ul>
-                            <li><a href="">About Us</a></li>
-                            <li><a href="">Customer Service</a></li>
-                            <li><a href="">Our Sitemap</a></li>
-                            <li><a href="">Terms &amp; Conditions</a></li>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Delivery Information</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="footer-link-contact">
-                        <h4>Contact Us</h4>
-                        <ul>
-                            <li>
-                                <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston
-                                    Street Wichita,<br> KS 67213 </p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-phone-square"></i>Phone: <a href="">+1-888 705
-                                        770</a></p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-envelope"></i>Email: <a href="">contactinfo@gmail.com</a>
-                                </p>
-                            </li>
-                        </ul>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Chính sách</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Chính sách và quy
+                            định chung</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Hướng dẫn mua
+                            hàng</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Hướng dẫn thanh
+                            toán</a>
+                        <a class="text-dark mb-2" href=""><i class="fa fa-angle-right mr-2"></i>Chính sách đổi
+                            trả</a>
+                        <a class="text-dark" href=""><i class="fa fa-angle-right mr-2"></i>Kiểm tra đơn hàng</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
-<!-- End Footer  -->
-
-<!-- Start copyright  -->
-<div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2024 Design By <a href="{{ route('home') }}">G&QStore</a>
-    </p>
+    <div class="row border-top border-light mx-xl-5 py-4">
+        <div class="col-md-12 px-xl-0">
+            <p class="mb-md-0 text-center text-dark">
+                &copy; 2024 <a class="text-dark font-weight-semi-bold" href="{{ route('home') }}">G&Q Store</a>. All
+                Rights
+                Reserved.
+            </p>
+        </div>
+    </div>
 </div>
-<!-- End copyright  -->
+<!-- Footer End -->
 
-<a href="" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+<!-- Back to Top -->
+<a title="Trở lại đầu trang" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>

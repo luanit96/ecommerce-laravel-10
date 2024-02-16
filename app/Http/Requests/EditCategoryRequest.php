@@ -24,7 +24,8 @@ class EditCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|unique:categories|min:2|max:255'
+            'name' => 'bail|required|min:2|max:255',
+            'image_path' => 'bail|file|image'
         ];
     }
 }

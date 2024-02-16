@@ -51,12 +51,13 @@
                                             <td>{{ $tag->name }}</td>
                                             <td>
                                                 @can('edit-tag')
-                                                    <a href="{{ route('edit-tags', ['id' => $tag->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('edit-tags', ['id' => $tag->id]) }}" class="pr-2"
+                                                        title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-tag')
                                                     <a href="{{ route('delete-tags', ['id' => $tag->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

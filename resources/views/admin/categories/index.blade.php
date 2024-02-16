@@ -52,11 +52,13 @@
                                             <td>
                                                 @can('edit-category')
                                                     <a href="{{ route('edit-categories', ['id' => $category->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="pr-2" title="Edit">
+                                                        <i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-category')
                                                     <a href="{{ route('delete-categories', ['id' => $category->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

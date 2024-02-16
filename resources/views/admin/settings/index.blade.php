@@ -62,11 +62,12 @@
                                             <td>
                                                 @can('edit-setting')
                                                     <a href="{{ route('edit-settings', ['id' => $setting->id]) . '?type=' . $setting->type }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="pr-2" title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-setting')
                                                     <a href="{{ route('delete-settings', ['id' => $setting->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

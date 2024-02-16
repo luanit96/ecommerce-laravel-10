@@ -1,178 +1,157 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Trang Chủ</title>
+    <title>Trang chủ</title>
 @endsection
 
 @section('content')
-    <!-- Start Slider -->
-    @include('home.components.slider')
-    <!-- End Slider -->
-    <!-- Start Categories  -->
-    <div class="categories-shop">
-        <div class="container">
-            <div class="row">
-                @foreach ($categories as $category)
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="shop-cat-box">
-                            <img class="img-fluid" src="{{ asset('fe/images/categories_img_01.jpg') }}" alt="" />
-                            <a class="btn hvr-hover">{{ $category->name }}</a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- End Categories -->
-
-    <div class="box-add-products">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="offer-box-products">
-                        <img class="img-fluid" src="{{ asset('fe/images/add-img-01.jpg') }}" alt="" />
-                    </div>
+    <!-- Featured Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4 feature-item">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Sản phẩm chất lượng</h5>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="offer-box-products">
-                        <img class="img-fluid" src="{{ asset('fe/images/add-img-02.jpg') }}" alt="" />
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4 feature-item">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Miễn phí vận chuyển</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4 feature-item">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Hoản trả trong 14 ngày</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4 feature-item">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7</h5>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Featured End -->
 
-    <!-- Start Products  -->
-    <div class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>New Product</h1>
+
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            @foreach ($categories as $category)
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                        <p class="text-right">{{ $category->products->count() }} Sản phẩm</p>
+                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="{{ $category->image_path }}" alt="{{ $category->name }}">
+                        </a>
+                        <h5 class="font-weight-semi-bold m-0 text-center">{{ $category->name }}</h5>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="special-menu text-center">
-                        <div class="button-group filter-button-group">
-                            <button class="active" data-filter="*">All</button>
-                            <button data-filter=".top-featured">Top featured</button>
-                            <button data-filter=".best-seller">Best seller</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row special-list">
-                @foreach ($products as $product)
-                    <div class="col-lg-3 col-md-6 special-grid best-seller">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-                                    <p class="sale">Sale</p>
-                                </div>
-                                <img src="{{ $product->feature_image_path }}" class="img-fluid"
-                                    alt="{{ $product->feature_image_name }}">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                    class="fas fa-eye"></i></a></li>
-                                        <li><a href="" data-toggle="tooltip" data-placement="right"
-                                                title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                        <li><a href="" data-toggle="tooltip" data-placement="right"
-                                                title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                    <a class="cart" href="">Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="why-text">
-                                <h4>{{ $product->name }}</h4>
-                                <h5>
-                                    <span>{{ $product->price }} đ</span>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @endforeach
         </div>
     </div>
-    <!-- End Products  -->
+    <!-- Categories End -->
 
-    <!-- Start Blog  -->
-    <div class="latest-blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>latest blog</h1>
+
+    <!-- Offer Start -->
+    <div class="container-fluid offer pt-5">
+        <div class="row px-xl-5">
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
+                    <img src="{{ asset('fe/img/offer-1.png') }}" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3">Giảm 20% cho tất cả đơn hàng</h5>
+                        <h1 class="mb-4 font-weight-semi-bold">Phụ kiện thời trang</h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem</a>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('fe/images/blog-img.jpg') }}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet
-                                    urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed
-                                    mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href=""><i class="far fa-heart"></i></a></li>
-                                <li><a href=""><i class="fas fa-eye"></i></a></li>
-                                <li><a href=""><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('fe/images/blog-img-01.jpg') }}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet
-                                    urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed
-                                    mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href=""><i class="far fa-heart"></i></a></li>
-                                <li><a href=""><i class="fas fa-eye"></i></a></li>
-                                <li><a href=""><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('fe/images/blog-img-02.jpg') }}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet
-                                    urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed
-                                    mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href=""><i class="far fa-heart"></i></a></li>
-                                <li><a href=""><i class="fas fa-eye"></i></a></li>
-                                <li><a href=""><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
+                    <img src="{{ asset('fe/img/offer-2.png') }}" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3">Giảm 20% cho tất cả đơn hàng</h5>
+                        <h1 class="mb-4 font-weight-semi-bold">Thời trang nữ</h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Blog  -->
+    <!-- Offer End -->
+
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Sản phẩm mới nhất</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            @foreach ($newProducts as $newProduct)
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="{{ $newProduct->feature_image_path }}"
+                                alt="{{ $newProduct->name }}">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 role="button" class="text-truncate mb-3 ml-2 mr-2" title="{{ $newProduct->name }}">
+                                {{ $newProduct->name }}</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>{{ number_format($newProduct->discount) }} đ</h6>
+                                <h6 class="text-muted ml-2"><del>{{ number_format($newProduct->price) }} đ</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <!-- Products End -->
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Sản phẩm nổi bật</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            @foreach ($favouriteProducts as $favouriteProduct)
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="{{ $favouriteProduct->feature_image_path }}"
+                                alt="{{ $favouriteProduct->name }}">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 role="button" class="text-truncate mb-3 ml-2 mr-2" title="{{ $favouriteProduct->name }}">
+                                {{ $favouriteProduct->name }}</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>{{ number_format($favouriteProduct->discount) }} đ</h6>
+                                <h6 class="text-muted ml-2"><del>{{ number_format($favouriteProduct->price) }} đ</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="mb-3 text-center">
+            <a href="" class="py-2 px-3 all-product">Xem tất cả sản phẩm</a>
+        </div>
+    </div>
+    <!-- Products End -->
 @endsection

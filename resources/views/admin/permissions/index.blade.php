@@ -56,11 +56,12 @@
                                             <td>
                                                 @can('edit-permission')
                                                     <a href="{{ route('edit-permissions', ['id' => $permission->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="pr-2" title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-permission')
                                                     <a href="{{ route('delete-permissions', ['id' => $permission->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

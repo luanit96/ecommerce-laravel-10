@@ -24,7 +24,7 @@ class EditMenuRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|unique:menus|min:2|max:255'
+            'name' => 'bail|required|min:2|max:255'
         ];
     }
 }

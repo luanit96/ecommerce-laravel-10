@@ -59,12 +59,12 @@
                                             <td>{{ $role->display_name }}</td>
                                             <td>
                                                 @can('edit-role')
-                                                    <a href="{{ route('edit-roles', ['id' => $role->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('edit-roles', ['id' => $role->id]) }}" class="pr-2"
+                                                        title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-role')
                                                     <a href="{{ route('delete-roles', ['id' => $role->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete"><i class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>

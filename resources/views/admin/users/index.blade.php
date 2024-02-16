@@ -60,12 +60,13 @@
                                             </td>
                                             <td>
                                                 @can('edit-user')
-                                                    <a href="{{ route('edit-users', ['id' => $user->id]) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('edit-users', ['id' => $user->id]) }}" class="pr-2"
+                                                        title="Edit"><i class="fas fa-edit"></i></a>
                                                 @endcan
                                                 @can('delete-user')
                                                     <a href="{{ route('delete-users', ['id' => $user->id]) }}"
-                                                        class="btn btn-danger btnDelete">Delete</a>
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
                                                 @endcan
                                             </td>
                                         </tr>
