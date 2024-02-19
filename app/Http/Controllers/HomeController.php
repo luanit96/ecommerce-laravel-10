@@ -33,11 +33,28 @@ class HomeController extends Controller
         return $html;
     }
 
-    public function getAboutUs() {
-        return view('home.about-us');
+    public function getAllProduct() {
+        $menus = $this->getMenus();
+        $listCategory = $this->getCategories();
+        $productAll = Product::paginate(20);
+        return view('home.products', compact('menus', 'listCategory', 'productAll'));
     }
 
-    public function getContactUs() {
-        return view('home.contact-us');
+    public function getAbout() {
+        $menus = $this->getMenus();
+        $listCategory = $this->getCategories();
+        return view('home.about-us', compact('menus', 'listCategory'));
+    }
+
+    public function getContact() {
+        $menus = $this->getMenus();
+        $listCategory = $this->getCategories();
+        return view('home.contact-us', compact('menus', 'listCategory'));
+    }
+
+    public function getNews() {
+        $menus = $this->getMenus();
+        $listCategory = $this->getCategories();
+        return view('home.news', compact('menus', 'listCategory'));
     }
 }

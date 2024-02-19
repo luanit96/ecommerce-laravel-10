@@ -38,11 +38,11 @@
             <form action="{{ route('post-products') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-10">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Product name</label>
+                                    <label>Product name(*)</label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter product name">
@@ -51,7 +51,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Price</label>
+                                    <label>Price(*)</label>
                                     <input type="text" name="price" value="{{ old('price') }}"
                                         class="form-control @error('price') is-invalid @enderror" placeholder="Enter price">
                                     @error('price')
@@ -59,8 +59,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Discount</label>
-                                    <input type="text" name="discount" value="{{ old('price') }}"
+                                    <label>Discount(*)</label>
+                                    <input type="text" name="discount" value="{{ old('discount') }}"
                                         class="form-control @error('discount') is-invalid @enderror"
                                         placeholder="Enter discount">
                                     @error('discount')
@@ -88,7 +88,7 @@
                                     <div class="row" id="outputMultipleFile"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Category</label>
+                                    <label>Category(*)</label>
                                     <select class="form-control category_select2 @error('category_id') is-invalid @enderror"
                                         name="category_id">
                                         <option></option>
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                     </div><!--end col-->
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">

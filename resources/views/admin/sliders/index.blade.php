@@ -55,7 +55,8 @@
                                             <td>{{ $slider->id }}</td>
                                             <td>{{ $slider->name }}</td>
                                             <td>
-                                                <img class="slider_img" src="{{ $slider->image_path }}" alt="">
+                                                <img class="slider_img" src="{{ $slider->image_path }}"
+                                                    alt="{{ $slider->name }}">
                                             </td>
                                             <td>
                                                 @can('edit-slider')

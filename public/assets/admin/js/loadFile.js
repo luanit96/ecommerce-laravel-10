@@ -12,7 +12,7 @@ $(() => {
     //Event change multiple file image
     if($('#multipleFileUpload')) {
         $('#multipleFileUpload').change(() => {
-            $('#outputMultipleProductFile').html('');
+            $('#outputMultipleFile').html('');
             const multipleFile = multipleFileUpload.files;
             let img;
             if (multipleFile) {

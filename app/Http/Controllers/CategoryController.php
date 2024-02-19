@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Str;
 use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -33,7 +34,8 @@ class CategoryController extends Controller
     public function store(AddCategoryRequest $request) {
         $dataCategoryCreate = [
             'parent_id' => $request->parent_id,
-            'name' => $request->name
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ];
         $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'category');
         if(!empty($dataUploadImage)) {
@@ -60,7 +62,8 @@ class CategoryController extends Controller
     public function update($id, EditCategoryRequest $request) {
         $dataCategoryUpdate = [
             'parent_id' => $request->parent_id,
-            'name' => $request->name
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ];
         
         $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'category');

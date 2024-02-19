@@ -6,6 +6,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
 use App\Http\Requests\SettingRequest;
+use App\Http\Requests\EditSettingRequest;
 
 class SettingController extends Controller
 {
@@ -39,7 +40,7 @@ class SettingController extends Controller
         return view('admin.settings.edit', compact('setting'));
     }
 
-    public function update(SettingRequest $request, $id) {
+    public function update(EditSettingRequest $request, $id) {
         $setting = $this->setting->find($id)->update([
             'key' => $request->key,
             'value' => $request->value,

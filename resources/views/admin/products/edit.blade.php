@@ -39,11 +39,11 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-10">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Product name</label>
+                                    <label>Product name(*)</label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter product name" value="{{ $product->name }}">
@@ -52,7 +52,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Price</label>
+                                    <label>Price(*)</label>
                                     <input type="text" name="price"
                                         class="form-control @error('price') is-invalid @enderror" placeholder="Enter price"
                                         value="{{ $product->price }}" required>
@@ -61,7 +61,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Discount</label>
+                                    <label>Discount(*)</label>
                                     <input type="text" name="discount"
                                         class="form-control @error('discount') is-invalid @enderror"
                                         placeholder="Enter discount" value="{{ $product->discount }}">
@@ -72,6 +72,7 @@
                                 <div class="form-group">
                                     <label>Image</label>
                                     <input type="file" name="feature_image_path"
+                                        value="{{ $product->feature_image_path }}"
                                         class="form-control-file @error('feature_image_path') is-invalid @enderror"
                                         id="fileUpload">
                                     <div class="row">
@@ -96,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Category</label>
+                                    <label>Category(*)</label>
                                     <select class="form-control category_select2 @error('category_id') is-invalid @enderror"
                                         name="category_id">
                                         <option>--Select Category--</option>
@@ -119,7 +120,7 @@
                             </div>
                         </div>
                     </div><!--end col-->
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">

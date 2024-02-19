@@ -29,19 +29,19 @@ class CategoryRecusive {
 
     public function renderCategory($parentId = 0, $level = 0) {
         $categories = Category::all();
-        if($level == 0) $this->html = '<div class="navbar-nav w-100 overflow-hidden" style="height: 410px">';
+        if($level == 0) $this->html = '<div class="navbar-nav w-100 overflow-hidden" style="height:400px">';
         foreach($categories as $category) {
             if($category['parent_id'] == $parentId) {
                 if($this->hasChild($categories, $category['id'])) {
                     $this->html .= '<div class="nav-item dropdown">
-                        <a href="" class="nav-link" data-toggle="dropdown">'. $category['name'] .
+                        <a href="'. route('category-product', ['slug' => $category['slug'], 'id' => $category['id']]) .'" class="nav-link" data-toggle="dropdown">'. $category['name'] .
                         '<i class="fa fa-angle-down float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">';
                     foreach($categories as $categoryItem) {
-                        if($categoryItem['parent_id'] == $category['id']) $this->html .= '<a href="" class="dropdown-item">'. $categoryItem['name'] .'</a>';
+                        if($categoryItem['parent_id'] == $category['id']) $this->html .= '<a href="'. route('category-product', ['slug' => $categoryItem['slug'], 'id' => $categoryItem['id']]) .'" class="dropdown-item">'. $categoryItem['name'] .'</a>';
                     }
                     $this->html .= '</div></div>';
-                } else $this->html .= '<a href="" class="nav-item nav-link">'. $category['name'] .'</a>';
+                } else $this->html .= '<a href="'. route('category-product', ['slug' => $category['slug'], 'id' => $category['id']]) .'" class="nav-item nav-link">'. $category['name'] .'</a>';
             }
         }
 

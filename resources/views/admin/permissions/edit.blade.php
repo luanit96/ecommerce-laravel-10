@@ -41,7 +41,7 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Permission name</label>
+                                    <label>Permission name(*)</label>
                                     <input type="text" name="name" value="{{ $permission->name }}"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter permission name">
@@ -57,7 +57,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Description(*)</label>
+                                    <label>Description</label>
                                     <textarea class="form-control" name="display_name" rows="3">{{ $permission->display_name }}</textarea>
                                 </div>
                             </div>

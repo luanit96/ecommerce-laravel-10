@@ -2,34 +2,35 @@
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-8 d-none d-lg-block">
-            <div class="d-inline-flex align-items-center">
-                <a class="text-dark pr-3" href=""><i class="fas fa-phone"></i> +84 855 390 479</a>
-                <a class="text-dark" href=""><i class="fas fa-envelope-open"></i> gqstore@gmail.com</a>
+            <div class="d-inline-flex align-items-center p-2">
+                <a class="text-dark pr-3" href="">
+                    <i class="fas fa-phone text-primary"></i>
+                    {{ getConfigValueSettingTable('phone') }}
+                </a>
+                <a class="text-dark" href=""><i class="fas fa-envelope-open text-primary"></i>
+                    {{ getConfigValueSettingTable('email') }}</a>
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-facebook-f"></i>
+                <a class="text-dark px-2" href="{{ getConfigValueSettingTable('facebook_link') }}">
+                    <img src="{{ asset('fe/img/social/facebook.png') }}" alt="facebook-icon" class="img-social-icon">
                 </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-twitter"></i>
+                <a class="text-dark px-2" href="{{ getConfigValueSettingTable('tiktok_link') }}">
+                    <img src="{{ asset('fe/img/social/tiktok.png') }}" alt="tiktok-icon" class="img-social-icon">
                 </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-linkedin-in"></i>
+                <a class="text-dark px-2" href="{{ getConfigValueSettingTable('shopee_link') }}">
+                    <img src="{{ asset('fe/img/social/shopee.png') }}" alt="shopee-icon" class="img-social-icon">
                 </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a class="text-dark pl-2" href="">
-                    <i class="fab fa-youtube"></i>
+                <a class="text-dark px-2" href="{{ getConfigValueSettingTable('lazada_link') }}">
+                    <img src="{{ asset('fe/img/social/lazada.jpg') }}" alt="lazada-icon" class="img-social-icon">
                 </a>
             </div>
         </div>
     </div>
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
-            <a href="" class="text-decoration-none">
+            <a href="{{ route('home') }}" class="text-decoration-none">
                 <h1 class="m-0 display-5 font-weight-semi-bold"><span
                         class="text-primary font-weight-bold border px-3 mr-1">G&Q</span>Store</h1>
             </a>
@@ -58,7 +59,7 @@
 
 
 <!-- Navbar Start -->
-<div class="container-fluid mb-5">
+<div class="container-fluid">
     <div class="row border-top px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
@@ -66,8 +67,9 @@
                 <h6 class="m-0">Danh mục sản phẩm</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
-            <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                id="navbar-vertical">
+            <nav class="collapse @if (Route::getCurrentRoute()->uri() == '/') show @endif @if (Route::getCurrentRoute()->uri() != '/') position-absolute bg-light @endif navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
+                id="navbar-vertical"
+                @if (Route::getCurrentRoute()->uri() != '/') style="width: calc(100% - 30px); z-index: 1;" @endif>
                 {!! $listCategory !!}
             </nav>
         </div>
@@ -84,6 +86,30 @@
                     {!! $menus !!}
                     <div class="navbar-nav ml-auto py-0">
                         @auth
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle text-capitalize"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    @can('dashboard')
+                                        <a href="{{ route('dashboard') }}" class="text-decoration-none"><span role="button"
+                                                class="dropdown-item">Trang quản
+                                                trị</span></a>
+                                    @endcan
+                                    <form action="{{ route('logout') }}" method="POST" class="formLogout">
+                                        @csrf
+                                        <span role="button" class="dropdown-item btnLogout">Đăng xuất</span>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="nav-item nav-link">Đăng kí</a>
+                            @endif
+                        @endauth
+                        {{-- @auth
                             <a href="" class="nav-item nav-link text-capitalize">{{ Auth::user()->name }}</a>
                             <form action="{{ route('logout') }}" method="POST" class="formLogout">
                                 @csrf
@@ -94,13 +120,15 @@
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="nav-item nav-link">Đăng kí</a>
                             @endif
-                        @endauth
+                        @endauth --}}
                     </div>
                 </div>
             </nav>
-            <!-- Slider Start-->
-            @include('home.components.slider')
-            <!-- Slider End-->
+            @if (Route::getCurrentRoute()->uri() == '/')
+                <!-- Slider Start-->
+                @include('home.components.slider')
+                <!-- Slider End-->
+            @endif
         </div>
     </div>
 </div>

@@ -50,7 +50,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image(*)</label>
                                     <input type="file" name="image_path" value="{{ $slider->image_path }}"
                                         class="form-control-file @error('image_path') is-invalid @enderror" id="fileUpload">
                                     <div class="row">

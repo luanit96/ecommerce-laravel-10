@@ -41,6 +41,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Slug</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,7 @@
                                         <tr>
                                             <td>{{ $menu->id }}</td>
                                             <td>{{ $menu->name }}</td>
+                                            <td>{{ $menu->slug }}</td>
                                             <td>
                                                 @can('edit-menu')
                                                     <a href="{{ route('edit-menus', ['id' => $menu->id]) }}" class="pr-2"

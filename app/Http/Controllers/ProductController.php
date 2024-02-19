@@ -134,13 +134,15 @@ class ProductController extends Controller
             }
 
             //update tags to table product
+            $tagIds = [];
+
             if(!empty($request->tags)) {
                 foreach($request->tags as $tagItem) {
                     $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
                     $tagIds[] = $tagInstance->id;
                 }
-                $product->tags()->sync($tagIds);
             }
+            $product->tags()->sync($tagIds);
             DB::commit();
             return redirect()->route('list-products');
 

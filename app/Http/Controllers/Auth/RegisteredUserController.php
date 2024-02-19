@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Validator;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -33,10 +34,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        //validate register form request
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ],
+        [
+            'name.required' => 'Tên không được bỏ trống',
+            'name.max' => 'Tên tối đa 255 kí tự',
+            'email.required' => 'Email không được để trống',
+            'email.max' => 'Email tối đa 255 kí tự',
+            'email.unique' => 'Email đã được đăng kí',
+            'password.required' => 'Mật khẩu không được bỏ trống',
+            'password.confirmed' => 'Mật khẩu không trùng khớp'
         ]);
 
         $user = User::create([

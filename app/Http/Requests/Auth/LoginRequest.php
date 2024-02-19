@@ -90,4 +90,17 @@ class LoginRequest extends FormRequest
     {
         return Str::lower($this->input('email')).'|'.$this->ip();
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'email.required' => 'Email không được bỏ trống',
+            'password.required' => 'Mật khẩu không được bỏ trống'
+        ];
+    }
 }

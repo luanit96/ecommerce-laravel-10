@@ -34,12 +34,13 @@ class SliderController extends Controller
         ];
         
         $dataUploadSliderImage = $this->storageTraitUpload($request, 'image_path', 'slider');
-        $dataCreateSlider['image_path'] = $dataUploadSliderImage['file_path'];
-        $dataCreateSlider['image_name'] = $dataUploadSliderImage['file_name'];
+        if(!empty($dataUploadSliderImage)) {
+            $dataCreateSlider['image_path'] = $dataUploadSliderImage['file_path'];
+            $dataCreateSlider['image_name'] = $dataUploadSliderImage['file_name'];
+        }
 
         //create data to table slider
         $this->slider->create($dataCreateSlider);
-
         return redirect()->route('list-sliders');
 
     }
@@ -56,8 +57,11 @@ class SliderController extends Controller
             'description' => $request->description
         ];
         $dataUploadSliderImage = $this->storageTraitUpload($request, 'image_path', 'slider');
-        $dataUpdateSlider['image_path'] = $dataUploadSliderImage['file_path'];
-        $dataUpdateSlider['image_name'] = $dataUploadSliderImage['file_name'];
+        if(!empty($dataUploadSliderImage)) {
+            $dataUpdateSlider['image_path'] = $dataUploadSliderImage['file_path'];
+            $dataUpdateSlider['image_name'] = $dataUploadSliderImage['file_name'];
+        }
+        
         //update data to table slider
         $this->slider->find($id)->update($dataUpdateSlider); 
         return redirect()->route('list-sliders');

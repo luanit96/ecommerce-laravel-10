@@ -36,7 +36,7 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Tag name</label>
+                                    <label>Tag name(*)</label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter tag name">

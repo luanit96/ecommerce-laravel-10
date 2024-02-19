@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Core\MenuRecusive;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
 use App\Http\Requests\AddMenuRequest;
@@ -37,7 +38,8 @@ class MenuController extends Controller
     public function store(AddMenuRequest $request) {
         $menu = $this->menu->create([
             'parent_id' => $request->parent_id,
-            'name' => $request->name
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ]);
 
         return redirect()->route('list-menus');
@@ -52,7 +54,8 @@ class MenuController extends Controller
     public function update($id, EditMenuRequest $request) {
         $menu = $this->menu->find($id)->update([
             'parent_id' => $request->parent_id,
-            'name' => $request->name
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ]);
         return redirect()->route('list-menus');
     }

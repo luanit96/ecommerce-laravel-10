@@ -4,6 +4,10 @@
     <title>list category</title>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/admin/category/app.css') }}">
+@endsection
+
 @section('content')
     <!-- start content wrapper -->
     <div class="content-wrapper">
@@ -41,6 +45,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -49,6 +54,10 @@
                                         <tr>
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->name }}</td>
+                                            <td>
+                                                <img src="{{ $category->image_path }}" alt="{{ $category->name }}"
+                                                    class="category_img">
+                                            </td>
                                             <td>
                                                 @can('edit-category')
                                                     <a href="{{ route('edit-categories', ['id' => $category->id]) }}"

@@ -44,7 +44,8 @@
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                         <p class="text-right">{{ $category->products->count() }} Sản phẩm</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <a href="{{ route('category-product', ['slug' => $category->slug, 'id' => $category->id]) }}"
+                            class="cat-img position-relative overflow-hidden mb-3">
                             <img class="img-fluid" src="{{ $category->image_path }}" alt="{{ $category->name }}">
                         </a>
                         <h5 class="font-weight-semi-bold m-0 text-center">{{ $category->name }}</h5>
@@ -94,8 +95,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                     <div class="card product-item border-0 mb-4">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ $newProduct->feature_image_path }}"
-                                alt="{{ $newProduct->name }}">
+                            <a href="{{ route('product-detail', ['id' => $newProduct->id]) }}"
+                                title="{{ $newProduct->name }}">
+                                <img class="img-fluid w-100" src="{{ $newProduct->feature_image_path }}"
+                                    alt="{{ $newProduct->name }}">
+                            </a>
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 role="button" class="text-truncate mb-3 ml-2 mr-2" title="{{ $newProduct->name }}">
@@ -106,8 +110,9 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                            <a href="{{ route('product-detail', ['id' => $newProduct->id]) }}"
+                                class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi
+                                tiết</a>
                             <a href="" class="btn btn-sm text-dark p-0"><i
                                     class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
                         </div>
@@ -128,8 +133,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                     <div class="card product-item border-0 mb-4">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ $favouriteProduct->feature_image_path }}"
-                                alt="{{ $favouriteProduct->name }}">
+                            <a href="{{ route('product-detail', ['id' => $favouriteProduct->id]) }}"
+                                title="{{ $favouriteProduct->name }}">
+                                <img class="img-fluid w-100" src="{{ $favouriteProduct->feature_image_path }}"
+                                    alt="{{ $favouriteProduct->name }}">
+                            </a>
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 role="button" class="text-truncate mb-3 ml-2 mr-2" title="{{ $favouriteProduct->name }}">
@@ -140,8 +148,9 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                            <a href="{{ route('product-detail', ['id' => $favouriteProduct->id]) }}"
+                                class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi
+                                tiết</a>
                             <a href="" class="btn btn-sm text-dark p-0"><i
                                     class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
                         </div>
@@ -150,7 +159,7 @@
             @endforeach
         </div>
         <div class="mb-3 text-center">
-            <a href="" class="py-2 px-3 all-product">Xem tất cả sản phẩm</a>
+            <a href="{{ route('all-product') }}" class="py-2 px-3 all-product">Xem tất cả sản phẩm</a>
         </div>
     </div>
     <!-- Products End -->
