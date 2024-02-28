@@ -13,7 +13,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List User</h1>
-                        @can('list-user')
+                        @can('add-user')
                             <a href="{{ route('create-users') }}">
                                 <input type="submit" value="Add" class="btn btn-lg btn-primary">
                             </a>

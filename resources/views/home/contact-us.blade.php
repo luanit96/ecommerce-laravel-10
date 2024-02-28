@@ -6,8 +6,9 @@
 
 @section('content')
     <!-- Page Header Start -->
-    @include('home.components.banner-page', ['titlePage' => 'Liên hệ']);
+    @include('home.components.banner-page', ['titlePage' => 'Liên hệ'])
     <!-- Page Header End -->
+    @include('home.components.alert-message')
     <!-- Contact Start -->
     <div class="container-fluid pt-5">
         <div class="text-center mb-4">
@@ -16,24 +17,35 @@
         <div class="row px-xl-5">
             <div class="col-lg-7 mb-5">
                 <div class="contact-form">
-                    <div id="success"></div>
-                    <form action="" method="POST" name="sentMessage">
+                    <form action="{{ route('add-contact') }}" method="POST">
                         @csrf
-                        <div class="control-group">
-                            <input type="text" name="name" class="form-control" placeholder="Nhập tên" />
-                            <p class="help-block text-danger"></p>
+                        <div class="control-group pb-3">
+                            <label>Tên(*)</label>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                placeholder="Nhập tên" />
+                            @error('name')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
-                        <div class="control-group">
+                        <div class="control-group pb-3">
+                            <label>Email</label>
                             <input type="email" class="form-control" name="email" placeholder="Nhập email" />
-                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" />
-                            <p class="help-block text-danger"></p>
+                        <div class="control-group pb-3">
+                            <label>Số điện thoại(*)</label>
+                            <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                placeholder="Nhập số điện thoại" />
+                            @error('phone')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
-                        <div class="control-group">
-                            <textarea class="form-control" rows="6" name="content" placeholder="Nhập nội dung"></textarea>
-                            <p class="help-block text-danger"></p>
+                        <div class="control-group pb-3">
+                            <label>Nội dung liên hệ(*)</label>
+                            <textarea class="form-control @error('content') is-invalid @enderror" rows="6" name="content"
+                                placeholder="Nhập nội dung liên hệ"></textarea>
+                            @error('content')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div>
                             <button class="btn btn-primary py-2 px-4" type="submit">Gửi</button>

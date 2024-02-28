@@ -32,7 +32,7 @@
             <form action="{{ route('post-settings') . '?type=' . request()->type }}" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-10">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">

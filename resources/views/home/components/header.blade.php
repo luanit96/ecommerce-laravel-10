@@ -36,21 +36,23 @@
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
+            <form action="{{ route('search-product') }}" method="POST">
+                @csrf
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                    <input type="text" name="keySearch" id="search-product" class="form-control"
+                        placeholder="Tìm kiếm sản phẩm..." required>
                     <div class="input-group-append">
-                        <span class="input-group-text bg-transparent text-primary">
+                        <button type="submit" class="input-group-text bg-transparent text-primary">
                             <i class="fa fa-search"></i>
-                        </span>
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
+            <a href="{{ route('carts') }}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
+                <span class="badge">{{ is_null(Session::get('carts')) ? 0 : count(Session::get('carts')) }}</span>
             </a>
         </div>
     </div>
@@ -64,7 +66,7 @@
         <div class="col-lg-3 d-none d-lg-block">
             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
                 data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                <h6 class="m-0">Danh mục sản phẩm</h6>
+                <h6 class="m-0 text-uppercase">Danh mục sản phẩm</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
             <nav class="collapse @if (Route::getCurrentRoute()->uri() == '/') show @endif @if (Route::getCurrentRoute()->uri() != '/') position-absolute bg-light @endif navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
@@ -109,18 +111,6 @@
                                 <a href="{{ route('register') }}" class="nav-item nav-link">Đăng kí</a>
                             @endif
                         @endauth
-                        {{-- @auth
-                            <a href="" class="nav-item nav-link text-capitalize">{{ Auth::user()->name }}</a>
-                            <form action="{{ route('logout') }}" method="POST" class="formLogout">
-                                @csrf
-                                <span role="button" class="nav-item nav-link btnLogout">Đăng xuất</span>
-                            </form>
-                        @else
-                            <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="nav-item nav-link">Đăng kí</a>
-                            @endif
-                        @endauth --}}
                     </div>
                 </div>
             </nav>

@@ -9,25 +9,27 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         @if (Auth::check())
-            <div class="user-panel mt-2 mb-2 d-flex">
+            <div class="user-panel mt-2 mb-2 d-flex" style="overflow: none !important;">
                 <div class="image">
                     <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
                         alt="User Image">
                 </div>
                 <div class="info">
-                    <ul>
-                        <li>
-                            <a href="{{ route('dashboard') }}" class="d-block">
-                                {{ Auth::user()->email }}
-                            </a>
-                        </li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" class="formLogout">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btnLogout">logout</button>
-                            </form>
-                        </li>
-                    </ul>
+                    <div class="btn-group">
+                        <ul>
+                            <li>
+                                <a href="{{ route('dashboard') }}" class="d-block text-white text-uppercase">
+                                    {{ Auth::user()->name }}
+                                </a>
+                            </li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" class="formLogout">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btnLogout">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Log;
+use Str;
 use App\Models\Tag;
 use App\Models\Product;
 use App\Models\ProductTag;
@@ -55,7 +56,8 @@ class ProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'discount' => $request->discount,
-                'content' => $request->contents
+                'content' => $request->contents,
+                'slug' => Str::slug($request->name)
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)) {
@@ -109,7 +111,8 @@ class ProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'discount' => $request->discount,
-                'content' => $request->contents
+                'content' => $request->contents,
+                'slug' => Str::slug($request->name)
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)) {

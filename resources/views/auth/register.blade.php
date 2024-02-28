@@ -87,7 +87,7 @@
                     </a>
                 </div>
 
-                <a href="{{ route('login') }}" class="text-center">Đăng nhập tài khoản</a>
+                <a href="{{ route('login') }}" class="text-center">Đăng nhập</a>
             </div>
             <!-- end form-box -->
         </div><!-- end card -->

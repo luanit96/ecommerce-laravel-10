@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Sản phẩm</title>
+    <title>Tất cả sản phẩm</title>
 @endsection
 
 @section('content')
     <!-- Page Header Start -->
-    @include('home.components.banner-page', ['titlePage' => 'Sản phẩm']);
+    @include('home.components.banner-page', ['titlePage' => 'Sản phẩm'])
     <!-- Page Header End -->
 
     <!-- Shop Start -->
@@ -18,15 +18,19 @@
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Sắp xếp
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Nổi bật</a>
-                                    <a class="dropdown-item" href="#">Giá cao đến thấp</a>
-                                    <a class="dropdown-item" href="#">Giá thấp đến cao</a>
+
+                                    <a class="dropdown-item {{ request()->name == 'asc' ? 'active' : '' }}"
+                                        href="{{ route('product-orderby', ['name' => 'asc']) }}">Tên từ
+                                        a->z</a>
+                                    <a class="dropdown-item {{ request()->name == 'desc' ? 'active' : '' }}"
+                                        href="{{ route('product-orderby', ['name' => 'desc']) }}">Tên
+                                        từ z->a</a>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +40,7 @@
                             <div class="card product-item border-0 mb-4">
                                 <div
                                     class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <a href="{{ route('product-detail', ['id' => $productItem->id]) }}"
+                                    <a href="{{ route('product-detail', ['slug' => $productItem->slug]) }}"
                                         title="{{ $productItem->name }}">
                                         <img class="img-fluid w-100" src="{{ $productItem->feature_image_path }}"
                                             alt="{{ $productItem->name }}">
@@ -53,11 +57,12 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="{{ route('product-detail', ['id' => $productItem->id]) }}"
+                                    <a href="{{ route('product-detail', ['slug' => $productItem->slug]) }}"
                                         class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi
                                         tiết</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i
-                                            class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
+                                    <a href="{{ route('carts') }}" class="btn btn-sm text-dark p-0">
+                                        <i class="fas fa-shopping-cart text-primary mr-1"></i>Xem giỏ hàng
+                                    </a>
                                 </div>
                             </div>
                         </div>

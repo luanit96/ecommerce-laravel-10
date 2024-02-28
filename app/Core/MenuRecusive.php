@@ -28,20 +28,20 @@ class MenuRecusive {
     }
 
     public function renderMenu($parentId = 0, $level = 0) {
-        $baseUrl = url('/') . '/';
+        $path = '/';
         $menus = Menu::all();
         if($level == 0) $this->html = '<div class="navbar-nav mr-auto py-0">';
         foreach($menus as $menu) {
             if($menu['parent_id'] == $parentId) {
                 if($this->hasChild($menus, $menu['id'])) {
                     $this->html .= '<div class="nav-item dropdown">
-                            <a href="'. $baseUrl . $menu['slug'] .'" class="nav-link dropdown-toggle text-capitalize" data-toggle="dropdown">'. 
+                            <a href="'. $path . $menu['slug'] .'" class="nav-link dropdown-toggle text-capitalize" data-toggle="dropdown">'. 
                             $menu['name'] .'</a><div class="dropdown-menu rounded-0 m-0">';
                     foreach($menus as $menuItem) {
-                        if($menuItem['parent_id'] == $menu['id']) $this->html .= '<a href="'. $baseUrl . $menuItem['slug'] .'" class="dropdown-item text-capitalize">'. $menuItem['name'] .'</a>';
+                        if($menuItem['parent_id'] == $menu['id']) $this->html .= '<a href="'. $path . $menuItem['slug'] .'" class="dropdown-item text-capitalize">'. $menuItem['name'] .'</a>';
                     }
                     $this->html .= '</div></div>';
-                } else $this->html .= '<a href="'. $baseUrl . $menu['slug'] .'" class="nav-item nav-link text-capitalize">' . $menu['name'] . '</a>';
+                } else $this->html .= '<a href="'. $path . $menu['slug'] .'" class="nav-item nav-link text-capitalize">' . $menu['name'] . '</a>';
             }
         }
 

@@ -37,7 +37,8 @@ class Product extends Model
         'discount',
         'feature_image_path',
         'feature_image_name',
-        'content'
+        'content',
+        'slug'
     ];
 
     public function images() {

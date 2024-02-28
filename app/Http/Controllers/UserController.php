@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Log;
 use Hash;
+use Auth;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -86,5 +87,7 @@ class UserController extends Controller
             'code' => $deleteTrait['code'],
             'message' => $deleteTrait['message']
         ], $deleteTrait['status']);
+        //logout user 
+        if(auth()->id() === $id) Auth::logout();
     }
 }

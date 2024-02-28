@@ -85,20 +85,41 @@
 
 
     // Product Quantity
-    $('.quantity button').on('click', function () {
-        var button = $(this);
-        var oldValue = button.parent().parent().find('input').val();
-        if (button.hasClass('btn-plus')) {
+    $(".btn-quantity").on("click", function () {
+
+        let button = $(this);
+        let oldValue = button.closest('.sp-quantity').find("input.quantity-input").val();
+
+        if (button.text() == "+") {
             var newVal = parseFloat(oldValue) + 1;
         } else {
-            if (oldValue > 0) {
+            if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
-        button.parent().parent().find('input').val(newVal);
+
+        button.closest('.sp-quantity').find("input.quantity-input").val(newVal);
+
     });
+
+    //Search ajax autocomplete
+    var availableTags = [];
+
+    $.ajax({
+        type: 'GET',
+        url: '/product-list-ajax',
+        success: function (data) {
+            startAutocomplete(data);
+        }
+    });
+
+    function startAutocomplete(availableTags) {
+        $( "#search-product" ).autocomplete({
+            source: availableTags
+        });
+    }
     
 })(jQuery);
 
