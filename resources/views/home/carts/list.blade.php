@@ -21,11 +21,12 @@
                         $total = 0;
                     @endphp
                     <div class="col-lg-12 table-responsive mb-5">
-                        <table class="table table-bordered text-center mb-0">
-                            <thead class="bg-secondary text-dark">
+                        <table class="table table-striped text-center mb-0">
+                            <thead class="thead-dark text-dark">
                                 <tr>
                                     <th>Tên</th>
                                     <th>Hình ảnh</th>
+                                    <th>Phân loại</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th colspan="2">Thành tiền</th>
@@ -34,7 +35,10 @@
                             <tbody class="align-middle">
                                 @foreach ($products as $product)
                                     @php
-                                        $quantity = (int) $carts[$product->id];
+                                        $size = $carts[$product->id]['size'];
+                                        $color = $carts[$product->id]['color'];
+                                        $sample = $carts[$product->id]['sample'];
+                                        $quantity = (int) $carts[$product->id]['quantity'];
                                         $price = $product->discount ? $product->discount : $product->price;
                                         $totalPrice = $price * $quantity;
                                         $total += $totalPrice;
@@ -43,6 +47,17 @@
                                         <td class="align-middle">{{ $product->name }}</td>
                                         <td><img src="{{ $product->feature_image_path }}" alt="{{ $product->name }}"
                                                 style="height: 150px;"></td>
+                                        <td class="align-middle">
+                                            @if (!is_null($size))
+                                                <div class="size"> Size: {{ $size }}</div>
+                                            @endif
+                                            @if (!is_null($color))
+                                                <div class="color">Màu: {{ $color }}</div>
+                                            @endif
+                                            @if (!is_null($sample))
+                                                <div class="sample">Mẫu: {{ $sample }}</div>
+                                            @endif
+                                        </td>
                                         <td class="align-middle">
                                             {{ number_format($price) }}đ
                                         </td>
@@ -65,7 +80,8 @@
                                         </td>
                                         <td class="align-middle">
                                             <div class="btn btn-sm text-danger">
-                                                <a href="{{ route('cart-delete', ['id' => $product->id]) }}">
+                                                <a href="{{ route('cart-delete', ['id' => $product->id]) }}"
+                                                    title="Xóa">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </div>
@@ -91,9 +107,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <label>Tên khách hàng (*)</label>
+                                <label>Họ và tên (*)</label>
                                 <input class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name') }}" type="text" placeholder="Tên khách hàng">
+                                    value="{{ old('name') }}" type="text" placeholder="Họ tên">
                                 @error('name')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -111,12 +127,54 @@
                                 <input class="form-control" name="email" value="{{ old('email') }}" type="email"
                                     placeholder="Email liên hệ">
                             </div>
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-12">
                                 <label>Địa chỉ giao hàng (*)</label>
-                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" rows="5">{{ old('address') }}</textarea>
-                                @error('address')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control @error('province_vn') is-invalid @enderror"
+                                                id="province_vn" name="province_vn">
+                                                <option value="">--- Chọn tỉnh/thành phố ---
+                                                </option>
+                                            </select>
+                                            @error('province_vn')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div><!--end col-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control @error('distrist_vn') is-invalid @enderror"
+                                                id="distrist_vn" name="distrist_vn">
+                                                <option value="">--- Chọn quận/huyện ---</option>
+                                            </select>
+                                            @error('distrist_vn')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div><!--end col-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control @error('ward_vn') is-invalid @enderror"
+                                                id="ward_vn" name="ward_vn">
+                                                <option value="">--- Chọn xã/phường ---</option>
+                                            </select>
+                                            @error('ward_vn')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div><!--end col-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control @error('address') is-invalid @enderror"
+                                                value="{{ old('address') }}" name="address" type="text"
+                                                placeholder="Số nhà, tên đường...">
+                                            @error('address')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div><!--end col-->
+                                </div>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Ghi chú</label>
@@ -159,7 +217,7 @@
                     <div class="col-lg-12">
                         <h2 class="text-center">Giỏ hàng trống</h2>
                         <div class="mb-3 text-center">
-                            <a href="{{ route('all-product') }}" class="py-2 px-3 all-product">Đi tới mua hàng</a>
+                            <a href="{{ route('home') }}" class="py-2 px-3 all-product">Đi tới mua hàng</a>
                         </div>
                     </div><!--end col-->
                 @endif

@@ -27,7 +27,8 @@ class EditProductRequest extends FormRequest
             'category_id' => 'required',
             'name' => 'bail|required|min:2|max:255',
             'price' => 'bail|required|numeric',
-            'discount' => 'numeric'
+            'discount' => 'numeric',
+            'quantity' => 'bail|required|min:1|numeric'
         ];
     }
 }

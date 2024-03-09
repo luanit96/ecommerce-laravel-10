@@ -26,7 +26,10 @@ class CustommerRequest extends FormRequest
         return [
             'name' => 'bail|required|min:1|max:255',
             'phone' => 'bail|required|numeric|min:10',
-            'address' => 'required'
+            'address' => 'required',
+            'province_vn' => 'required',
+            'distrist_vn' => 'required',
+            'ward_vn' => 'required'
         ];
     }
 
@@ -44,7 +47,10 @@ class CustommerRequest extends FormRequest
             'phone.required' => 'Số điện thoại không được bỏ trống',
             'phone.numeric' => 'Số điện thoại phải là chữ số',
             'phone.min' => 'Số điện thoại không hợp lệ, tối thiểu 10 kí tự',
-            'address.required' => 'Địa chỉ không được bỏ trống'
+            'address.required' => 'Nhập tên đường hoặc số nhà',
+            'province_vn.required' => 'Chọn tỉnh/thành phố',
+            'distrist_vn.required' => 'Chọn quận/huyện',
+            'ward_vn.required' => 'Chọn xã/phường'
         ];
     }
 }

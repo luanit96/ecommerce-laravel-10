@@ -39,7 +39,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
@@ -116,6 +116,56 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    <div class="col-md-6">
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Colors</label>
+                                    <select class="form-control color_select2" name="colors[]" multiple>
+                                        @foreach ($colors as $color)
+                                            <option value="{{ $color->id }}"
+                                                {{ $product->colors->contains('id', $color->id) ? 'selected' : '' }}>
+                                                {{ $color->name }}
+                                                ({{ $color->quantity }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Sizes</label>
+                                    <select class="form-control size_select2" name="sizes[]" multiple>
+                                        @foreach ($sizes as $size)
+                                            <option value="{{ $size->id }}"
+                                                {{ $product->sizes->contains('id', $size->id) ? 'selected' : '' }}>
+                                                {{ $size->name }}
+                                                ({{ $size->quantity }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Samples</label>
+                                    <select class="form-control sample_select2" name="samples[]" multiple>
+                                        @foreach ($samples as $sample)
+                                            <option value="{{ $sample->id }}"
+                                                {{ $product->samples->contains('id', $sample->id) ? 'selected' : '' }}>
+                                                {{ $sample->name }}
+                                                ({{ $sample->quantity }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <input type="number" name="quantity" min="1" value="{{ $product->quantity }}"
+                                        class="form-control @error('quantity') is-invalid @enderror">
+                                    @error('quantity')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

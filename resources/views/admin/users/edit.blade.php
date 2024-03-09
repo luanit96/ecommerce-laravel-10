@@ -58,6 +58,18 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label>Old Password(*)</label>
+                                    <input type="password" name="old_password"
+                                        class="form-control @error('old_password') is-invalid @enderror"
+                                        placeholder="Old password">
+                                    @error('old_password')
+                                        <div class="alert text-error">{{ $message }}</div>
+                                    @enderror
+                                    @if (Session::has('error'))
+                                        <div class="text-error mt-3">{{ Session::get('error') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <label>New Password(*)</label>
                                     <input type="password" name="password"
                                         class="form-control @error('password') is-invalid @enderror"

@@ -23,12 +23,12 @@ class CartController extends Controller
     public function index(CartRequest $request) {
         if(!Auth::user()) return redirect()->route('login');
         $result = $this->cartService->create($request);
-        if(!$result) return redirect()->back();
-
-        return redirect()->route('carts');
+        if($result) return redirect()->route('carts');
+        return redirect()->back();
     }
 
     public function show() {
+        // Session::flush();
         $menus = $this->getMenus();
         $listCategory = $this->getCategories();
         $products = $this->cartService->getProduct();
@@ -56,14 +56,6 @@ class CartController extends Controller
     public function delete($id) {
         $this->cartService->delete($id);
         return redirect()->route('carts');
-    }
-
-    public function checkout() {
-        $menus = $this->getMenus();
-        $listCategory = $this->getCategories();
-        $products = $this->cartService->getProduct();
-        $carts = Session::get('carts');
-        return view('home.checkout', compact('menus', 'listCategory', 'products', 'carts'));
     }
 
     public function orders(CustommerRequest $request) {

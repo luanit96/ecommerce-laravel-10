@@ -6,6 +6,7 @@ use DB;
 use Log;
 use Hash;
 use Auth;
+use Session;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -61,6 +62,8 @@ class UserController extends Controller
     }
 
     public function update(EditUserRequest $request, $id) {
+        $checkPassword = $this->checkPasswordConfirm($request, $id);
+        if(!$checkPassword) return redirect()->back();
         try {
             DB::beginTransaction();
             //update data to table users
@@ -73,11 +76,31 @@ class UserController extends Controller
             $user = $this->user->find($id);
             //insert data to table roles
             $user->roles()->sync($request->role_id);
+
+            //check user to logout
+            if(auth()->id() == $id) Auth::logout();
+            
             DB::commit();
             return redirect()->route('list-users');
         } catch (\Exception $exception) {
             DB::rollBack();
             Log::error('Message:' . $exception->getMessage() . '--Line:' . $exception->getLine());
+        }
+    }
+
+    public function checkPasswordConfirm($request, $id) {
+        $user = $this->user->find($id);
+        $newPassword = Hash::make($request->password);
+        if(Hash::check($request->old_password, $user->password)) {
+            if(!Hash::check($request->old_password, $newPassword)) {
+                return true;
+            } else {
+                Session::flash('error', 'The new password can not duplicate the old password');
+                return false;
+            }
+        } else {
+            Session::flash('error', 'Old password is wrong');
+            return false;
         }
     }
 
@@ -87,7 +110,5 @@ class UserController extends Controller
             'code' => $deleteTrait['code'],
             'message' => $deleteTrait['message']
         ], $deleteTrait['status']);
-        //logout user 
-        if(auth()->id() === $id) Auth::logout();
     }
 }

@@ -4,8 +4,24 @@ $(() => {
         placeholder: "Enter Tag",
         tokenSeparators: [',']
     });
+
     $(".category_select2").select2({
-        placeholder: "--Select Category--",
+        placeholder: "--- Select Category ---",
+        allowClear: true
+    });
+
+    $(".color_select2").select2({
+        placeholder: "--- Select Color ---",
+        allowClear: true
+    });
+
+    $(".size_select2").select2({
+        placeholder: "--- Select Size ---",
+        allowClear: true
+    });
+
+    $(".sample_select2").select2({
+        placeholder: "--- Select Sample ---",
         allowClear: true
     });
 

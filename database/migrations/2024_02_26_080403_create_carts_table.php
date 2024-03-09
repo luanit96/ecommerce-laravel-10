@@ -17,10 +17,9 @@ class CreateCartsTable extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained('customers')->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->integer('quantity');
-            $table->double('price', 8, 0);
+            $table->double('total', 8, 0);
+            $table->string('status')->default('pending');
+            $table->timestamps();
         });
     }
 

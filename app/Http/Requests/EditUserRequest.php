@@ -26,6 +26,7 @@ class EditUserRequest extends FormRequest
         return [
             'name' => 'bail|required|min:3|max:50',
             'email' => 'bail|required|email:rfc,dns',
+            'old_password' => 'bail|required|min:6',
             'password' => 'bail|required|confirmed|min:6',
             'password_confirmation' => 'bail|required|min:6'
         ];

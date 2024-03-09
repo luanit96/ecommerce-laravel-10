@@ -130,6 +130,81 @@
                         </ul>
                     </li>
                 @endcanany
+                <!-- Start Colors -->
+                <li class="nav-item has-treeview">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Colors
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-colors') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List color</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-colors') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add color</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Colors -->
+                <!-- Start Sizes -->
+                <li class="nav-item has-treeview">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Sizes
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-sizes') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List size</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-sizes') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add size</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Sizes -->
+                <!-- Start Samples -->
+                <li class="nav-item has-treeview">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Samples
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('list-samples') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List sample</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-samples') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add sample</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Samples -->
                 @can('list-product-image')
                     <li class="nav-item has-treeview">
                         <a href="{{ route('list-product-image') }}" class="nav-link">
@@ -342,6 +417,12 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('list-orders') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        Orders
+                    </a>
+                </li>
             </ul>
         </nav>
     </div> <!-- end sidebar -->

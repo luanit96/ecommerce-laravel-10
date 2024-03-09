@@ -38,7 +38,8 @@ class Product extends Model
         'feature_image_path',
         'feature_image_name',
         'content',
-        'slug'
+        'slug',
+        'quantity'
     ];
 
     public function images() {
@@ -52,5 +53,20 @@ class Product extends Model
 
     public function category() {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function colors() {
+        return $this->belongsToMany(Color::class, 'product_colors', 'product_id', 'color_id')
+        ->withTimestamps();
+    }
+
+    public function sizes() {
+        return $this->belongsToMany(Size::class, 'product_sizes', 'product_id', 'size_id')
+        ->withTimestamps();
+    }
+
+    public function samples() {
+        return $this->belongsToMany(Sample::class, 'product_samples', 'product_id', 'sample_id')
+        ->withTimestamps();
     }
 }

@@ -6,6 +6,9 @@ use DB;
 use Log;
 use Str;
 use App\Models\Tag;
+use App\Models\Size;
+use App\Models\Color;
+use App\Models\Sample;
 use App\Models\Product;
 use App\Models\ProductTag;
 use App\Models\ProductImage;
@@ -20,14 +23,18 @@ class ProductController extends Controller
 {
 
     use StorageImageTrait, DeleteModelTrait;
-    private $product, $productImage, $tag, $productTag;
+    private $product, $productImage, $tag, $productTag, $color, $size, $sample;
 
     public function __construct(Product $product, 
-        ProductImage $productImage, Tag $tag, ProductTag $productTag) {
+        ProductImage $productImage, Tag $tag, ProductTag $productTag, 
+        Color $color, Size $size, Sample $sample) {
         $this->product = $product;
         $this->productImage = $productImage;
         $this->tag = $tag;
         $this->productTag = $productTag;
+        $this->color = $color;
+        $this->size = $size;
+        $this->sample = $sample;
     }
 
     public function index() {
@@ -37,7 +44,10 @@ class ProductController extends Controller
 
     public function create() {
         $htmlOptions = $this->getCategory($parentId = '');
-        return view('admin.products.create', compact('htmlOptions'));
+        $colors = $this->color->all();
+        $sizes = $this->size->all();
+        $samples = $this->sample->all();
+        return view('admin.products.create', compact('htmlOptions', 'colors', 'sizes', 'samples'));
     }
 
     public function getCategory($parentId) {
@@ -57,7 +67,8 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'discount' => $request->discount,
                 'content' => $request->contents,
-                'slug' => Str::slug($request->name)
+                'slug' => Str::slug($request->name),
+                'quantity' => $request->quantity
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)) {
@@ -78,7 +89,7 @@ class ProductController extends Controller
                 }
             }
 
-            //insert tags to table product
+            //insert data to table tags
             if(!empty($request->tags)) {
                 foreach($request->tags as $tagItem) {
                     $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
@@ -86,6 +97,22 @@ class ProductController extends Controller
                 }
                 $product->tags()->attach($tagIds);
             }
+
+            //insert data to table product_colors
+            if(!empty($request->colors)) {
+                $product->colors()->attach($request->colors);
+            }
+
+            //insert data to table product_sizes
+            if(!empty($request->sizes)) {
+                $product->sizes()->attach($request->sizes);
+            }
+            
+            //insert data to table product_samples
+            if(!empty($request->samples)) {
+                $product->samples()->attach($request->samples);
+            }
+
             DB::commit();
             return redirect()->route('list-products');
 
@@ -98,7 +125,10 @@ class ProductController extends Controller
     public function edit($id) {
         $product = $this->product->find($id);
         $htmlOptions = $this->getCategory($product->category_id);
-        return view('admin.products.edit', compact('product', 'htmlOptions'));
+        $colors = $this->color->all();
+        $sizes = $this->size->all();
+        $samples = $this->sample->all();
+        return view('admin.products.edit', compact('product', 'htmlOptions', 'colors', 'sizes', 'samples'));
     }
 
     public function update(EditProductRequest $request, $id) {
@@ -112,7 +142,8 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'discount' => $request->discount,
                 'content' => $request->contents,
-                'slug' => Str::slug($request->name)
+                'slug' => Str::slug($request->name),
+                'quantity' => $request->quantity
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if(!empty($dataUploadFeatureImage)) {
@@ -146,6 +177,28 @@ class ProductController extends Controller
                 }
             }
             $product->tags()->sync($tagIds);
+
+            //update data to table product_colors
+            $colorIds = [];
+            if(!empty($request->colors)) {
+                $colorIds = $request->colors;
+            }
+            $product->colors()->sync($colorIds);
+
+            //update data to table product_sizes
+            $sizeIds = [];
+            if(!empty($request->sizes)) {
+                $sizeIds = $request->sizes;
+            }
+            $product->sizes()->sync($sizeIds);
+
+            //update data to table product_samples
+            $sampleIds = [];
+            if(!empty($request->samples)) {
+                $sampleIds = $request->samples;
+            }
+            $product->samples()->sync($sampleIds);
+
             DB::commit();
             return redirect()->route('list-products');
 

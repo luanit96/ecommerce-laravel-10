@@ -28,7 +28,8 @@ class AddProductRequest extends FormRequest
             'name' => 'bail|required|min:2|max:255',
             'price' => 'bail|required|numeric',
             'discount' => 'numeric',
-            'feature_image_path' => 'bail|file|image'
+            'feature_image_path' => 'bail|file|image',
+            'quantity' => 'bail|required|min:1|numeric'
         ];
     }
 }

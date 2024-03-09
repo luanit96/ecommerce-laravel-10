@@ -35,7 +35,7 @@
                         class="text-primary font-weight-bold border px-3 mr-1">G&Q</span>Store</h1>
             </a>
         </div>
-        <div class="col-lg-6 col-6 text-left">
+        <div class="col-lg-6 col-8 text-left">
             <form action="{{ route('search-product') }}" method="POST">
                 @csrf
                 <div class="input-group">
@@ -49,7 +49,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-lg-3 col-6 text-right">
+        <div class="col-lg-3 col-4 text-right">
             <a href="{{ route('carts') }}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">{{ is_null(Session::get('carts')) ? 0 : count(Session::get('carts')) }}</span>

@@ -67,6 +67,14 @@ class RouteServiceProvider extends ServiceProvider
             $this->mapUserRoleRoutes();
             //map permission role route
             $this->mapPermissionRoleRoutes();
+            //map color role route
+            $this->mapColorRoutes();
+            //map size role route
+            $this->mapSizeRoutes();
+            //map sample role route
+            $this->mapSampleRoutes();
+            //map cart role route
+            $this->mapCartRoutes();
             //map api route
             $this->mapApiRoutes();
         });
@@ -127,36 +135,42 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/tag-route.php'));
     }
+
     public function mapSliderRoutes() {
         //Slider route
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/slider-route.php'));
     }
+
     public function mapSettingRoutes() {
         //Setting route
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/setting-route.php'));
     }
+
     public function mapUserRoutes() {
         //User route
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/user-route.php'));
     }
+
     public function mapRoleRoutes() {
         //Role route
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/role-route.php'));
     }
+
     public function mapPermissionRoutes() {
         //Permission route
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/permission-route.php'));
     }
+
     public function mapUserRoleRoutes() {
         //User role route
         Route::middleware('web')
@@ -169,6 +183,34 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/permission-role-route.php'));
+    }
+
+    public function mapColorRoutes() {
+        //Color role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/color-route.php'));
+    }
+
+    public function mapSizeRoutes() {
+        //Size role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/size-route.php'));
+    }
+
+    public function mapSampleRoutes() {
+        //Sample role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/sample-route.php'));
+    }
+
+    public function mapCartRoutes() {
+        //Cart role route
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/cart-route.php'));
     }
 
     public function mapApiRoutes() {
