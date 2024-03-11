@@ -52,11 +52,13 @@ class PermissionController extends Controller
     }
 
     public function update(EditPermissionRequest $request, $id) {
-        $this->role->find($id)->update([
+        $this->permission->find($id)->update([
             'name' => $request->name,
-            'display_name' => $request->display_name
+            'parent_id' => $request->parent_id,
+            'display_name' => $request->display_name,
+            'key_code' => $request->parent_id != 0 ? Str::slug($request->name) : ''
         ]);
-        return redirect()->route('list-roles');
+        return redirect()->route('list-permissions');
     }
 
     public function delete($id) {

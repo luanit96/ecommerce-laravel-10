@@ -69,5 +69,28 @@ return [
         'permission-role' => [
             'list-permission-role' => 'list-permission-role'
         ],
+        'color' => [
+            'list-color' => 'list-color',
+            'add-color' => 'add-color',
+            'edit-color' => 'edit-color',
+            'delete-color' => 'delete-color'
+        ],
+        'size' => [
+            'list-size' => 'list-size',
+            'add-size' => 'add-size',
+            'edit-size' => 'edit-size',
+            'delete-size' => 'delete-size'
+        ],
+        'sample' => [
+            'list-sample' => 'list-sample',
+            'add-sample' => 'add-sample',
+            'edit-sample' => 'edit-sample',
+            'delete-sample' => 'delete-sample'
+        ],
+        'cart' => [
+            'list-cart' => 'list-cart',
+            'show-cart' => 'show-cart',
+            'delete-cart' => 'delete-cart'
+        ],
     ]
 ];

@@ -51,64 +51,65 @@
                     <h3 class="font-weight-semi-bold">{{ $productDetail->name }}</h3>
                     <h3 class="font-weight-semi-bold d-inline">{{ number_format($productDetail->discount) }}đ </h3>
                     <h3 class="font-weight-semi-bold d-inline"><del>{{ number_format($productDetail->price) }}đ </del></h3>
-
-                    @if (count($productDetail->sizes) !== 0)
-                        <div class="d-flex mb-3 mt-3">
-                            <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                            <span>
-                                @foreach ($productDetail->sizes as $keySize => $productSizeItem)
-                                    @if ($productSizeItem->quantity > 0)
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="size-{{ $keySize }}"
-                                                name="size" value="{{ $productSizeItem->id }}"
-                                                {{ $keySize === 0 ? 'checked' : '' }}>
-                                            <label for="size-{{ $keySize }}"
-                                                class="custom-control-label">{{ $productSizeItem->name }}</label>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </span>
-                        </div>
-                    @endif
-                    @if (count($productDetail->colors) !== 0)
-                        <div class="d-flex mb-3 mt-3">
-                            <p class="text-dark font-weight-medium mb-0 mr-3">Màu:</p>
-                            <span>
-                                @foreach ($productDetail->colors as $keyColor => $productColorItem)
-                                    @if ($productColorItem->quantity > 0)
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input"
-                                                id="color-{{ $keyColor }}" name="color"
-                                                value="{{ $productColorItem->id }}"
-                                                {{ $keyColor === 0 ? 'checked' : '' }}>
-                                            <label for="color-{{ $keyColor }}"
-                                                class="custom-control-label">{{ $productColorItem->name }}</label>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </span>
-                        </div>
-                    @endif
-                    @if (count($productDetail->samples) !== 0)
-                        <div class="d-flex mb-3 mt-3">
-                            <p class="text-dark font-weight-medium mb-0 mr-3">Mẫu:</p>
-                            <span>
-                                @foreach ($productDetail->samples as $keySample => $productSampleItem)
-                                    @if ($productSampleItem->quantity > 0)
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input"
-                                                id="sample-{{ $keySample }}" name="sample"
-                                                value="{{ $productSampleItem->id }}"
-                                                {{ $keySample === 0 ? 'checked' : '' }}>
-                                            <label for="sample-{{ $keySample }}"
-                                                class="custom-control-label">{{ $productSampleItem->name }}</label>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </span>
-                        </div>
-                    @endif
                     @if ($productDetail->quantity > 0)
+                        @if (count($productDetail->sizes) !== 0)
+                            <div class="d-flex mb-3 mt-3">
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
+                                <span>
+                                    @foreach ($productDetail->sizes as $keySize => $productSizeItem)
+                                        @if ($productSizeItem->quantity > 0)
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input"
+                                                    id="size-{{ $keySize }}" name="size"
+                                                    value="{{ $productSizeItem->id }}"
+                                                    {{ $keySize === 0 ? 'checked' : '' }}>
+                                                <label for="size-{{ $keySize }}"
+                                                    class="custom-control-label">{{ $productSizeItem->name }}</label>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </span>
+                            </div>
+                        @endif
+                        @if (count($productDetail->colors) !== 0)
+                            <div class="d-flex mb-3 mt-3">
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Màu:</p>
+                                <span>
+                                    @foreach ($productDetail->colors as $keyColor => $productColorItem)
+                                        @if ($productColorItem->quantity > 0)
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input"
+                                                    id="color-{{ $keyColor }}" name="color"
+                                                    value="{{ $productColorItem->id }}"
+                                                    {{ $keyColor === 0 ? 'checked' : '' }}>
+                                                <label for="color-{{ $keyColor }}"
+                                                    class="custom-control-label">{{ $productColorItem->name }}</label>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </span>
+                            </div>
+                        @endif
+                        @if (count($productDetail->samples) !== 0)
+                            <div class="d-flex mb-3 mt-3">
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Mẫu:</p>
+                                <span>
+                                    @foreach ($productDetail->samples as $keySample => $productSampleItem)
+                                        @if ($productSampleItem->quantity > 0)
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input"
+                                                    id="sample-{{ $keySample }}" name="sample"
+                                                    value="{{ $productSampleItem->id }}"
+                                                    {{ $keySample === 0 ? 'checked' : '' }}>
+                                                <label for="sample-{{ $keySample }}"
+                                                    class="custom-control-label">{{ $productSampleItem->name }}</label>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </span>
+                            </div>
+                        @endif
+
                         <div class="d-flex align-items-center mb-4 pt-4">
                             <div class="input-group quantity mr-3" style="width: 130px;">
                                 <div class="sp-quantity @error('num_product') is-invalid @enderror">
@@ -129,15 +130,14 @@
                             <input type="hidden" name="product_id" value="{{ $productDetail->id }}">
                             <span class="text-danger m-3">Còn {{ $productDetail->quantity }} sản phẩm</span>
                         </div>
+                        @error('num_product')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     @else
                         <div class="d-flex align-items-center mb-4 pt-4">
                             <span class="text-danger">Hết hàng</span>
                         </div>
                     @endif
-                    @error('num_product')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-
                     <div class="product-content-detail pt-2 pb-2">
                         {!! $productDetail->content !!}
                     </div>

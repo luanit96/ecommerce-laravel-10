@@ -3,10 +3,14 @@
 namespace App\Services;
 
 use App\Policies\TagPolicy;
+use App\Policies\CartPolicy;
 use App\Policies\MenuPolicy;
 use App\Policies\RolePolicy;
+use App\Policies\SizePolicy;
 use App\Policies\UserPolicy;
 use App\Policies\AdminPolicy;
+use App\Policies\ColorPolicy;
+use App\Policies\SamplePolicy;
 use App\Policies\SliderPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\SettingPolicy;
@@ -48,6 +52,14 @@ class PermissionGatePolicy {
         $this->defineGatePermissionRole();
         //define gate dashboard
         $this->defineGateDashboard();
+        //define gate color 
+        $this->defineGateColor();
+        //define gate size
+        $this->defineGateSize();
+        //define gate sample
+        $this->defineGateSample();
+        //define gate cart
+        $this->defineGateCart();
     }
 
     /* Define gate category*/
@@ -145,6 +157,37 @@ class PermissionGatePolicy {
     /* Define gate dashboard */
     public function defineGateDashboard() {
         Gate::define('dashboard', [AdminPolicy::class, 'view']);
+    }
+
+    /* Define gate color */
+    public function defineGateColor() {
+        Gate::define('list-color', [ColorPolicy::class, 'view']);
+        Gate::define('add-color', [ColorPolicy::class, 'create']);
+        Gate::define('edit-color', [ColorPolicy::class, 'update']);
+        Gate::define('delete-color', [ColorPolicy::class, 'delete']);
+    }
+
+    /* Define gate size */
+    public function defineGateSize() {
+        Gate::define('list-size', [SizePolicy::class, 'view']);
+        Gate::define('add-size', [SizePolicy::class, 'create']);
+        Gate::define('edit-size', [SizePolicy::class, 'update']);
+        Gate::define('delete-size', [SizePolicy::class, 'delete']);
+    }
+
+    /* Define gate sample */
+    public function defineGateSample() {
+        Gate::define('list-sample', [SamplePolicy::class, 'view']);
+        Gate::define('add-sample', [SamplePolicy::class, 'create']);
+        Gate::define('edit-sample', [SamplePolicy::class, 'update']);
+        Gate::define('delete-sample', [SamplePolicy::class, 'delete']);
+    }
+
+    /* Define gate cart */
+    public function defineGateCart() {
+        Gate::define('list-cart', [CartPolicy::class, 'view']);
+        Gate::define('show-cart', [CartPolicy::class, 'show']);
+        Gate::define('delete-cart', [CartPolicy::class, 'delete']);
     }
 
 }

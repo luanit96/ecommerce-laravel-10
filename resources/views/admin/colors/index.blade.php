@@ -16,9 +16,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Color</h1>
-                        <a href="{{ route('create-colors') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-color')
+                            <a href="{{ route('create-colors') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -53,12 +55,16 @@
                                             <td>{{ $color->name }}</td>
                                             <td>{{ $color->quantity }}</td>
                                             <td>
-                                                <a href="{{ route('edit-colors', ['id' => $color->id]) }}" class="pr-2"
-                                                    title="Edit">
-                                                    <i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('delete-colors', ['id' => $color->id]) }}"
-                                                    class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                        class="fas fa-trash-alt"></i></a>
+                                                @can('edit-color')
+                                                    <a href="{{ route('edit-colors', ['id' => $color->id]) }}" class="pr-2"
+                                                        title="Edit">
+                                                        <i class="fas fa-edit"></i></a>
+                                                @endcan
+                                                @can('delete-color')
+                                                    <a href="{{ route('delete-colors', ['id' => $color->id]) }}"
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

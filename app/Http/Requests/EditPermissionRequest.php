@@ -24,7 +24,7 @@ class EditPermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|unique:permissions|min:2|max:100'
+            'name' => 'bail|required|min:2|max:100'
         ];
     }
 }

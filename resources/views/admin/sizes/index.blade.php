@@ -16,9 +16,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Size</h1>
-                        <a href="{{ route('create-sizes') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-size')
+                            <a href="{{ route('create-sizes') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -53,12 +55,16 @@
                                             <td>{{ $size->name }}</td>
                                             <td>{{ $size->quantity }}</td>
                                             <td>
-                                                <a href="{{ route('edit-sizes', ['id' => $size->id]) }}" class="pr-2"
-                                                    title="Edit">
-                                                    <i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('delete-sizes', ['id' => $size->id]) }}"
-                                                    class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                        class="fas fa-trash-alt"></i></a>
+                                                @can('edit-size')
+                                                    <a href="{{ route('edit-sizes', ['id' => $size->id]) }}" class="pr-2"
+                                                        title="Edit">
+                                                        <i class="fas fa-edit"></i></a>
+                                                @endcan
+                                                @can('delete-size')
+                                                    <a href="{{ route('delete-sizes', ['id' => $size->id]) }}"
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

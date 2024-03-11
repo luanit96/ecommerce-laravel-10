@@ -16,12 +16,14 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-colors') }}">Colors</a></li>
+                            @can('list-color')
+                                <li class="breadcrumb-item"><a href="{{ route('list-colors') }}">Colors</a></li>
+                            @endcan
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div><!-- end container-fluid -->
         </section>
         <!-- end content-header -->
 

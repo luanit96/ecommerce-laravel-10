@@ -16,9 +16,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>List Sample</h1>
-                        <a href="{{ route('create-samples') }}">
-                            <input type="submit" value="Add" class="btn btn-lg btn-primary">
-                        </a>
+                        @can('add-sample')
+                            <a href="{{ route('create-samples') }}">
+                                <input type="submit" value="Add" class="btn btn-lg btn-primary">
+                            </a>
+                        @endcan
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -53,12 +55,16 @@
                                             <td>{{ $sample->name }}</td>
                                             <td>{{ $sample->quantity }}</td>
                                             <td>
-                                                <a href="{{ route('edit-samples', ['id' => $sample->id]) }}" class="pr-2"
-                                                    title="Edit">
-                                                    <i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('delete-samples', ['id' => $sample->id]) }}"
-                                                    class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                        class="fas fa-trash-alt"></i></a>
+                                                @can('edit-sample')
+                                                    <a href="{{ route('edit-samples', ['id' => $sample->id]) }}" class="pr-2"
+                                                        title="Edit">
+                                                        <i class="fas fa-edit"></i></a>
+                                                @endcan
+                                                @can('delete-sample')
+                                                    <a href="{{ route('delete-samples', ['id' => $sample->id]) }}"
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

@@ -16,7 +16,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('list-sizes') }}">Sizes</a></li>
+                            @can('list-size')
+                                <li class="breadcrumb-item"><a href="{{ route('list-sizes') }}">Sizes</a></li>
+                            @endcan
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div>

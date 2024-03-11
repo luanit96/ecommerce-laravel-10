@@ -52,12 +52,16 @@
                                                 {{ $order->status }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('show-orders', ['id' => $order->id]) }}" class="pr-2"
-                                                    title="show">
-                                                    <i class="fas fa-eye"></i></a>
-                                                <a href="{{ route('delete-orders', ['id' => $order->id]) }}"
-                                                    class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                        class="fas fa-trash-alt"></i></a>
+                                                @can('show-cart')
+                                                    <a href="{{ route('show-orders', ['id' => $order->id]) }}" class="pr-2"
+                                                        title="show">
+                                                        <i class="fas fa-eye"></i></a>
+                                                @endcan
+                                                @can('delete-cart')
+                                                    <a href="{{ route('delete-orders', ['id' => $order->id]) }}"
+                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

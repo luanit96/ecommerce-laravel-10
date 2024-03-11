@@ -32,6 +32,13 @@ class CartService
             return false;
         }
 
+        $productQty = Product::where('id', $product_id)->first()->quantity;
+
+        if($qty > $productQty) {
+            Session::flash('error', 'Số lượng không đủ, vui lòng thử lại');
+            return false;
+        }
+
         // Session::flush();
 
         $carts = Session::get('carts');
@@ -121,13 +128,23 @@ class CartService
     public function update($request) {
         $carts = Session::get('carts');
         $numProducts = $request->input('num_product');
-        foreach($numProducts as $keyId => $numProduct) {
-            $carts[$keyId]['quantity'] = $numProduct;
+        foreach($numProducts as $productId => $numProduct) {
+            //check quantity product to quantity order
+            $checkQtyProduct = $this->checkQtyProductOrder($productId, $numProduct);
+            if(!$checkQtyProduct) return redirect()->back();
+            $carts[$productId]['quantity'] = $numProduct;
         }
         Session::put('carts', $carts);
-
         Session::flash('success', 'Cập nhật giỏ hàng thành công');
+        return true;
+    }
 
+    public function checkQtyProductOrder($productId, $numProduct) {
+        $productQty = Product::where('id', $productId)->first()->quantity;
+        if($numProduct > $productQty) {
+            Session::flash('error', 'Số lượng không đủ, vui lòng thử lại');
+            return false;
+        }
         return true;
     }
 
