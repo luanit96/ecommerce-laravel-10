@@ -35,7 +35,7 @@ class CartService
         $productQty = Product::where('id', $product_id)->first()->quantity;
 
         if($qty > $productQty) {
-            Session::flash('error', 'Số lượng không đủ, vui lòng thử lại');
+            Session::flash('error', 'Số lượng bạn chọn đã đạt mức tối đa của sản phẩm này');
             return false;
         }
 
@@ -142,7 +142,7 @@ class CartService
     public function checkQtyProductOrder($productId, $numProduct) {
         $productQty = Product::where('id', $productId)->first()->quantity;
         if($numProduct > $productQty) {
-            Session::flash('error', 'Số lượng không đủ, vui lòng thử lại');
+            Session::flash('error', 'Số lượng bạn chọn đã đạt mức tối đa của sản phẩm này');
             return false;
         }
         return true;

@@ -1,0 +1,14 @@
+.sample_img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.img-style {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin: 10px;
+}

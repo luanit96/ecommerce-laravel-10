@@ -6,6 +6,7 @@ use App\Models\Size;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
 use App\Http\Requests\SizeRequest;
+use App\Http\Requests\EditSizeRequest;
 
 class SizeController extends Controller
 {
@@ -38,7 +39,7 @@ class SizeController extends Controller
         return view('admin.sizes.edit', compact('size'));
     }
 
-    public function update(SizeRequest $request, $id) {
+    public function update(EditSizeRequest $request, $id) {
         $this->size->find($id)->update([
             'name' => $request->name,
             'quantity' => $request->quantity

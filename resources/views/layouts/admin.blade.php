@@ -56,6 +56,7 @@
     <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('assets/vendors/sweetalert2@11.js') }}"></script>
+
     @yield('js')
 
     <script src="{{ asset('assets/admin/js/main.js') }}"></script>

@@ -15,7 +15,7 @@ class CategoryFeController extends Controller
         $listCategory = $this->getCategories();
         $category = Category::select('id', 'name', 'slug')->where('slug', $slug)->first();
         if($category == null) abort(404);
-        $productByCategory = Product::where('category_id', $category->id)->paginate(15);
+        $productByCategory = Product::where('category_id', $category->id)->paginate(16);
         $newProducts = Product::orderByDesc('created_at')->limit(8)->get(); 
         return view('home.product.category.list', compact('menus', 'listCategory', 'category', 'productByCategory', 'newProducts'));
     }

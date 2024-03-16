@@ -18,7 +18,7 @@ class HomeController extends Controller
         $menus = $this->getMenus();
         $listCategory = $this->getCategories();
         $sliders = Slider::orderByDesc('created_at')->limit(3)->get();
-        $categories = Category::limit(6)->get();
+        $categories = Category::limit(9)->get();
         $newProducts = Product::orderByDesc('created_at')->limit(8)->get();
         $favouriteProducts = Product::orderByDesc('views')->limit(12)->get();
         return view('home.index', compact('sliders', 'categories', 'newProducts', 'favouriteProducts', 'menus', 'listCategory'));

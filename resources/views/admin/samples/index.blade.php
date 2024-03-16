@@ -5,6 +5,7 @@
 @endsection
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('assets/admin/sample/app.css') }}">
 @endsection
 
 @section('content')
@@ -44,6 +45,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Action</th>
                                     </tr>
@@ -53,6 +55,10 @@
                                         <tr>
                                             <td>{{ $sample->id }}</td>
                                             <td>{{ $sample->name }}</td>
+                                            <td>
+                                                <img src="{{ $sample->image_path }}" alt="{{ $sample->name }}"
+                                                    class="sample_img">
+                                            </td>
                                             <td>{{ $sample->quantity }}</td>
                                             <td>
                                                 @can('edit-sample')

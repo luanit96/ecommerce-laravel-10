@@ -13,23 +13,9 @@
     <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col-lg-5 pb-5">
-                <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner border">
-                        <div class="carousel-item active">
-                            <img class="w-100 h-100" src="{{ $productDetail->feature_image_path }}"
-                                alt="{{ $productDetail->name }}">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="{{ $productDetail->feature_image_path }}"
-                                alt="{{ $productDetail->name }}">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                        <i class="fa fa-2x fa-angle-left text-dark"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                        <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a>
+                <div class="feature-image">
+                    <img class="img-thumbnail" data-url="{{ $productDetail->feature_image_path }}"
+                        src="{{ $productDetail->feature_image_path }}" alt="{{ $productDetail->name }}">
                 </div>
                 <!-- Product Image Start -->
                 <div class="owl-carousel related-carousel">
@@ -48,13 +34,14 @@
             <div class="col-lg-7 pb-5">
                 <form action="{{ route('add-cart') }}" method="POST">
                     @csrf
-                    <h3 class="font-weight-semi-bold">{{ $productDetail->name }}</h3>
-                    <h3 class="font-weight-semi-bold d-inline">{{ number_format($productDetail->discount) }}đ </h3>
-                    <h3 class="font-weight-semi-bold d-inline"><del>{{ number_format($productDetail->price) }}đ </del></h3>
+                    <h3 class="font-weight-semi-bold mb-3">{{ $productDetail->name }}</h3>
+                    <h3 class="font-weight-semi-bold d-inline pr-3" style="color: #ee4d2d">
+                        {{ number_format($productDetail->discount) }} đ </h3>
+                    <h3 class="font-weight-semi-bold d-inline"><del>{{ number_format($productDetail->price) }} đ </del></h3>
                     @if ($productDetail->quantity > 0)
                         @if (count($productDetail->sizes) !== 0)
                             <div class="d-flex mb-3 mt-3">
-                                <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Kích Cỡ:</p>
                                 <span>
                                     @foreach ($productDetail->sizes as $keySize => $productSizeItem)
                                         @if ($productSizeItem->quantity > 0)
@@ -73,7 +60,7 @@
                         @endif
                         @if (count($productDetail->colors) !== 0)
                             <div class="d-flex mb-3 mt-3">
-                                <p class="text-dark font-weight-medium mb-0 mr-3">Màu:</p>
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Màu sắc:</p>
                                 <span>
                                     @foreach ($productDetail->colors as $keyColor => $productColorItem)
                                         @if ($productColorItem->quantity > 0)
@@ -92,21 +79,28 @@
                         @endif
                         @if (count($productDetail->samples) !== 0)
                             <div class="d-flex mb-3 mt-3">
-                                <p class="text-dark font-weight-medium mb-0 mr-3">Mẫu:</p>
-                                <span>
+                                <p class="text-dark font-weight-medium mb-0 mr-3">Phân loại:</p>
+                                <div class="sample-checkbox-wrapper">
                                     @foreach ($productDetail->samples as $keySample => $productSampleItem)
+                                        @php
+                                            $dataImageUrl = !is_null($productSampleItem->image_path)
+                                                ? $productSampleItem->image_path
+                                                : $productDetail->feature_image_path;
+                                        @endphp
                                         @if ($productSampleItem->quantity > 0)
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" class="custom-control-input"
-                                                    id="sample-{{ $keySample }}" name="sample"
-                                                    value="{{ $productSampleItem->id }}"
+                                            <div
+                                                class="custom-control custom-radio custom-control-inline custom-radio-button">
+                                                <input type="radio" data-url="{{ $dataImageUrl }}"
+                                                    class="custom-control-input" id="sample-{{ $keySample }}"
+                                                    name="sample" value="{{ $productSampleItem->id }}"
                                                     {{ $keySample === 0 ? 'checked' : '' }}>
-                                                <label for="sample-{{ $keySample }}"
-                                                    class="custom-control-label">{{ $productSampleItem->name }}</label>
+                                                <label role="button" for="sample-{{ $keySample }}"
+                                                    class="custom-control-label"
+                                                    title="{{ $productSampleItem->name }}">{{ $productSampleItem->name }}</label>
                                             </div>
                                         @endif
                                     @endforeach
-                                </span>
+                                </div><!--end sample-checkbox-wrapper-->
                             </div>
                         @endif
 
@@ -128,7 +122,8 @@
                                 giỏ
                                 hàng</button>
                             <input type="hidden" name="product_id" value="{{ $productDetail->id }}">
-                            <span class="text-danger m-3">Còn {{ $productDetail->quantity }} sản phẩm</span>
+                            <span class="text-danger m-3"><span class="count-product">{{ $productDetail->quantity }}</span>
+                                sản phẩm có sẵn</span>
                         </div>
                         @error('num_product')
                             <div class="text-danger">{{ $message }}</div>
@@ -138,9 +133,11 @@
                             <span class="text-danger">Hết hàng</span>
                         </div>
                     @endif
-                    <div class="product-content-detail pt-2 pb-2">
+                    <h3 class="font-weight-semi-bold">Mô tả sản phẩm</h3>
+                    <div class="product-content-detail pt-2 pb-2" id="product-detail-content-wrapper">
                         {!! $productDetail->content !!}
                     </div>
+                    <span class="btn btn-danger mt-2 mb-2" id="viewAllContent" data="show">Xem thêm</span>
                 </form>
             </div>
         </div>

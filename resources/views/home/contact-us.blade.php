@@ -55,7 +55,12 @@
             </div>
             <div class="col-lg-5 mb-5">
                 <h5 class="font-weight-semi-bold mb-3">G&Q Store</h5>
-                <p>Cảm ơn bạn luôn đồng hành và tin tưởng shop, chúc bạn mua sắm vui vẻ.</p>
+                <p>PHỤ NỮ HIỆN ĐẠI – KHÔNG DẠI ĐỢI QUÀ. Tiền về trong thẻ hãy tự thưởng cho mình một món quà trong bộ sưu
+                    tập của Shop ngay đi nào!.</p>
+                <p>HÃY ĐẾN VỚI G&Q STORE - người bạn đồng hành cùng bạn trong trải nghiệm mua sắm nhé! Shop chuyên các mặt
+                    hàng thời trang, phụ kiện và đồ handmade 💕</p>
+                <p>Đừng ngần ngại, hãy liên hệ ngay với Shop khi bạn cần hỗ trợ nhé!</p>
+                <p>HÃY LUÔN LÀ NGƯỜI PHỤ NỮ TỰ TIN, XINH ĐẸP VÀ MUA SẮM ĐÚNG CÁCH NHÉ CÔ GÁI!</p>
                 <div class="d-flex flex-column mb-3">
                     <h5 class="font-weight-semi-bold mb-3">Địa chỉ</h5>
                     <p class="mb-2"><i

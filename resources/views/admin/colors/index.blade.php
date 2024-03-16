@@ -5,6 +5,7 @@
 @endsection
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('assets/admin/color/app.css') }}">
 @endsection
 
 @section('content')
@@ -44,6 +45,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Action</th>
                                     </tr>
@@ -53,6 +55,10 @@
                                         <tr>
                                             <td>{{ $color->id }}</td>
                                             <td>{{ $color->name }}</td>
+                                            <td>
+                                                <img src="{{ $color->image_path }}" alt="{{ $color->name }}"
+                                                    class="color_img">
+                                            </td>
                                             <td>{{ $color->quantity }}</td>
                                             <td>
                                                 @can('edit-color')

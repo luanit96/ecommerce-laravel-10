@@ -25,7 +25,7 @@ class AddProductRequest extends FormRequest
     {
         return [
             'category_id' => 'required',
-            'name' => 'bail|required|min:2|max:255',
+            'name' => 'bail|required|unique:products|min:2|max:255',
             'price' => 'bail|required|numeric',
             'discount' => 'numeric',
             'feature_image_path' => 'bail|file|image',

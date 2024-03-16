@@ -4,6 +4,10 @@
     <title>Giỏ hàng</title>
 @endsection
 
+@section('js')
+    <script src="{{ asset('fe/js/call-api.js') }}"></script>
+@endsection
+
 @section('content')
     <!-- Page Header Start -->
     @include('home.components.banner-page', ['titlePage' => 'Giỏ hàng'])
@@ -55,7 +59,7 @@
                                                 <div class="color">Màu: {{ $color }}</div>
                                             @endif
                                             @if (!is_null($sample))
-                                                <div class="sample">Mẫu: {{ $sample }}</div>
+                                                <div class="sample">Loại: {{ $sample }}</div>
                                             @endif
                                         </td>
                                         <td class="align-middle">

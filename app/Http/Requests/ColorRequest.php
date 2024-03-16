@@ -24,8 +24,9 @@ class ColorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|min:1|max:30',
-            'quantity' => 'bail|required|numeric'
+            'name' => 'bail|required|unique:colors|min:1|max:30',
+            'image_path' => 'bail|file|image',
+            'quantity' => 'bail|required|numeric|min:0'
         ];
     }
 }

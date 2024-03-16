@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Sample;
 use Illuminate\Http\Request;
 use App\Traits\DeleteModelTrait;
+use App\Traits\StorageImageTrait;
 use App\Http\Requests\SampleRequest;
+use App\Http\Requests\EditSampleRequest;
 
 class SampleController extends Controller
 {
-    use DeleteModelTrait;
+    use StorageImageTrait, DeleteModelTrait;
     private $sample;
 
     public function __construct(Sample $sample) {
@@ -26,10 +28,16 @@ class SampleController extends Controller
     }
 
     public function store(SampleRequest $request) {
-        $this->sample->create([
+        $dataSampleCreate = [
             'name' => $request->name,
-            'quantity' => $request->quantity
-        ]);
+            'quantity' => $request->quantity 
+        ];
+        $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'sample');
+        if(!empty($dataUploadImage)) {
+            $dataSampleCreate['image_path'] = $dataUploadImage['file_path'];
+            $dataSampleCreate['image_name'] = $dataUploadImage['file_name'];
+        }
+        $this->sample->create($dataSampleCreate);
         return redirect()->route('list-samples');
     }
 
@@ -38,11 +46,17 @@ class SampleController extends Controller
         return view('admin.samples.edit', compact('sample'));
     }
 
-    public function update(SampleRequest $request, $id) {
-        $this->sample->find($id)->update([
+    public function update(EditSampleRequest $request, $id) {
+        $dataSampleUpdate = [
             'name' => $request->name,
-            'quantity' => $request->quantity
-        ]);
+            'quantity' => $request->quantity 
+        ];
+        $dataUploadImage = $this->storageTraitUpload($request, 'image_path', 'sample');
+        if(!empty($dataUploadImage)) {
+            $dataSampleUpdate['image_path'] = $dataUploadImage['file_path'];
+            $dataSampleUpdate['image_name'] = $dataUploadImage['file_name'];
+        }
+        $this->sample->find($id)->update($dataSampleUpdate);
         return redirect()->route('list-samples');
     }
 

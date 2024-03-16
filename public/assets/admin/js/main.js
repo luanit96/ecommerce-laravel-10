@@ -61,7 +61,7 @@ $(() => {
 
     $("#list-datatable").DataTable();
     //event click button delete
-    $('.btnDelete').click(actionDelete);
+    $('#list-datatable tbody').on('click', '.btnDelete', actionDelete);
     //event click button logout
     $('.btnLogout').click(logout);
 });

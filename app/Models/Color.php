@@ -31,6 +31,8 @@ class Color extends Model
      */
     protected $fillable = [
         'name',
-        'quantity'
+        'quantity',
+        'image_path',
+        'image_name'
     ];
 }

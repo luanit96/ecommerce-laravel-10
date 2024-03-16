@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="number" name="quantity" min="1" value="{{ $size->quantity }}"
+                                    <input type="number" name="quantity" min="0" value="{{ $size->quantity }}"
                                         class="form-control @error('quantity') is-invalid @enderror">
                                     @error('quantity')
                                         <div class="text-danger">{{ $message }}</div>

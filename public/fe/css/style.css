@@ -9620,6 +9620,15 @@ a.text-dark:hover, a.text-dark:focus {
     object-fit: cover;
 }
 
+.custom-radio-button {
+  background-color: #d5f4fa;
+}
+
+#product-detail-content-wrapper {
+  height: 300px;
+  overflow: hidden;
+}
+
 /*Quantity add to cart*/
 
 .sp-quantity {
