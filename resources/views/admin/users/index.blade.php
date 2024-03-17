@@ -31,50 +31,46 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
 
-                                            <td>
-                                                @foreach ($user->roles as $userRole)
-                                                    <div>{{ $userRole->name }}</div>
-                                                @endforeach
-                                            </td>
-                                            <td>
-                                                @can('edit-user')
-                                                    <a href="{{ route('edit-users', ['id' => $user->id]) }}" class="pr-2"
-                                                        title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-user')
-                                                    <a href="{{ route('delete-users', ['id' => $user->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                    <td>
+                                        @foreach ($user->roles as $userRole)
+                                            <div>{{ $userRole->name }}</div>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @can('edit-user')
+                                            <a href="{{ route('edit-users', ['id' => $user->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-user')
+                                            <a href="{{ route('delete-users', ['id' => $user->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

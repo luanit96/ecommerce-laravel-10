@@ -26,32 +26,28 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Product ID</th>
-                                        <th>Image</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($productImages as $productImage)
-                                        <tr>
-                                            <td>{{ $productImage->id }}</td>
-                                            <td>{{ optional($productImage->product)->id }}</td>
-                                            <td><img width="100px" height="60px" src="{{ $productImage->image_path }}">
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product ID</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($productImages as $productImage)
+                                <tr>
+                                    <td>{{ $productImage->id }}</td>
+                                    <td>{{ optional($productImage->product)->id }}</td>
+                                    <td><img width="100px" height="60px" src="{{ $productImage->image_path }}">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

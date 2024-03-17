@@ -34,44 +34,40 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Quantity</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($sizes as $size)
-                                        <tr>
-                                            <td>{{ $size->id }}</td>
-                                            <td>{{ $size->name }}</td>
-                                            <td>{{ $size->quantity }}</td>
-                                            <td>
-                                                @can('edit-size')
-                                                    <a href="{{ route('edit-sizes', ['id' => $size->id]) }}" class="pr-2"
-                                                        title="Edit">
-                                                        <i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-size')
-                                                    <a href="{{ route('delete-sizes', ['id' => $size->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($sizes as $size)
+                                <tr>
+                                    <td>{{ $size->id }}</td>
+                                    <td>{{ $size->name }}</td>
+                                    <td>{{ $size->quantity }}</td>
+                                    <td>
+                                        @can('edit-size')
+                                            <a href="{{ route('edit-sizes', ['id' => $size->id]) }}" class="pr-2"
+                                                title="Edit">
+                                                <i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-size')
+                                            <a href="{{ route('delete-sizes', ['id' => $size->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

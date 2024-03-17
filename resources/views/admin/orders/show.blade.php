@@ -30,7 +30,7 @@
         <!-- start main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12">
                     <form action="{{ route('update-orders', ['id' => $order->id]) }}" method="POST">
                         @csrf
                         <div class="card card-primary">
@@ -73,7 +73,7 @@
                         <input type="submit" value="Update" class="btn btn-lg btn-success float-left mb-3">
                     </form>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 table-responsive">
                     <h2 class="text-center text-primary">Order Details</h2>
                     <table id="list-datatable" class="table table-bordered table-striped">
                         <thead>

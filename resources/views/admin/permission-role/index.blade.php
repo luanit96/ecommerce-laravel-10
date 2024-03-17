@@ -26,31 +26,27 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Role ID</th>
-                                        <th>Permission ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($permissionRoles as $permissionRole)
-                                        <tr>
-                                            <td>{{ $permissionRole->id }}</td>
-                                            <td>{{ $permissionRole->role_id }}</td>
-                                            <td>{{ $permissionRole->permission_id }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Role ID</th>
+                                <th>Permission ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($permissionRoles as $permissionRole)
+                                <tr>
+                                    <td>{{ $permissionRole->id }}</td>
+                                    <td>{{ $permissionRole->role_id }}</td>
+                                    <td>{{ $permissionRole->permission_id }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

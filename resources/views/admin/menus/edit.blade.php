@@ -35,7 +35,7 @@
         <!-- start main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <form action="{{ route('update-menus', ['id' => $menu->id]) }}" method="POST">
                         @csrf
                         <div class="card card-primary">

@@ -26,31 +26,27 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Product ID</th>
-                                        <th>Tag ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($productTags as $productTag)
-                                        <tr>
-                                            <td>{{ $productTag->id }}</td>
-                                            <td>{{ $productTag->product_id }}</td>
-                                            <td>{{ $productTag->tag_id }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product ID</th>
+                                <th>Tag ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($productTags as $productTag)
+                                <tr>
+                                    <td>{{ $productTag->id }}</td>
+                                    <td>{{ $productTag->product_id }}</td>
+                                    <td>{{ $productTag->tag_id }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

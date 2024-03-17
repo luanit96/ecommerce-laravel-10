@@ -31,43 +31,39 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($menus as $menu)
-                                        <tr>
-                                            <td>{{ $menu->id }}</td>
-                                            <td>{{ $menu->name }}</td>
-                                            <td>{{ $menu->slug }}</td>
-                                            <td>
-                                                @can('edit-menu')
-                                                    <a href="{{ route('edit-menus', ['id' => $menu->id]) }}" class="pr-2"
-                                                        title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-menu')
-                                                    <a href="{{ route('delete-menus', ['id' => $menu->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($menus as $menu)
+                                <tr>
+                                    <td>{{ $menu->id }}</td>
+                                    <td>{{ $menu->name }}</td>
+                                    <td>{{ $menu->slug }}</td>
+                                    <td>
+                                        @can('edit-menu')
+                                            <a href="{{ route('edit-menus', ['id' => $menu->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-menu')
+                                            <a href="{{ route('delete-menus', ['id' => $menu->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

@@ -86,8 +86,8 @@
                         Đăng nhập bằng Gmail
                     </a>
                 </div>
-
-                <a href="{{ route('login') }}" class="text-center">Đăng nhập</a>
+                <p class="mb-1"><a href="{{ route('login') }}" class="text-left">Đăng nhập</a></p>
+                <p class="mb-0"><a href="{{ route('home') }}" class="text-left">Quay lại trang chủ</a></p>
             </div>
             <!-- end form-box -->
         </div><!-- end card -->

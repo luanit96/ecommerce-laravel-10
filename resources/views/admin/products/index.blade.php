@@ -35,52 +35,48 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Discount</th>
-                                        <th>Image</th>
-                                        <th>Category</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($products as $product)
-                                        <tr>
-                                            <td>{{ $product->id }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ number_format($product->price) }} </td>
-                                            <td>{{ number_format($product->discount) }} </td>
-                                            <td>
-                                                <img class="feature_product_img" src="{{ $product->feature_image_path }}"
-                                                    alt="">
-                                            </td>
-                                            <td>{{ optional($product->category)->name }}</td>
-                                            <td>
-                                                @can('edit-product')
-                                                    <a href="{{ route('edit-products', ['id' => $product->id]) }}"
-                                                        class="pr-2" title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-product')
-                                                    <a href="{{ route('delete-products', ['id' => $product->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Discount</th>
+                                <th>Image</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($products as $product)
+                                <tr>
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ number_format($product->price) }} </td>
+                                    <td>{{ number_format($product->discount) }} </td>
+                                    <td>
+                                        <img class="feature_product_img" src="{{ $product->feature_image_path }}"
+                                            alt="">
+                                    </td>
+                                    <td>{{ optional($product->category)->name }}</td>
+                                    <td>
+                                        @can('edit-product')
+                                            <a href="{{ route('edit-products', ['id' => $product->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-product')
+                                            <a href="{{ route('delete-products', ['id' => $product->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

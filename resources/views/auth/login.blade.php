@@ -62,13 +62,16 @@
                     </a>
                 </div>
                 <!--end social-auth-links -->
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <p class="mb-1">
                         <a href="{{ route('password.request') }}">Quên mật khẩu?</a>
                     </p>
-                @endif
-                <p class="mb-0">
+                @endif --}}
+                <p class="mb-1">
                     <a href="{{ route('register') }}" class="text-center">Đăng kí tài khoản</a>
+                </p>
+                <p class="mb-0">
+                    <a href="{{ route('home') }}" class="text-center">Quay lại trang chủ</a>
                 </p>
             </div>
             <!-- end login-card-body -->

@@ -37,7 +37,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">

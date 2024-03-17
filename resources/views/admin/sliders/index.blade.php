@@ -35,46 +35,41 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Image</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($sliders as $slider)
-                                        <tr>
-                                            <td>{{ $slider->id }}</td>
-                                            <td>{{ $slider->name }}</td>
-                                            <td>
-                                                <img class="slider_img" src="{{ $slider->image_path }}"
-                                                    alt="{{ $slider->name }}">
-                                            </td>
-                                            <td>
-                                                @can('edit-slider')
-                                                    <a href="{{ route('edit-sliders', ['id' => $slider->id]) }}" class="pr-2"
-                                                        title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-slider')
-                                                    <a href="{{ route('delete-sliders', ['id' => $slider->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($sliders as $slider)
+                                <tr>
+                                    <td>{{ $slider->id }}</td>
+                                    <td>{{ $slider->name }}</td>
+                                    <td>
+                                        <img class="slider_img" src="{{ $slider->image_path }}" alt="{{ $slider->name }}">
+                                    </td>
+                                    <td>
+                                        @can('edit-slider')
+                                            <a href="{{ route('edit-sliders', ['id' => $slider->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-slider')
+                                            <a href="{{ route('delete-sliders', ['id' => $slider->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

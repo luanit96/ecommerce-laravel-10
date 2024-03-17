@@ -1,26 +1,31 @@
 $(() => {
     $(".tags_select2_choose").select2({
+        width: '100%',
         tags: true,
         placeholder: "Enter Tag",
         tokenSeparators: [',']
     });
 
     $(".category_select2").select2({
+        width: '100%',
         placeholder: "--- Select Category ---",
         allowClear: true
     });
 
     $(".color_select2").select2({
+        width: '100%',
         placeholder: "--- Select Color ---",
         allowClear: true
     });
 
     $(".size_select2").select2({
+        width: '100%',
         placeholder: "--- Select Size ---",
         allowClear: true
     });
 
     $(".sample_select2").select2({
+        width: '100%',
         placeholder: "--- Select Sample ---",
         allowClear: true
     });

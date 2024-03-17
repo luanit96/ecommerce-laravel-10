@@ -31,41 +31,37 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($tags as $tag)
-                                        <tr>
-                                            <td>{{ $tag->id }}</td>
-                                            <td>{{ $tag->name }}</td>
-                                            <td>
-                                                @can('edit-tag')
-                                                    <a href="{{ route('edit-tags', ['id' => $tag->id]) }}" class="pr-2"
-                                                        title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-tag')
-                                                    <a href="{{ route('delete-tags', ['id' => $tag->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tags as $tag)
+                                <tr>
+                                    <td>{{ $tag->id }}</td>
+                                    <td>{{ $tag->name }}</td>
+                                    <td>
+                                        @can('edit-tag')
+                                            <a href="{{ route('edit-tags', ['id' => $tag->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-tag')
+                                            <a href="{{ route('delete-tags', ['id' => $tag->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

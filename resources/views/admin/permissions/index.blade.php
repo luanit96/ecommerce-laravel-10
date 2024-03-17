@@ -31,45 +31,41 @@
         <!-- end content-header -->
 
         <!-- start main content -->
-        <section class="content">
+        <section class="content bg-white p-3">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table id="list-datatable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>KeyCode</th>
-                                        <th>Description</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($permissions as $permission)
-                                        <tr>
-                                            <td>{{ $permission->id }}</td>
-                                            <td>{{ $permission->name }}</td>
-                                            <td>{{ $permission->key_code }}</td>
-                                            <td>{{ $permission->display_name }}</td>
-                                            <td>
-                                                @can('edit-permission')
-                                                    <a href="{{ route('edit-permissions', ['id' => $permission->id]) }}"
-                                                        class="pr-2" title="Edit"><i class="fas fa-edit"></i></a>
-                                                @endcan
-                                                @can('delete-permission')
-                                                    <a href="{{ route('delete-permissions', ['id' => $permission->id]) }}"
-                                                        class="pr-2 text-danger btnDelete" title="Delete"><i
-                                                            class="fas fa-trash-alt"></i></a>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-12 table-responsive">
+                    <table id="list-datatable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>KeyCode</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($permissions as $permission)
+                                <tr>
+                                    <td>{{ $permission->id }}</td>
+                                    <td>{{ $permission->name }}</td>
+                                    <td>{{ $permission->key_code }}</td>
+                                    <td>{{ $permission->display_name }}</td>
+                                    <td>
+                                        @can('edit-permission')
+                                            <a href="{{ route('edit-permissions', ['id' => $permission->id]) }}" class="pr-2"
+                                                title="Edit"><i class="fas fa-edit"></i></a>
+                                        @endcan
+                                        @can('delete-permission')
+                                            <a href="{{ route('delete-permissions', ['id' => $permission->id]) }}"
+                                                class="pr-2 text-danger btnDelete" title="Delete"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
